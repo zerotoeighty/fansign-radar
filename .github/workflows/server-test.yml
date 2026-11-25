@@ -22,12 +22,20 @@ jobs:
           if ($c.State -ne 'Installed') { Add-WindowsCapability -Online -Name $c.Name | Format-List }
       - name: OCR 엔진 점검
         shell: powershell
+        continue-on-error: true
         run: |
-          $null = [Windows.Media.Ocr.OcrEngine, Windows.Foundation, ContentType = WindowsRuntime]
-          "사용 가능한 OCR 언어: " + (([Windows.Media.Ocr.OcrEngine]::AvailableRecognizerLanguages | % LanguageTag) -join ', ') | Tee-Object -FilePath ocr_check.txt
-          $ko = [Windows.Media.Ocr.OcrEngine]::TryCreateFromLanguage((New-Object Windows.Globalization.Language 'ko'))
-          "한국어 엔진: " + ($(if ($ko) { '있음' } else { '없음' })) | Tee-Object -FilePath ocr_check.txt -Append
-          "크롬: " + (Test-Path "C:\Program Files\Google\Chrome\Application\chrome.exe") | Tee-Object -FilePath ocr_check.txt -Append
+          $out = @()
+          try {
+            Add-Type -AssemblyName System.Runtime.WindowsRuntime
+            $null = [Windows.Media.Ocr.OcrEngine, Windows.Foundation, ContentType = WindowsRuntime]
+            $null = [Windows.Globalization.Language, Windows.Foundation, ContentType = WindowsRuntime]
+            $out += "사용 가능한 OCR 언어: " + (([Windows.Media.Ocr.OcrEngine]::AvailableRecognizerLanguages | % LanguageTag) -join ', ')
+            $ko = [Windows.Media.Ocr.OcrEngine]::TryCreateFromLanguage((New-Object Windows.Globalization.Language 'ko'))
+            $out += "한국어 엔진: " + $(if ($ko) { '있음' } else { '없음' })
+          } catch { $out += "OCR 오류: " + $_.Exception.ToString() }
+          $out += "크롬: " + (Test-Path "C:\Program Files\Google\Chrome\Application\chrome.exe")
+          $out += "윈도우: " + (Get-CimInstance Win32_OperatingSystem).Caption
+          $out | Tee-Object -FilePath ocr_check.txt
       - name: 수집 (알림 없이)
         env:
           PYTHONUTF8: "1"
