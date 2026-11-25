@@ -363,6 +363,15 @@ def apply_ocr(ev: dict, sched: dict):
             ev["winner"] = w
 
 
+def _ocr_mismatch(ev: dict, hit: dict) -> bool:
+    """X·목록에서 얻은 응모 마감과 이미지 OCR 마감이 하루 넘게 다르면 True (예: 행사일을 응모 시작으로 읽음)."""
+    a = ev.get("apply_end")
+    if not isinstance(a, datetime) or not hit.get("apply_end") or ev.get("schedule_src") == "image":
+        return False
+    b = parse_iso(hit["apply_end"])
+    return bool(b) and abs((a - b).total_seconds()) > 86400
+
+
 def ocr_pass(events: list[dict], now: datetime, allow_new: bool = True) -> int:
     """이미지 일정 채우기. allow_new=False면 저장된 결과만 쓰고, 새로 읽어야 할 공지 수만 돌려준다(서버: 알림 먼저)."""
     from . import ocr
@@ -372,12 +381,17 @@ def ocr_pass(events: list[dict], now: datetime, allow_new: bool = True) -> int:
         need_fmt = not ev.get("_explicit") and not ev.get("_seg_formats")
         if ev["store"] in OCR_SKIP_STORES or ev.get("_gone") or ev.get("_pc") or not is_live(ev, now)[0]                 or re.search(r"//(?:x|twitter)\.com/", ev["url"]):   # X에만 있는 공지(트윗 링크)는 이미지 없음
             continue
+        hit = cache.get(ev["url"])
+        if hit and not hit.get("retried") and _ocr_mismatch(ev, hit):
+            # 이미지에서 읽은 마감이 X·목록 마감과 하루 넘게 어긋남 → 잘못 읽은 것, 이미지를 더 받아 한 번 다시 읽기
+            ev["_ocr_retry"] = True
+            todo.append(ev)
+            continue
         if ev.get("apply_end") and not need_fmt and ev["url"] in cache:
             # 응모 기간·형식은 이미 있어도 행사일·장소는 이미지에만 있을 수 있다(프롬스토어) → 저장된 결과로 채움
             apply_ocr(ev, _ocr_sched_from_cache(cache[ev["url"]]))
             from_cache += 1
             continue
-        hit = cache.get(ev["url"])
         if hit and ("formats" not in hit or "last" not in hit or "public" not in hit):
             hit = None   # 형식 읽기 추가 전 결과 → 다시 읽는다
         if hit:
@@ -405,7 +419,7 @@ def ocr_pass(events: list[dict], now: datetime, allow_new: bool = True) -> int:
             p = ocr.download(u, referer=ev["url"])
             if p and p not in paths:
                 paths.append(p)
-            if len(paths) >= OCR_IMAGES_PER_EVENT:
+            if len(paths) >= (12 if ev.get("_ocr_retry") else OCR_IMAGES_PER_EVENT):
                 break
         return ev, paths
 
@@ -425,6 +439,8 @@ def ocr_pass(events: list[dict], now: datetime, allow_new: bool = True) -> int:
         sched["public"] = bool(PUBLIC.search(flat))
         sched["venue"] = find_venue(flat)
         cache[ev["url"]] = {"_t": time.time(), "images": len(ps), **{k: iso(v) for k, v in sched.items()}}
+        if ev.get("_ocr_retry"):
+            cache[ev["url"]]["retried"] = True
         apply_ocr(ev, sched)
         if ev.get("schedule_src") == "image":
             found += 1
@@ -514,6 +530,7 @@ def _check_bot():
 
 
 HEALTH = os.path.join(DATA, "health.json")
+REMIND = os.path.join(DATA, "remind.json")   # 마감·발표 알림 보낸 기록
 HEALTH_RUNS = 3   # 판매처가 연속 몇 번 실패하면 관리자에게 알릴지
 
 
@@ -774,6 +791,20 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
         elif CLOUD:
             missing = [k for k, v in (("TELEGRAM_TOKEN", token), ("SUBS_URL", subs_url), ("SUBS_KEY", subs_key)) if not v]
             log(f"구독자 알림 못 보냄: GitHub Secrets에 {', '.join(missing)} 없음")
+
+    # 봇 구독자에게 응모 마감·당첨자 발표 알림 (서버 수집만, 보낸 기록은 data/remind.json)
+    if notify and CLOUD:
+        token, subs_url, subs_key = (os.environ.get(k, "") for k in ("TELEGRAM_TOKEN", "SUBS_URL", "SUBS_KEY"))
+        if token and subs_url and subs_key:
+            try:
+                rsent = load_json(REMIND, {})
+                people, n = telegram.send_reminders(live, now_kst(), rsent, token, subs_url, subs_key)
+                cutoff = (now_kst() - timedelta(days=14)).isoformat()
+                save_json(REMIND, {k: v for k, v in rsent.items() if v >= cutoff})
+                if n:
+                    log(f"마감·발표 알림: 공지 {n}건, {people}명에게")
+            except Exception as e:  # noqa: BLE001
+                log(f"마감·발표 알림 실패: {e}")
 
     if CLOUD:
         _health(sources)

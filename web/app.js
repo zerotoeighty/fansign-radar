@@ -177,6 +177,48 @@ function subLabel(e) {
   return m ? m[0].trim() : (e.formats || []).join("/");
 }
 
+// ───────── 캘린더에 추가 (행사일 하루 일정) ─────────
+const CAL_CARDS = [];
+function calInfo(e) {
+  const d = e.event_date.replace(/-/g, "");
+  const next = parseDate(e.event_date); next.setDate(next.getDate() + 1);
+  const end = ymd(next).replace(/-/g, "");
+  const fm = (e.formats || []).join("·");
+  const title = `${e.artist} 팬사인회${fm ? ` (${fm})` : ""} · ${e.store}`;
+  const due = parseDate(e.apply_end);
+  const details = [e.title, due ? `응모 마감 ${md(due)} ${hm(due)}` : "", e.url, "", "팬싸 레이더 https://fansign-radar.pages.dev"].filter((x, i) => x || i === 3).join("\n");
+  return { d, end, title, details };
+}
+function calHtml(e) {
+  if (!e.event_date) return "";
+  const i = CAL_CARDS.push(e) - 1;
+  const c = calInfo(e);
+  const g = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(c.title)}&dates=${c.d}/${c.end}&details=${encodeURIComponent(c.details)}`;
+  return `<details class="addcal"><summary>캘린더에 추가</summary><div class="calmenu"><a href="${esc(g)}" target="_blank" rel="noopener">구글 캘린더</a><a href="#" data-ics="${i}">아이폰·기타 (.ics)</a></div></details>`;
+}
+function downloadIcs(e) {
+  const c = calInfo(e);
+  const icsEsc = s => String(s).replace(/[\\;,]/g, m => "\\" + m).replace(/\n/g, "\\n");
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//fansign-radar//KO", "CALSCALE:GREGORIAN", "BEGIN:VEVENT",
+    `UID:${e.id || c.d + Math.random().toString(36).slice(2)}@fansign-radar`, `DTSTAMP:${stamp}`,
+    `DTSTART;VALUE=DATE:${c.d}`, `DTEND;VALUE=DATE:${c.end}`, `SUMMARY:${icsEsc(c.title)}`,
+    `DESCRIPTION:${icsEsc(c.details)}`, `URL:${e.url}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+  const a = document.createElement("a");
+  a.href = url; a.download = `팬싸_${e.artist.replace(/[\\/:*?"<>|\s]+/g, "_")}_${e.event_date}.ics`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+document.addEventListener("click", ev => {
+  const a = ev.target.closest("[data-ics]");
+  if (!a) return;
+  ev.preventDefault();
+  const e = CAL_CARDS[Number(a.dataset.ics)];
+  if (e) downloadIcs(e);
+  a.closest("details")?.removeAttribute("open");
+});
+
 function cardHtml(e) {
   const fav = isFav(e);
   const tags = [];
@@ -196,13 +238,14 @@ function cardHtml(e) {
     <div class="who"><button type="button" class="star${fav ? " on" : ""}" data-artist="${esc(e.artist)}" aria-label="${esc(e.artist)} 관심 아티스트">★</button><span class="artist">${esc(e.artist)}</span></div>
     ${body}
     <div class="tags">${tags.join("")}</div>
-    <div class="right">${dueHtml(e)}<a class="open" href="${esc(e.url)}" target="_blank" rel="noopener">${many ? `원문 확인 ${e.items.length}개 ↗` : "원문 확인 ↗"}</a></div>
+    <div class="right">${dueHtml(e)}<div class="acts">${calHtml(e)}<a class="open" href="${esc(e.url)}" target="_blank" rel="noopener">${many ? `원문 확인 ${e.items.length}개 ↗` : "원문 확인 ↗"}</a></div></div>
   </article>`;
 }
 
 const TAB_NAME = { open: "응모 중", today: "오늘 마감", closed: "응모 마감", new: "NEW · 새로 뜬 팬싸", cal: "캘린더" };
 
 function renderList() {
+  CAL_CARDS.length = 0;
   renderCalendar();
   if (state.tab === "cal" && !state.calDay) { $("#countLine").textContent = "날짜를 누르면 그날 팬싸를 아래에 보여 줘요."; $("#list").innerHTML = ""; return; }
   const raw = filtered();

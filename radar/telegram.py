@@ -4,7 +4,7 @@ from __future__ import annotations
 import html
 import re
 import time
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 import requests
 
@@ -168,3 +168,96 @@ def send_admin(text: str) -> bool:
         return False
     send(token, admin, text)
     return True
+
+
+# ── 마감·발표 알림 (서버 수집이 매시 확인, 사람마다 한 통) ──
+def _first_seen(ev: dict):
+    v = str(ev.get("first_seen") or "").split("@")[-1]
+    try:
+        return datetime.fromisoformat(v)
+    except ValueError:
+        return None
+
+
+def due_reminders(events: list[dict], now: datetime, sent: dict) -> list[tuple[str, dict, str]]:
+    """지금 보낼 차례인 (종류, 공지, 기록 키). 종류: end(응모 마감) / win(당첨자 발표).
+    마감: 낮 12시 이후 마감이면 당일 오전 9시, 오전 마감이면 전날 저녁 8시. 발표: 당일 오전 9시(그보다 이른 발표면 1시간 전)."""
+    out = []
+    for ev in events:
+        end = ev.get("apply_end")
+        if isinstance(end, datetime) and ev.get("status") == "open" and end > now:
+            key = f"end:{ev['id']}:{end.date()}"
+            target = end.replace(hour=9, minute=0) if end.hour >= 12 else (end - timedelta(days=1)).replace(hour=20, minute=0)
+            if now >= target and key not in sent:
+                fs = _first_seen(ev)
+                if fs and now - fs < timedelta(hours=3):
+                    sent[key] = now.isoformat(timespec="minutes")   # 방금 새 공지 알림을 받음 → 마감 알림은 건너뜀
+                else:
+                    out.append(("end", ev, key))
+        w = ev.get("winner")
+        if isinstance(w, datetime):
+            dateonly = (w.hour, w.minute) == (0, 0)
+            target = w.replace(hour=9, minute=0) if dateonly else min(w.replace(hour=9, minute=0), w - timedelta(hours=1))
+            until = w + timedelta(days=1) if dateonly else w
+            key = f"win:{ev['id']}:{w.date()}"
+            if target <= now < until and key not in sent:
+                out.append(("win", ev, key))
+    return out
+
+
+def _when(v: datetime, now: datetime) -> str:
+    day = "오늘" if v.date() == now.date() else "내일" if v.date() == (now + timedelta(days=1)).date() else f"{v.month}/{v.day}({WEEK[v.weekday()]})"
+    return day + ("" if (v.hour, v.minute) == (0, 0) else f" {v:%H:%M}")
+
+
+def reminder_message(items: list[tuple[str, dict, str]], now: datetime) -> str:
+    e = html.escape
+    parts = []
+    for kind, head in (("end", "⏰ <b>응모 마감 알림</b>"), ("win", "🎉 <b>당첨자 발표 알림</b>")):
+        rows = [ev for k, ev, _ in items if k == kind]
+        if not rows:
+            continue
+        lines, seen = [head], set()
+        for ev in rows[:40]:
+            when = _when(ev["apply_end"] if kind == "end" else ev["winner"], now)
+            if (ev["artist"], ev["store"], when) in seen:   # 같은 팬싸의 공지 여러 개(1:1 / 릴레이 등)는 한 줄
+                continue
+            seen.add((ev["artist"], ev["store"], when))
+            extra = f" · 행사 {_d(ev['event_date'])}" if ev.get("event_date") else ""
+            verb = "마감" if kind == "end" else "발표"
+            lines.append(f'• <b>{e(ev["artist"])}</b> ({e(ev["store"])}) — <b>{when} {verb}</b>{extra} '
+                         f'<a href="{e(ev["url"])}">원문</a>')
+        parts.append(chr(10).join(lines))
+    parts.append("<i>마감·발표 알림 끄기: /remind</i>")
+    return (chr(10) * 2).join(parts)
+
+
+def send_reminders(events: list[dict], now: datetime, sent: dict, token: str, subs_url: str, subs_key: str) -> tuple[int, int]:
+    """돌려주는 값: (알림 받은 사람 수, 이번에 알린 공지 수). sent는 보낸 기록(공지 단위)으로 갱신된다."""
+    due = due_reminders(events, now, sent)
+    if not due:
+        return 0, 0
+    r = requests.get(subs_url, headers={"Authorization": f"Bearer {subs_key}"}, timeout=20)
+    r.raise_for_status()
+    people = 0
+    for s in r.json().get("subscribers", []):
+        if s.get("remind") is False:
+            continue
+        cfg = {"favorites": s.get("artists", []), "notify": "all" if s.get("all") else "favorites",
+               "include_overseas_alert": s.get("overseas", False)}
+        mine = pick([ev for _k, ev, _key in due], cfg)
+        ids = {id(ev) for ev in mine}
+        items = [d for d in due if id(d[1]) in ids]
+        if not items:
+            continue
+        try:
+            send(token, s["chat_id"], reminder_message(items, now))
+            people += 1
+            time.sleep(0.05)
+        except Exception:  # noqa: BLE001
+            continue
+    stamp = now.isoformat(timespec="minutes")
+    for _k, _ev, key in due:
+        sent[key] = stamp
+    return people, len(due)
+

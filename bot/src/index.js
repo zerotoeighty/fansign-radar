@@ -20,11 +20,12 @@ const HELP = [
   "/list — 내 목록 (버튼으로 빼기)",
   "/all — 아티스트 상관없이 모든 새 공지 받기 (켜기/끄기)",
   "/overseas — 해외 팬싸도 받기 (켜기/끄기)",
+  "/remind — 응모 마감·당첨자 발표 알림 (켜기/끄기, 기본 켜짐)",
   "/now — 지금 응모 중인 아티스트 보기",
   "/stop — 알림 그만 받기 (목록 삭제)",
   "",
   "영문 이름은 단어 단위로 맞춰요 (IVE ≠ DRIVE). 한글은 띄어쓰기 상관없어요.",
-  "새 공지는 매시 확인해요.",
+  "새 공지는 매시 확인해요. 등록한 아티스트는 응모 마감 날(오전 마감이면 전날 저녁)과 당첨자 발표 날 아침에 한 번 더 알려 드려요.",
   "",
   "🌐 전체 목록·캘린더: https://fansign-radar.pages.dev",
   "🔒 저장하는 건 텔레그램 채팅 ID와 등록한 아티스트뿐이에요. /stop 하면 바로 지워져요.",
@@ -46,14 +47,14 @@ const say = (env, chat, text, extra = {}) =>
 
 // ── 저장소 (D1) ──
 async function getSub(env, chat) {
-  const r = await env.DB.prepare("SELECT artists, all_on, overseas, joined FROM subs WHERE chat_id = ?").bind(String(chat)).first();
-  if (!r) return { artists: [], all: false, overseas: false, joined: null };
-  return { artists: JSON.parse(r.artists || "[]"), all: !!r.all_on, overseas: !!r.overseas, joined: r.joined };
+  const r = await env.DB.prepare("SELECT artists, all_on, overseas, remind, joined FROM subs WHERE chat_id = ?").bind(String(chat)).first();
+  if (!r) return { artists: [], all: false, overseas: false, remind: true, joined: null };
+  return { artists: JSON.parse(r.artists || "[]"), all: !!r.all_on, overseas: !!r.overseas, remind: r.remind !== 0, joined: r.joined };
 }
 const putSub = (env, chat, sub) =>
-  env.DB.prepare(`INSERT INTO subs (chat_id, artists, all_on, overseas, joined, updated) VALUES (?1, ?2, ?3, ?4, ?5, ?6)
-    ON CONFLICT(chat_id) DO UPDATE SET artists = ?2, all_on = ?3, overseas = ?4, joined = COALESCE(subs.joined, ?5), updated = ?6`)
-    .bind(String(chat), JSON.stringify(sub.artists || []), sub.all ? 1 : 0, sub.overseas ? 1 : 0, sub.joined || new Date().toISOString(), new Date().toISOString())
+  env.DB.prepare(`INSERT INTO subs (chat_id, artists, all_on, overseas, joined, updated, remind) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)
+    ON CONFLICT(chat_id) DO UPDATE SET artists = ?2, all_on = ?3, overseas = ?4, joined = COALESCE(subs.joined, ?5), updated = ?6, remind = ?7`)
+    .bind(String(chat), JSON.stringify(sub.artists || []), sub.all ? 1 : 0, sub.overseas ? 1 : 0, sub.joined || new Date().toISOString(), new Date().toISOString(), sub.remind === false ? 0 : 1)
     .run();
 const delSub = (env, chat) => env.DB.prepare("DELETE FROM subs WHERE chat_id = ?").bind(String(chat)).run();
 
@@ -62,6 +63,7 @@ function listMessage(sub) {
   if (sub.all) lines.push("• 모든 새 공지 받기: <b>켜짐</b>");
   lines.push(sub.artists.length ? sub.artists.map((a) => `• ${esc(a)}`).join("\n") : "(아티스트 없음 — /add 아이브 처럼 추가해 주세요)");
   lines.push(`• 해외 팬싸: ${sub.overseas ? "받음" : "안 받음"}`);
+  lines.push(`• 마감·발표 알림: ${sub.remind === false ? "꺼짐" : "켜짐"} (/remind)`);
   const keyboard = sub.artists.map((a, i) => [{ text: `✕ ${a}`, callback_data: `del:${i}` }]);
   return { text: lines.join("\n"), extra: keyboard.length ? { reply_markup: { inline_keyboard: keyboard } } : {} };
 }
@@ -142,6 +144,11 @@ async function handleMessage(env, msg) {
     await putSub(env, chat, sub);
     return say(env, chat, sub.overseas ? "🌏 해외 팬싸도 받아요." : "해외 팬싸는 받지 않아요.");
   }
+  if (cmd === "remind") {
+    sub.remind = sub.remind === false;
+    await putSub(env, chat, sub);
+    return say(env, chat, sub.remind ? "⏰ 응모 마감·당첨자 발표 알림을 받아요. (다시 /remind 하면 꺼져요)" : "🔕 마감·발표 알림을 껐어요. 새 공지 알림은 그대로 와요.");
+  }
   if (cmd === "now") return say(env, chat, await nowOpen(env));
   if (cmd === "stop") {
     await delSub(env, chat);
@@ -165,8 +172,8 @@ async function handleCallback(env, cq) {
 }
 
 async function allSubscribers(env) {
-  const { results } = await env.DB.prepare("SELECT chat_id, artists, all_on, overseas FROM subs WHERE all_on = 1 OR artists != '[]'").all();
-  return results.map((r) => ({ chat_id: r.chat_id, artists: JSON.parse(r.artists || "[]"), all: !!r.all_on, overseas: !!r.overseas }));
+  const { results } = await env.DB.prepare("SELECT chat_id, artists, all_on, overseas, remind FROM subs WHERE all_on = 1 OR artists != '[]'").all();
+  return results.map((r) => ({ chat_id: r.chat_id, artists: JSON.parse(r.artists || "[]"), all: !!r.all_on, overseas: !!r.overseas, remind: r.remind !== 0 }));
 }
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json; charset=utf-8" } });
@@ -265,6 +272,7 @@ export default {
           { command: "now", description: "지금 응모 중인 아티스트" },
           { command: "all", description: "모든 새 공지 받기 켜기/끄기" },
           { command: "overseas", description: "해외 팬싸 받기 켜기/끄기" },
+          { command: "remind", description: "응모 마감·발표 알림 켜기/끄기" },
           { command: "help", description: "사용법" },
           { command: "stop", description: "알림 그만 받기" },
         ],
