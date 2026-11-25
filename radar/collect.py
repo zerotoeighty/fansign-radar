@@ -361,13 +361,14 @@ def apply_ocr(ev: dict, sched: dict):
             ev["winner"] = w
 
 
-def ocr_pass(events: list[dict], now: datetime):
+def ocr_pass(events: list[dict], now: datetime, allow_new: bool = True) -> int:
+    """이미지 일정 채우기. allow_new=False면 저장된 결과만 쓰고, 새로 읽어야 할 공지 수만 돌려준다(서버: 알림 먼저)."""
     from . import ocr
     cache = load_json(OCR_CACHE, {})
     todo, from_cache = [], 0
     for ev in events:
         need_fmt = not ev.get("_explicit") and not ev.get("_seg_formats")
-        if ev["store"] in OCR_SKIP_STORES or ev.get("_gone") or ev.get("_pc") or not is_live(ev, now)[0]:
+        if ev["store"] in OCR_SKIP_STORES or ev.get("_gone") or ev.get("_pc") or not is_live(ev, now)[0]                 or re.search(r"//(?:x|twitter)\.com/", ev["url"]):   # X에만 있는 공지(트윗 링크)는 이미지 없음
             continue
         if ev.get("apply_end") and not need_fmt and ev["url"] in cache:
             continue
@@ -384,10 +385,10 @@ def ocr_pass(events: list[dict], now: datetime):
     # 행사가 가까운 것부터
     todo.sort(key=lambda e: e["event_date"] if isinstance(e.get("event_date"), date) else date(2100, 1, 1))
     todo = todo[:OCR_PER_RUN]
-    if not todo:
+    if not todo or not allow_new:
         if from_cache:
-            log(f"  이미지 일정: 저장된 결과 {from_cache}건 사용")
-        return
+            log(f"  이미지 일정: 저장된 결과 {from_cache}건 사용" + (f", 새로 읽을 공지 {len(todo)}건은 알림 뒤에" if todo else ""))
+        return len(todo)
 
     def gather(ev):
         try:
@@ -570,8 +571,10 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
     save_json(DETAIL_CACHE, cache)
 
     # 응모 기간이 이미지에만 있는 공지 → 윈도우 OCR
+    # 서버에서는 OCR 설치에 15분쯤 걸려서, 저장된 결과만 먼저 쓰고 새 이미지는 알림을 보낸 뒤에 읽는다
+    pending_ocr = 0
     try:
-        ocr_pass(events, now)
+        pending_ocr = ocr_pass(events, now, allow_new=not CLOUD)
     except Exception as e:  # noqa: BLE001
         log(f"  이미지 일정 읽기 실패: {e}")
 
@@ -655,19 +658,6 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
     seen = {k: v for k, v in seen.items() if k in live_ids or v.split("@")[-1] >= old}
     save_json(SEEN, seen)
 
-    out_events = []
-    for ev in live:
-        out_events.append({k: iso(v) for k, v in ev.items() if not k.startswith("_")})
-    payload = {
-        "checked_at": iso(started),
-        "took_seconds": round((now_kst() - started).total_seconds(), 1),
-        "events": out_events,
-        "sources": sources,
-    }
-    save_json(EVENTS, payload)
-    log(f"수집 끝: 팬싸 {len(live)}건, 새 공지 {len(new_events)}건"
-        f"{' (첫 수집이라 알림 없이 기록만)' if first_run else ''}, {payload['took_seconds']}초")
-
     if notify and new_events:
         try:
             cfg = load_config()
@@ -687,6 +677,35 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
         elif CLOUD:
             missing = [k for k, v in (("TELEGRAM_TOKEN", token), ("SUBS_URL", subs_url), ("SUBS_KEY", subs_key)) if not v]
             log(f"구독자 알림 못 보냄: GitHub Secrets에 {', '.join(missing)} 없음")
+
+    # 서버: 알림을 보낸 뒤 새 공지 이미지 읽기 (OCR 설치 포함) → 응모 기간 채워서 저장
+    if pending_ocr:
+        try:
+            ocr_pass(live, now)
+            for ev in live:
+                ok, status = is_live(ev, now)
+                ev["status"] = status if ok else "_drop"
+            live = [ev for ev in live if ev["status"] != "_drop"]
+            live.sort(key=sort_key)
+            for st in sources:
+                if st.get("count") is not None and st["status"] in ("ok", "empty", "pc"):
+                    st["count"] = sum(1 for e in live if e["store"] == st["store"])
+        except Exception as e:  # noqa: BLE001
+            log(f"  이미지 일정 읽기 실패: {e}")
+
+    out_events = []
+    for ev in live:
+        out_events.append({k: iso(v) for k, v in ev.items() if not k.startswith("_")})
+    payload = {
+        "checked_at": iso(started),
+        "took_seconds": round((now_kst() - started).total_seconds(), 1),
+        "events": out_events,
+        "sources": sources,
+    }
+    save_json(EVENTS, payload)
+    log(f"수집 끝: 팬싸 {len(live)}건, 새 공지 {len(new_events)}건"
+        f"{' (첫 수집이라 알림 없이 기록만)' if first_run else ''}, {payload['took_seconds']}초")
+
     return payload
 
 
