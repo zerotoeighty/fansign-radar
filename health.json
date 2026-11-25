@@ -81,5 +81,9 @@
  "프롬스토어": {
   "fails": 0,
   "alerted": false
+ },
+ "_proxy": {
+  "fails": 0,
+  "alerted": false
  }
 }
