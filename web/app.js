@@ -333,7 +333,8 @@ function renderTelegram() {
         <li><code>/stop</code> 알림 그만 받기</li>
       </ul>
     </details>
-    <p class="hint" style="margin-top:10px">1시간마다 새 공지를 확인해요. 응모가 끝난 공지는 보내지 않아요.</p>`;
+    <p class="hint" style="margin-top:10px">1시간마다 새 공지를 확인해요. 응모가 끝난 공지는 보내지 않아요.</p>
+    <p class="hint">🔒 봇에 저장되는 건 텔레그램 채팅 ID와 등록한 아티스트뿐이에요. 봇에 <code>/stop</code>을 보내면 바로 지워져요.</p>`;
   botLink(favs).then(href => { const a = $("#tgOpen"); if (a) a.href = href; });
 }
 
@@ -341,7 +342,9 @@ function renderTelegram() {
 function renderStores() {
   const src = state.data?.sources || [];
   $("#storeList").innerHTML = src.map(s => {
-    const label = s.status === "ok" || s.status === "pc" ? `${s.count}건` : s.carried ? `${STATUS_TEXT[s.status]} · 이전 ${s.carried}건 유지` : STATUS_TEXT[s.status] || s.status;
+    const pcAt = s.status === "pc" && /\((\d{4}-\d\d-\d\dT\d\d:\d\d)/.exec(s.message || "");
+    const label = s.status === "pc" ? `${s.count}건 · PC ${pcAt ? md(new Date(pcAt[1] + "+09:00")) + " " + hm(new Date(pcAt[1] + "+09:00")) : ""}` :
+      s.status === "ok" ? `${s.count}건` : s.carried ? `${STATUS_TEXT[s.status]} · 이전 ${s.carried}건 유지` : STATUS_TEXT[s.status] || s.status;
     const bad = ["blocked", "error", "parse_error"].includes(s.status);
     return `<li title="${esc(s.message || "")}"><span class="dot st-${s.status}"></span><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.store)}</a><span class="n${bad ? " bad" : ""}">${esc(label)}</span></li>`;
   }).join("");
