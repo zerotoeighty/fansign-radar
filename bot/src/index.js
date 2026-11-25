@@ -175,7 +175,7 @@ const keyOk = (req, env) => !!env.EXPORT_KEY && env.EXPORT_KEY.length >= 20 && r
 
 // ── 예비 장치: GitHub 예약 실행이 빠지면 대신 깨우기 (매시 25분, 비밀 GITHUB_TOKEN이 있을 때만) ──
 const GH_REPO = "zerotoeighty/fansign-radar";
-async function backupDispatch(env) {
+async function backupDispatch(env, force = false) {
   if (!env.GITHUB_TOKEN) return "토큰 없음";
   const h = { authorization: `Bearer ${env.GITHUB_TOKEN}`, accept: "application/vnd.github+json", "user-agent": "fansign-radar-bot" };
   const r = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/collect.yml/runs?per_page=5`, { headers: h });
@@ -190,7 +190,7 @@ async function backupDispatch(env) {
   if (!r.ok) return `목록 확인 실패 ${r.status}`;
   const runs = (await r.json()).workflow_runs || [];
   const recent = runs.some((x) => x.status !== "completed" || Date.now() - Date.parse(x.created_at) < 55 * 60000);
-  if (recent) return "최근 실행 있음";
+  if (recent && !force) return "최근 실행 있음";
   const d = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/collect.yml/dispatches`, {
     method: "POST", headers: { ...h, "content-type": "application/json" }, body: JSON.stringify({ ref: "main" }),
   });
@@ -232,6 +232,11 @@ export default {
         env.DB.prepare("INSERT INTO links (code, artists, expires) VALUES (?, ?, ?)").bind(code, JSON.stringify(artists), Date.now() + 30 * 86400000),
       ]);
       return new Response(JSON.stringify({ code }), { headers: { ...cors, "content-type": "application/json" } });
+    }
+    // 관리용: 예비 장치를 지금 한 번 시험 (실제로 수집을 깨움)
+    if (url.pathname === "/backup-test" && req.method === "POST") {
+      if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
+      return json({ result: await backupDispatch(env, true) });
     }
     // 수집 서버 → 구독 목록
     if (url.pathname === "/subscribers") {
