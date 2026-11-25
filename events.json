@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-25T17:35+09:00",
- "took_seconds": 38.3,
+ "checked_at": "2026-11-25T17:45+09:00",
+ "took_seconds": 1042.8,
  "events": [
   {
    "id": "eb415f0a1b6a",
@@ -78,6 +78,31 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "296fcf9943b3",
+   "store": "퍼스트뮤직",
+   "artist": "iii (아이아이아이)",
+   "title": "[1125] iii(아이아이아이) 1st Digital Single [WaiT] 단체 &1:1 영상통화",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11492/",
+   "formats": [
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-25",
+   "apply_start": "2026-11-18T15:00+09:00",
+   "apply_end": "2026-11-20T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-16",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2122932824869130667",
+   "status": "closed",
+   "artist_raw": "iii(아이아이아이)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
+  },
+  {
    "id": "e6679e943e47",
    "store": "점프업이엔티",
    "artist": "V01D (보이드)",
@@ -102,6 +127,31 @@
    "status": "closed",
    "artist_raw": "V01D(보이드)",
    "first_seen": "base@2026-11-25T06:20+09:00"
+  },
+  {
+   "id": "9e9e8a52c5c1",
+   "store": "퍼스트뮤직",
+   "artist": "X:IN (엑신)",
+   "title": "[1126] X:IN (엑신) 1st Sutdio Album [Chain Reaction] VIDEO CALL FANSIGN EVENT",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11310/",
+   "formats": [
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-26",
+   "apply_start": "2026-11-11T15:00+09:00",
+   "apply_end": "2026-11-13T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-05",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2120398002011730127",
+   "status": "closed",
+   "artist_raw": "X:IN (엑신)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "00bd37acd6d6",
@@ -399,6 +449,31 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "395050bbfdbc",
+   "store": "퍼스트뮤직",
+   "artist": "WOO",
+   "title": "[1127] WOO 2nd Digital Single 'MUSICBOXER' 발매기념 영상통화 팬사인회",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11552/",
+   "formats": [
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-27",
+   "apply_start": "2026-11-20T15:00+09:00",
+   "apply_end": "2026-11-22T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-20",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2123657599338050033",
+   "status": "closed",
+   "artist_raw": "WOO",
+   "first_seen": "base@2026-11-25T17:45+09:00"
+  },
+  {
    "id": "86f31f346f4f",
    "store": "스타라이크뮤직",
    "artist": "N.TOP (엔탑)",
@@ -564,6 +639,32 @@
    "status": "closed",
    "artist_raw": "웬디 (WENDY)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "4517a180e88e",
+   "store": "퍼스트뮤직",
+   "artist": "NouerA (누에라)",
+   "title": "[1128] NouerA(누에라) 4th Mini Album [.exe] 대면 & 맥세이프 카드 지갑 꾸미기 & 단체 & 1:1 영상통화",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-28",
+   "apply_start": "2026-11-13T15:00+09:00",
+   "apply_end": "2026-11-15T11:59+09:00",
+   "winner": null,
+   "posted": "2026-11-12",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2121120882743468264",
+   "status": "closed",
+   "artist_raw": "NouerA(누에라)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "036f6e7b103b",
@@ -765,6 +866,32 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "fe1edad0c458",
+   "store": "퍼스트뮤직",
+   "artist": "VERIVERY (베리베리)",
+   "title": "[1128] VERIVERY (베리베리) 8th MINI ALBUM [CONFETTI] 대면 & 1:1 2027 달력 꾸미기 이벤트 & 1:1 영상통화 팬사인회",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11532/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-28",
+   "apply_start": "2026-11-23T17:00+09:00",
+   "apply_end": "2026-11-25T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-18",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2124774962930319739",
+   "status": "open",
+   "artist_raw": "VERIVERY (베리베리)",
+   "first_seen": "2026-11-25T17:45+09:00"
+  },
+  {
    "id": "8bffa213ca6f",
    "store": "헬로라이브",
    "artist": "IVE (아이브)",
@@ -857,6 +984,32 @@
    "status": "closed",
    "artist_raw": "성한빈",
    "first_seen": "base@2026-11-25T06:13+09:00"
+  },
+  {
+   "id": "5d359201376f",
+   "store": "퍼스트뮤직",
+   "artist": "EVNNE (이븐)",
+   "title": "[1129] EVNNE (이븐) 6th Mini Album [on: our noise] 대면 & 1:1 맥세이프 카드 지갑 꾸미기 & 1:1 영상통화 팬사인회",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11385/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-29",
+   "apply_start": "2026-11-13T15:00+09:00",
+   "apply_end": "2026-11-15T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-11",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2121845655941652595",
+   "status": "closed",
+   "artist_raw": "EVNNE (이븐)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "3082df4ed571",
@@ -1055,6 +1208,58 @@
    "status": "closed",
    "artist_raw": "앰퍼샌드원 (AMPERS&ONE)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "05d5b65df73a",
+   "store": "퍼스트뮤직",
+   "artist": "TIOT (티아이오티)",
+   "title": "[1129] TIOT(티아이오티) 5th MINI ALBUM [Time for Us] 스페셜 1:1 영상통화 & 연력 꾸미기 & 커스텀 유닛 포토 이벤트 & 대면 팬사인회",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11509/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-29",
+   "apply_start": "2026-11-19T15:00+09:00",
+   "apply_end": "2026-11-22T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-17",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2123295207949037668",
+   "status": "closed",
+   "artist_raw": "TIOT(티아이오티)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
+  },
+  {
+   "id": "58959824c0d4",
+   "store": "퍼스트뮤직",
+   "artist": "WOOAH (우아)",
+   "title": "[1129] WOOAH(우아) Wish With W : Vol.4 대면 & 겨울가방고리 꾸미기 & 1:1 & 커스텀 영상통화",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11510/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-29",
+   "apply_start": "2026-11-20T15:00+09:00",
+   "apply_end": "2026-11-22T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-17",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2123657599434330284",
+   "status": "closed",
+   "artist_raw": "WOOAH(우아)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "c8f86e885985",
@@ -2144,6 +2349,32 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "84243f0aeb40",
+   "store": "퍼스트뮤직",
+   "artist": "iii (아이아이아이)",
+   "title": "[1205] iii(아이아이아이) 1st Digital Single [WaiT] 대면 & 크리스마스 키링 꾸미기 & 단체 &1:1 영상통화",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11441/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-05",
+   "apply_start": "2026-11-23T15:00+09:00",
+   "apply_end": "2026-11-25T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-13",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2124744757310038022",
+   "status": "open",
+   "artist_raw": "iii(아이아이아이)",
+   "first_seen": "2026-11-25T17:45+09:00"
+  },
+  {
    "id": "1e844633ab40",
    "store": "점프업이엔티",
    "artist": "USPEER (유스피어)",
@@ -2389,6 +2620,32 @@
    "first_seen": "2026-11-25T15:00+09:00"
   },
   {
+   "id": "e6123562b881",
+   "store": "퍼스트뮤직",
+   "artist": "WHIB (휘브)",
+   "title": "[1205] WHIB (휘브) The 2nd Mini Album [CHERRY PIE] 대면 & 1:1 폴라로이드 꾸미기 & 스페셜 1:1 영상통화 팬사인회",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11599/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-05",
+   "apply_start": "2026-11-25T15:00+09:00",
+   "apply_end": "2026-11-27T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-24",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2125469538460602531",
+   "status": "open",
+   "artist_raw": "WHIB (휘브)",
+   "first_seen": "2026-11-25T17:45+09:00"
+  },
+  {
    "id": "187e04fd7f5a",
    "store": "뮤직아트",
    "artist": "ENHYPEN (엔하이픈)",
@@ -2435,6 +2692,30 @@
    "status": "closed",
    "artist_raw": "XIAOJUN",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "a4337f1dda9a",
+   "store": "프롬스토어",
+   "artist": "박우진",
+   "title": "박우진 PARKWOOJIN 2ND EP [SOLSTICE] 1:1 PHOTO & FANSIGN EVENT",
+   "url": "https://store.frommyarti.com/bundle/31186",
+   "formats": [
+    "대면"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-06",
+   "apply_start": null,
+   "apply_end": "2026-11-28T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-25",
+   "winner_posted": false,
+   "status": "open",
+   "artist_raw": "박우진",
+   "first_seen": "2026-11-25T17:45+09:00",
+   "event_date_src": "image"
   },
   {
    "id": "362d962843fa",
@@ -2558,6 +2839,32 @@
    "status": "closed",
    "artist_raw": "KEYVITUP (키빗업)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "b24dd0f11d43",
+   "store": "퍼스트뮤직",
+   "artist": "YUHZ (유어즈)",
+   "title": "[1210] YUHZ(유어즈) 1st EP [ 𝘽 ]단체 영상통화 & 대면 & 커스텀 유닛 폴라로이드 이벤트",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11560/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-10",
+   "apply_start": "2026-11-21T14:00+09:00",
+   "apply_end": "2026-11-23T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-20",
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/1stmusicx/status/2124004884005425309",
+   "status": "closed",
+   "artist_raw": "YUHZ(유어즈)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "c10a2dfd034f",
@@ -2729,6 +3036,31 @@
    "status": "open",
    "artist_raw": "EVNNE",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "0c1492cd7320",
+   "store": "프롬스토어",
+   "artist": "YUHZ (유어즈)",
+   "title": "유어즈 YUHZ 1st EP [B] 1:1 PHOTO & MEET & CALL FANSIGN EVENT",
+   "url": "https://store.frommyarti.com/bundle/31088",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-12",
+   "apply_start": null,
+   "apply_end": "2026-11-26T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-24",
+   "winner_posted": false,
+   "status": "open",
+   "artist_raw": "유어즈",
+   "first_seen": "2026-11-25T17:45+09:00",
+   "event_date_src": "image"
   },
   {
    "id": "98c21274cc7d",
@@ -3390,6 +3722,31 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "fff41e9dd3a7",
+   "store": "프롬스토어",
+   "artist": "KIM JAE JOONG",
+   "title": "KIM JAE JOONG 2027 SEASON'S GREETINGS : UNFREEZE CLUB",
+   "url": "https://store.frommyarti.com/bundle/31024",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2027-01-16",
+   "apply_start": null,
+   "apply_end": "2026-12-06T23:59+09:00",
+   "winner": null,
+   "posted": "2026-11-23",
+   "winner_posted": false,
+   "status": "open",
+   "artist_raw": "KIM JAE JOONG",
+   "first_seen": "2026-11-25T17:45+09:00",
+   "event_date_src": "image"
+  },
+  {
    "id": "cbfb12cbfc62",
    "store": "애플뮤직",
    "artist": "NOWZ (나우즈)",
@@ -3538,13 +3895,37 @@
    "status": "open",
    "artist_raw": "앰퍼샌드원 (AMPERS&ONE)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "aa3d76a9853f",
+   "store": "프롬스토어",
+   "artist": "LUN8 (루네이트)",
+   "title": "LUN8 루네이트 4TH MINI ALBUM [Off the Grid] 1:1 PHOTO & MEET & CALL FANSIGN EVENT",
+   "url": "https://store.frommyarti.com/bundle/31087",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": null,
+   "apply_start": null,
+   "apply_end": "2026-11-25T11:59+09:00",
+   "winner": null,
+   "posted": "2026-11-23",
+   "winner_posted": false,
+   "status": "closed",
+   "artist_raw": "루네이트",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   }
  ],
  "sources": [
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.3,
+   "seconds": 1.5,
    "status": "ok",
    "found": 11,
    "fansign": 6,
@@ -3554,7 +3935,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.7,
+   "seconds": 1.8,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -3564,7 +3945,7 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 37.2,
+   "seconds": 34.6,
    "status": "ok",
    "found": 35,
    "fansign": 14,
@@ -3574,7 +3955,7 @@
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 2.1,
+   "seconds": 1.9,
    "status": "ok",
    "found": 10,
    "fansign": 7,
@@ -3584,7 +3965,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 28.5,
+   "seconds": 25.1,
    "status": "ok",
    "found": 64,
    "fansign": 50,
@@ -3594,7 +3975,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.6,
+   "seconds": 1.2,
    "status": "ok",
    "found": 25,
    "fansign": 11,
@@ -3634,7 +4015,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.4,
+   "seconds": 1.3,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -3644,7 +4025,7 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 2.5,
+   "seconds": 2.4,
    "status": "ok",
    "found": 66,
    "fansign": 29,
@@ -3654,7 +4035,7 @@
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 2.0,
+   "seconds": 1.7,
    "status": "ok",
    "found": 20,
    "fansign": 13,
@@ -3664,7 +4045,7 @@
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 1.0,
+   "seconds": 1.3,
    "status": "ok",
    "found": 19,
    "fansign": 1,
@@ -3674,7 +4055,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 4.9,
+   "seconds": 1.9,
    "status": "empty",
    "found": 0,
    "fansign": 0,
@@ -3684,7 +4065,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 1.9,
+   "seconds": 2.0,
    "status": "ok",
    "found": 7,
    "fansign": 4,
@@ -3694,7 +4075,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 31.1,
+   "seconds": 35.6,
    "status": "ok",
    "found": 40,
    "fansign": 24,
@@ -3704,12 +4085,32 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 3.7,
+   "seconds": 4.4,
    "status": "empty",
    "found": 305,
    "fansign": 0,
    "empty_ok": true,
    "count": 0
+  },
+  {
+   "store": "퍼스트뮤직",
+   "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
+   "seconds": 4.0,
+   "status": "ok",
+   "found": 14,
+   "fansign": 11,
+   "empty_ok": false,
+   "count": 11
+  },
+  {
+   "store": "프롬스토어",
+   "url": "https://x.com/fromm_store",
+   "seconds": 8.5,
+   "status": "ok",
+   "found": 4,
+   "fansign": 4,
+   "empty_ok": true,
+   "count": 4
   },
   {
    "store": "에버라인",

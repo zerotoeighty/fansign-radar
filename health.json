@@ -73,5 +73,13 @@
  },
  "_pc": {
   "alerted": false
+ },
+ "퍼스트뮤직": {
+  "fails": 0,
+  "alerted": false
+ },
+ "프롬스토어": {
+  "fails": 0,
+  "alerted": false
  }
 }
