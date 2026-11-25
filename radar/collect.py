@@ -676,6 +676,14 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
                 log(f"텔레그램 알림 {sent}건 보냄")
         except Exception as e:  # noqa: BLE001
             log(f"텔레그램 알림 실패: {e}")
+        # 봇 구독자별 알림 (서버 수집)
+        token, subs_url, subs_key = (os.environ.get(k, "") for k in ("TELEGRAM_TOKEN", "SUBS_URL", "SUBS_KEY"))
+        if token and subs_url and subs_key:
+            try:
+                people, msgs = telegram.notify_subscribers(new_events, token, subs_url, subs_key)
+                log(f"구독자 알림: {people}명에게 {msgs}통")
+            except Exception as e:  # noqa: BLE001
+                log(f"구독자 알림 실패: {e}")
     return payload
 
 

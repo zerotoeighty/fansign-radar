@@ -1,14 +1,12 @@
-"""서버용 config.json 만들기: PC가 올린 설정(관심 아티스트 등) + GitHub Secrets의 텔레그램 토큰."""
+"""서버용 config.json 만들기: PC가 올린 설정(화면용 관심 아티스트 등)만. 알림은 봇 구독자별로 보낸다(collect.py)."""
 import json
-import os
 
 try:
     with open("settings.json", encoding="utf-8") as f:
         cfg = json.load(f)
 except (OSError, ValueError):
     cfg = {}
-token, chat = os.environ.get("TELEGRAM_TOKEN", ""), os.environ.get("TELEGRAM_CHAT_ID", "")
-cfg["telegram"] = {"token": token, "chat_id": chat, "enabled": bool(token and chat)}
+cfg["telegram"] = {"token": "", "chat_id": "", "enabled": False}   # 1:1 알림은 쓰지 않음
 with open("config.json", "w", encoding="utf-8") as f:
     json.dump(cfg, f, ensure_ascii=False)
-print("관심 아티스트", len(cfg.get("favorites", [])), "명 / 알림:", cfg.get("notify"), "/ 텔레그램:", "연결" if cfg["telegram"]["enabled"] else "토큰 없음(알림 안 보냄)")
+print("설정 준비 완료")

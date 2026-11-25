@@ -5,3 +5,6 @@ __pycache__/
 *.pyw
 CLAUDE.md
 웹_빌드_계획.md
+.cf/
+bot/node_modules/
+bot/.wrangler/

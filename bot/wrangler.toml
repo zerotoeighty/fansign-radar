@@ -1,0 +1,9 @@
+name = "fansign-radar-bot"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+account_id = "9c7f72a88bee1d098ea6cd70bc87adcf"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "SUBS"
+id = "534bea6686524d8482e5b8e60bb19a0e"

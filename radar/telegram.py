@@ -109,3 +109,37 @@ def notify_new(events: list[dict], cfg: dict) -> int:
         sent += 1
         time.sleep(0.6)
     return sent
+
+
+def notify_subscribers(events: list[dict], token: str, subs_url: str, subs_key: str) -> tuple[int, int]:
+    """봇 구독자별 알림 (서버 수집용). 구독 목록은 Cloudflare 봇(/subscribers)에서 받아 온다.
+
+    돌려주는 값: (알림 받은 사람 수, 보낸 메시지 수)
+    """
+    r = requests.get(subs_url, headers={"Authorization": f"Bearer {subs_key}"}, timeout=20)
+    r.raise_for_status()
+    subs = r.json().get("subscribers", [])
+    from .collect import iso
+    people = msgs = 0
+    for s in subs:
+        cfg = {"favorites": s.get("artists", []), "notify": "all" if s.get("all") else "favorites",
+               "include_overseas_alert": s.get("overseas", False)}
+        chosen = [{k: iso(v) for k, v in ev.items()} for ev in pick(events, cfg)]
+        if not chosen:
+            continue
+        try:
+            if len(chosen) > 8:
+                head = f"🆕 새 팬싸 공지 {len(chosen)}건\n\n"
+                body = "\n".join(f"• <b>{html.escape(ev['artist'])}</b> ({html.escape(ev['store'])}) "
+                                 f"{_d(ev.get('event_date')) if ev.get('event_date') else ''}" for ev in chosen[:60])
+                send(token, s["chat_id"], head + body)
+                msgs += 1
+            else:
+                for ev in chosen:
+                    send(token, s["chat_id"], format_event(ev))
+                    msgs += 1
+                    time.sleep(0.05)
+            people += 1
+        except Exception:  # noqa: BLE001  (봇을 차단한 사람 등은 건너뜀)
+            continue
+    return people, msgs
