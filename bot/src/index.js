@@ -173,7 +173,34 @@ const json = (obj, status = 200) => new Response(JSON.stringify(obj), { status, 
 // 비밀 값이 비어 있으면(다른 이름으로 잘못 배포된 사본 등) 무조건 거절
 const keyOk = (req, env) => !!env.EXPORT_KEY && env.EXPORT_KEY.length >= 20 && req.headers.get("authorization") === `Bearer ${env.EXPORT_KEY}`;
 
+// ── 예비 장치: GitHub 예약 실행이 빠지면 대신 깨우기 (매시 25분, 비밀 GITHUB_TOKEN이 있을 때만) ──
+const GH_REPO = "zerotoeighty/fansign-radar";
+async function backupDispatch(env) {
+  if (!env.GITHUB_TOKEN) return "토큰 없음";
+  const h = { authorization: `Bearer ${env.GITHUB_TOKEN}`, accept: "application/vnd.github+json", "user-agent": "fansign-radar-bot" };
+  const r = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/collect.yml/runs?per_page=5`, { headers: h });
+  // 토큰 만료가 2주 안이거나 이미 만료됐으면 하루 한 번(오전 9시대) 관리자에게 알림
+  const exp = r.headers.get("github-authentication-token-expiration");
+  const daysLeft = exp ? (Date.parse(exp.replace(" UTC", "Z").replace(" ", "T")) - Date.now()) / 86400000 : null;
+  if (env.ADMIN_CHAT_ID && new Date().getUTCHours() === 0 && (r.status === 401 || (daysLeft !== null && daysLeft < 14))) {
+    await say(env, env.ADMIN_CHAT_ID, r.status === 401
+      ? "🔑 팬싸 레이더 예비 장치의 GitHub 토큰이 만료됐어요. 새 토큰을 만들어 Claude에게 넣어 달라고 해 주세요."
+      : `🔑 팬싸 레이더 예비 장치의 GitHub 토큰이 ${Math.max(0, Math.floor(daysLeft))}일 뒤 만료돼요. 미리 새 토큰으로 바꿔 주세요.`);
+  }
+  if (!r.ok) return `목록 확인 실패 ${r.status}`;
+  const runs = (await r.json()).workflow_runs || [];
+  const recent = runs.some((x) => x.status !== "completed" || Date.now() - Date.parse(x.created_at) < 55 * 60000);
+  if (recent) return "최근 실행 있음";
+  const d = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/collect.yml/dispatches`, {
+    method: "POST", headers: { ...h, "content-type": "application/json" }, body: JSON.stringify({ ref: "main" }),
+  });
+  return d.status === 204 ? "대신 깨움" : `깨우기 실패 ${d.status}`;
+}
+
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(backupDispatch(env).then((m) => console.log("예비 장치:", m)));
+  },
   async fetch(req, env) {
     const url = new URL(req.url);
     // 텔레그램 → 봇

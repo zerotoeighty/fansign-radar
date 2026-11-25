@@ -10,3 +10,7 @@ workers_dev = true
 binding = "DB"
 database_name = "fansign-radar-db"
 database_id = "ece1f314-2389-4a7a-a76f-0806bb17a3e6"
+
+# 예비 장치: 매시 25분에 GitHub 수집이 빠졌는지 확인 (src/index.js backupDispatch)
+[triggers]
+crons = ["25 * * * *"]
