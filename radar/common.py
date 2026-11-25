@@ -18,7 +18,20 @@ KST = timezone(timedelta(hours=9))
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0 Safari/537.36")
 
-_session = requests.Session()
+class _Session(requests.Session):
+    """에버라인은 GitHub 서버(미국 MS 클라우드) IP를 막는다 → 서버에서는 봇 워커(Cloudflare)의 /fetch를 거쳐 받는다.
+    FANSIGN_PROXY(워커 /fetch 주소)와 SUBS_KEY가 있을 때만, everlineshop.com 주소만."""
+
+    def request(self, method, url, *args, **kwargs):
+        proxy, key = os.environ.get("FANSIGN_PROXY", ""), os.environ.get("SUBS_KEY", "")
+        if proxy and key and re.match(r"https://([a-z0-9-]+\.)*everlineshop\.com(/|$)", str(url)):
+            from urllib.parse import quote
+            url = f"{proxy}?url={quote(str(url), safe='')}"
+            kwargs["headers"] = {**(kwargs.get("headers") or {}), "Authorization": f"Bearer {key}"}
+        return super().request(method, url, *args, **kwargs)
+
+
+_session = _Session()
 _session.headers.update({"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.6"})
 
 

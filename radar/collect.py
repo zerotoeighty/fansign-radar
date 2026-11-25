@@ -11,6 +11,8 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
 
+import requests
+
 from . import telegram
 from .common import (KST, PUBLIC, ROOT, Blocked, artist_from, classify, fetch, find_venue, labelled_datetime,
                      labelled_period, now_kst, page_text, render, title_event_date, today_kst)
@@ -28,6 +30,8 @@ PC_EVERLINE = os.path.join(DATA, "pc_everline.json")   # PC가 수집한 에버�
 # 서버(GitHub Actions)에서 돌 때: 에버라인은 해외·클라우드 IP를 막으므로 PC가 올린 결과를 쓴다
 CLOUD = os.environ.get("FANSIGN_CLOUD") == "1"
 PC_ONLY_STORES = {"에버라인"}
+# 서버가 봇 워커를 거쳐 에버라인을 직접 받음 (실패하면 PC 결과로 대신)
+PROXY = CLOUD and bool(os.environ.get("FANSIGN_PROXY") and os.environ.get("SUBS_KEY"))
 
 POSTED_KEEP_DAYS = 21      # 날짜가 제목에 없는 공지는 올라온 지 이 기간까지만 보여 준다
 DETAIL_TTL_HOURS = 12
@@ -531,7 +535,58 @@ def _check_bot():
 
 HEALTH = os.path.join(DATA, "health.json")
 REMIND = os.path.join(DATA, "remind.json")   # 마감·발표 알림 보낸 기록
+RUNS = os.path.join(DATA, "runs.json")       # 서버 실행 기록 (주간 리포트용, 8일)
+WEEKLY = os.path.join(DATA, "weekly.json")   # 주간 리포트 보낸 주
 HEALTH_RUNS = 3   # 판매처가 연속 몇 번 실패하면 관리자에게 알릴지
+
+
+def _weekly(sources: list[dict], live: list[dict], seen: dict, n_new: int, n_msgs: int):
+    """서버: 매 실행을 기록하고, 월요일 오전 9시대에 지난 7일 요약을 관리자에게 한 통."""
+    now = now_kst()
+    runs = load_json(RUNS, [])
+    runs.append({"t": now.isoformat(timespec="minutes"), "new": n_new, "msgs": n_msgs})
+    runs = [r for r in runs if r["t"] >= (now - timedelta(days=8)).isoformat()]
+    save_json(RUNS, runs)
+    if now.weekday() != 0 or now.hour < 9:
+        return
+    wk = load_json(WEEKLY, {})
+    key = now.strftime("%G-W%V")
+    if wk.get("last") == key:
+        return
+    since = now - timedelta(days=7)
+    week = [r for r in runs if r["t"] >= since.isoformat()]
+    start = max(since, datetime.fromisoformat(min(r["t"] for r in week))) if week else since
+    top = lambda d: d.replace(minute=0, second=0, microsecond=0)   # noqa: E731
+    hours = int((top(now) - top(start)).total_seconds() // 3600) + 1   # 시작 시각대 ~ 지금 시각대
+    done = {r["t"][:13] for r in week}
+    missed = max(0, hours - len(done))
+    new_week = sum(1 for v in seen.values() if not str(v).startswith("base") and str(v) >= since.isoformat())
+    msgs = sum(r.get("msgs", 0) for r in week)
+    subs = "?"
+    try:
+        url, k = os.environ.get("SUBS_URL", ""), os.environ.get("SUBS_KEY", "")
+        subs = len(requests.get(url, headers={"Authorization": f"Bearer {k}"}, timeout=20).json().get("subscribers", []))
+    except Exception:  # noqa: BLE001
+        pass
+    good = [st for st in sources if st["status"] in ("ok", "empty", "pc")]
+    bad = [st for st in sources if st not in good]
+    h = load_json(HEALTH, {})
+    open_n = sum(1 for e in live if e.get("status") != "closed")
+    lines = [f"📊 <b>팬싸 레이더 주간 리포트</b> ({since:%m/%d}~{now:%m/%d})", "",
+             f"👥 봇 구독자 <b>{subs}명</b>",
+             f"🆕 새 팬싸 공지 <b>{new_week}건</b> · 새 공지 알림 {msgs}통",
+             f"🟢 지금 응모 중 {open_n}건 · 응모 마감(행사 전) {len(live) - open_n}건",
+             f"⏱ 수집 {len(done)}/{hours}시간" + (f" (빠진 시간 {missed}시간)" if missed else " (빠짐 없음)"),
+             f"🏪 판매처 {len(sources)}곳 중 정상 {len(good)}곳"]
+    for st in bad:
+        lines.append(f"  • {st['store']}: {st['status']} (연속 실패 {h.get(st['store'], {}).get('fails', '?')}번)")
+    ev_st = next((st for st in sources if st["store"] in PC_ONLY_STORES), None)
+    if ev_st:
+        lines.append(f"  • 에버라인: {'PC 결과 사용' if ev_st['status'] == 'pc' else '서버에서 직접(워커 경유)'}")
+    if telegram.send_admin(chr(10).join(lines)):
+        wk["last"] = key
+        save_json(WEEKLY, wk)
+        log("주간 리포트 보냄")
 
 
 def _health(sources: list[dict]):
@@ -553,12 +608,13 @@ def _health(sources: list[dict]):
                 fixed.append(name)
             rec = {"fails": 0, "alerted": False}
         h[name] = rec
-    # PC가 올린 에버라인이 오래되면 (PC가 하루 넘게 꺼짐)
+    # PC가 올린 에버라인이 오래되면 (PC가 하루 넘게 꺼짐) — 에버라인을 PC 결과로 쓰고 있을 때만
     pc = load_json(PC_EVERLINE, {})
+    uses_pc = any(st["store"] in PC_ONLY_STORES and st["status"] == "pc" for st in sources)
     try:
-        old = (now_kst() - datetime.fromisoformat(pc["checked_at"])).total_seconds() > 36 * 3600
+        old = uses_pc and (now_kst() - datetime.fromisoformat(pc["checked_at"])).total_seconds() > 36 * 3600
     except (KeyError, ValueError, TypeError):
-        old = True
+        old = uses_pc
     rec = h.get("_pc", {"alerted": False})
     if old and not rec["alerted"]:
         bad_now.append(f"• <b>에버라인</b> PC 수집이 36시간 넘게 없어요 (마지막 {pc.get('checked_at', '없음')}). PC를 켜 주세요.")
@@ -617,8 +673,8 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
         todo = [s for s in SOURCES if s[0] in PC_ONLY_STORES]
         log(f"PC 수집 시작 ({', '.join(s[0] for s in todo)})")
     elif CLOUD:
-        todo = [s for s in SOURCES if s[0] not in PC_ONLY_STORES]
-        log("서버 수집 시작")
+        todo = SOURCES if PROXY else [s for s in SOURCES if s[0] not in PC_ONLY_STORES]
+        log("서버 수집 시작" + (" (에버라인은 워커 경유)" if PROXY else ""))
         _check_bot()
     else:
         todo = SOURCES
@@ -627,7 +683,12 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
         results = list(pool.map(run_source, todo))
 
     sources, events = [], []
+    fallback = set()   # 워커 경유가 실패한 PC 판매처 → PC 결과로 대신
     for name, page, res, err, secs in results:
+        if CLOUD and not pc_export and err and name in PC_ONLY_STORES:
+            log(f"  {name}: 워커 경유 실패({err[0]} {err[1]}) → PC 결과 사용")
+            fallback.add(name)
+            continue
         st = {"store": name, "url": page, "seconds": round(secs, 1)}
         if err:
             st.update(status=err[0], message=err[1], count=0)
@@ -641,7 +702,7 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
     if CLOUD and not pc_export:
         pc_events, pc_data = _load_pc_events()
         for name, page, _fn in SOURCES:
-            if name in PC_ONLY_STORES:
+            if name in PC_ONLY_STORES and (not PROXY or name in fallback):
                 mine = [e for e in pc_events if e.get("store") == name]
                 st = {"store": name, "url": page, "seconds": 0, "status": "pc", "count": 0,
                       "message": f"PC에서 수집 ({pc_data.get('checked_at', '기록 없음')})"}
@@ -772,6 +833,7 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
     seen = {k: v for k, v in seen.items() if k in live_ids or v.split("@")[-1] >= old}
     save_json(SEEN, seen)
 
+    sent_msgs = 0
     if notify and new_events:
         try:
             cfg = load_config()
@@ -785,6 +847,7 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
         if token and subs_url and subs_key:
             try:
                 people, msgs = telegram.notify_subscribers(new_events, token, subs_url, subs_key)
+                sent_msgs = msgs
                 log(f"구독자 알림: {people}명에게 {msgs}통")
             except Exception as e:  # noqa: BLE001
                 log(f"구독자 알림 실패: {e}")
@@ -808,6 +871,10 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
 
     if CLOUD:
         _health(sources)
+        try:
+            _weekly(sources, live, seen, len(new_events), sent_msgs)
+        except Exception as e:  # noqa: BLE001
+            log(f"주간 리포트 실패: {e}")
         if os.environ.get("TEST_ALERT") == "1":
             _test_alert(live)
 

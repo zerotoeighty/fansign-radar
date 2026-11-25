@@ -21,6 +21,7 @@ const HELP = [
   "/all — 아티스트 상관없이 모든 새 공지 받기 (켜기/끄기)",
   "/overseas — 해외 팬싸도 받기 (켜기/끄기)",
   "/remind — 응모 마감·당첨자 발표 알림 (켜기/끄기, 기본 켜짐)",
+  "/today — 오늘 마감·오늘 발표하는 내 아티스트 팬싸",
   "/now — 지금 응모 중인 아티스트 보기",
   "/stop — 알림 그만 받기 (목록 삭제)",
   "",
@@ -82,6 +83,49 @@ async function nowOpen(env) {
     if (!names.size) return "지금 응모 중인 팬싸가 없어요.";
     const list = [...names.keys()].sort((a, b) => a.localeCompare(b, "ko"));
     return `🟢 <b>지금 응모 중</b> (${list.length}팀)\n` + list.map(esc).join(", ") + "\n\n이름 그대로 /add 하시면 돼요.";
+  } catch {
+    return "목록을 불러오지 못했어요. 잠시 뒤에 다시 해 주세요.";
+  }
+}
+
+// 웹 app.js favMatch와 같은 규칙: 영문은 단어 단위(IVE ≠ DRIVE), 한글은 띄어쓰기 무시
+function favMatch(text, f) {
+  f = String(f || "").trim().toLowerCase(); if (!f) return false;
+  const t = String(text).toLowerCase();
+  if (/^[a-z0-9 .&'!:\-]+$/.test(f)) {
+    const safe = f.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp("(?<![a-z0-9])" + safe + "(?![a-z0-9])").test(t);
+  }
+  return t.replace(/\s+/g, "").includes(f.replace(/\s+/g, ""));
+}
+const kstDay = (d) => new Date(d.getTime() + 9 * 3600e3).toISOString().slice(0, 10);
+const hhmm = (d) => new Date(d.getTime() + 9 * 3600e3).toISOString().slice(11, 16);
+
+// /today — 내 아티스트 중 오늘 응모 마감·오늘 당첨자 발표
+async function todayList(env, sub) {
+  try {
+    const data = await (await fetch(EVENTS_URL, { cf: { cacheTtl: 300 } })).json();
+    const now = new Date(), today = kstDay(now);
+    const mine = (data.events || []).filter((e) => (!e.overseas || sub.overseas) &&
+      (sub.all || sub.artists.some((f) => favMatch(`${e.artist} ${e.title}`, f))));
+    const line = (e, when, verb) => `• <b>${esc(e.artist)}</b> (${esc(e.store)}) — <b>${when} ${verb}</b>${e.event_date ? ` · 행사 ${e.event_date.slice(5).replace("-", "/")}` : ""} <a href="${esc(e.url)}">원문</a>`;
+    const seen = new Set();
+    const once = (k) => (seen.has(k) ? false : (seen.add(k), true));
+    const ends = mine.filter((e) => e.status === "open" && e.apply_end && kstDay(new Date(e.apply_end)) === today && new Date(e.apply_end) > now)
+      .sort((a, b) => a.apply_end.localeCompare(b.apply_end))
+      .filter((e) => once(`e|${e.artist}|${e.store}|${e.apply_end}`))
+      .map((e) => line(e, hhmm(new Date(e.apply_end)), "마감"));
+    const winDay = (w) => (w.length === 10 ? w : kstDay(new Date(w)));   // 날짜만 있는 발표일도 있음
+    const wins = mine.filter((e) => e.winner && winDay(e.winner) === today)
+      .filter((e) => once(`w|${e.artist}|${e.store}|${e.winner}`))
+      .map((e) => { const t = e.winner.length === 10 ? "00:00" : hhmm(new Date(e.winner)); return line(e, t === "00:00" ? "오늘" : t, "발표"); });
+    if (!sub.all && !sub.artists.length) return "등록한 아티스트가 없어요. /add 아이브 처럼 먼저 추가해 주세요.";
+    if (!ends.length && !wins.length) return "📭 오늘 마감하거나 발표하는 내 아티스트 팬싸가 없어요.\n전체 목록: https://fansign-radar.pages.dev/#today";
+    const out = [];
+    const cap = (list) => list.slice(0, 25).join("\n") + (list.length > 25 ? `\n…외 ${list.length - 25}건 (https://fansign-radar.pages.dev/#today)` : "");
+    if (ends.length) out.push(`⏰ <b>오늘 응모 마감</b> (${ends.length})\n` + cap(ends));
+    if (wins.length) out.push(`🎉 <b>오늘 당첨자 발표</b> (${wins.length})\n` + cap(wins));
+    return out.join("\n\n");
   } catch {
     return "목록을 불러오지 못했어요. 잠시 뒤에 다시 해 주세요.";
   }
@@ -149,6 +193,7 @@ async function handleMessage(env, msg) {
     await putSub(env, chat, sub);
     return say(env, chat, sub.remind ? "⏰ 응모 마감·당첨자 발표 알림을 받아요. (다시 /remind 하면 꺼져요)" : "🔕 마감·발표 알림을 껐어요. 새 공지 알림은 그대로 와요.");
   }
+  if (cmd === "today") return say(env, chat, await todayList(env, sub));
   if (cmd === "now") return say(env, chat, await nowOpen(env));
   if (cmd === "stop") {
     await delSub(env, chat);
@@ -246,6 +291,18 @@ export default {
       return json({ result: await backupDispatch(env, true) });
     }
     // 수집 서버 → 구독 목록
+    // 에버라인 대신 받기: 에버라인이 GitHub 서버(미국 MS 클라우드) IP를 막아서, 수집 서버가 이 워커를 거쳐 받는다.
+    // 비밀 키 필수, 에버라인 주소만 허용.
+    if (url.pathname === "/fetch") {
+      if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
+      let target;
+      try { target = new URL(url.searchParams.get("url") || ""); } catch { return new Response("bad url", { status: 400 }); }
+      if (target.protocol !== "https:" || !/(^|\.)everlineshop\.com$/.test(target.hostname)) return new Response("host not allowed", { status: 403 });
+      const r = await fetch(target.toString(), { headers: {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36",
+        "accept-language": "ko-KR,ko;q=0.9", accept: req.headers.get("accept") || "text/html,*/*" } });
+      return new Response(r.body, { status: r.status, headers: { "content-type": r.headers.get("content-type") || "application/octet-stream", "x-upstream-status": String(r.status) } });
+    }
     if (url.pathname === "/subscribers") {
       if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
       return json({ subscribers: await allSubscribers(env), admin: env.ADMIN_CHAT_ID || null });
@@ -269,6 +326,7 @@ export default {
           { command: "add", description: "아티스트 추가 (예: /add 아이브)" },
           { command: "list", description: "내 알림 목록" },
           { command: "del", description: "아티스트 빼기" },
+          { command: "today", description: "오늘 마감·발표하는 내 아티스트" },
           { command: "now", description: "지금 응모 중인 아티스트" },
           { command: "all", description: "모든 새 공지 받기 켜기/끄기" },
           { command: "overseas", description: "해외 팬싸 받기 켜기/끄기" },

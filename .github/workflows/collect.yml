@@ -25,6 +25,7 @@ env:
   TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
   SUBS_URL: https://fansign-radar-bot.fansign-radar.workers.dev/subscribers
   SUBS_KEY: ${{ secrets.SUBS_KEY }}
+  FANSIGN_PROXY: https://fansign-radar-bot.fansign-radar.workers.dev/fetch   # 에버라인은 봇 워커(Cloudflare)를 거쳐 받기
 jobs:
   collect:
     runs-on: windows-latest
