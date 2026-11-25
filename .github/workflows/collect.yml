@@ -10,6 +10,9 @@ concurrency:
   cancel-in-progress: false
 permissions:
   contents: write
+env:
+  PYTHONUTF8: "1"          # 서버 콘솔이 영어 전용이라 한국어 출력이 깨지지 않게
+  PYTHONIOENCODING: utf-8
 jobs:
   collect:
     runs-on: windows-latest
@@ -36,7 +39,6 @@ jobs:
         run: python .github/make_config.py
       - name: 수집 + 구독자 알림
         env:
-          PYTHONUTF8: "1"
           FANSIGN_CLOUD: "1"
           FANSIGN_OCR_AUTOINSTALL: "1"
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
