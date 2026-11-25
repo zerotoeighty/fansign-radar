@@ -1,8 +1,11 @@
 // 팬싸 레이더 텔레그램 봇 (Cloudflare Worker)
-// - 사람들이 봇에 보내는 명령(/add 아이브 등)을 받아 구독 목록을 KV(SUBS)에 저장한다. 구독 정보는 공개 저장소에 두지 않는다.
+// - 사람들이 봇에 보내는 명령(/add 아이브 등)을 받아 구독 목록을 D1(DB, schema.sql)에 저장한다. 구독 정보는 공개 저장소에 두지 않는다.
+//   (처음엔 KV였는데 무료 쓰기 한도가 하루 1,000번이라 D1(하루 10만 번)으로 옮김)
 // - 수집 서버(GitHub Actions)가 /subscribers 로 구독 목록을 받아 가서 사람별로 알림을 보낸다.
+//   봇을 차단한 사람은 수집 서버가 /unsubscribe 로 알려 주면 지운다.
 //
-// 비밀 값(wrangler secret): TELEGRAM_TOKEN(봇 토큰), WEBHOOK_SECRET(텔레그램→워커 확인용), EXPORT_KEY(수집 서버 확인용)
+// 비밀 값(wrangler secret): TELEGRAM_TOKEN(봇 토큰), WEBHOOK_SECRET(텔레그램→워커 확인용), EXPORT_KEY(수집 서버 확인용),
+//   ADMIN_CHAT_ID(관리자 = 테스트 알림·수집 이상 알림 받는 사람)
 
 const EVENTS_URL = "https://raw.githubusercontent.com/zerotoeighty/fansign-radar/data/events.json";
 const MAX_ARTISTS = 50;
@@ -24,6 +27,7 @@ const HELP = [
   "새 공지는 매시 확인해요.",
   "",
   "🌐 전체 목록·캘린더: https://fansign-radar.pages.dev",
+  "🔒 저장하는 건 텔레그램 채팅 ID와 등록한 아티스트뿐이에요. /stop 하면 바로 지워져요.",
 ].join("\n");
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -40,11 +44,18 @@ async function tg(env, method, body) {
 const say = (env, chat, text, extra = {}) =>
   tg(env, "sendMessage", { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true, ...extra });
 
+// ── 저장소 (D1) ──
 async function getSub(env, chat) {
-  const v = await env.SUBS.get(`u:${chat}`, "json");
-  return v || { artists: [], all: false, overseas: false };
+  const r = await env.DB.prepare("SELECT artists, all_on, overseas, joined FROM subs WHERE chat_id = ?").bind(String(chat)).first();
+  if (!r) return { artists: [], all: false, overseas: false, joined: null };
+  return { artists: JSON.parse(r.artists || "[]"), all: !!r.all_on, overseas: !!r.overseas, joined: r.joined };
 }
-const putSub = (env, chat, sub) => env.SUBS.put(`u:${chat}`, JSON.stringify({ ...sub, updated: new Date().toISOString() }));
+const putSub = (env, chat, sub) =>
+  env.DB.prepare(`INSERT INTO subs (chat_id, artists, all_on, overseas, joined, updated) VALUES (?1, ?2, ?3, ?4, ?5, ?6)
+    ON CONFLICT(chat_id) DO UPDATE SET artists = ?2, all_on = ?3, overseas = ?4, joined = COALESCE(subs.joined, ?5), updated = ?6`)
+    .bind(String(chat), JSON.stringify(sub.artists || []), sub.all ? 1 : 0, sub.overseas ? 1 : 0, sub.joined || new Date().toISOString(), new Date().toISOString())
+    .run();
+const delSub = (env, chat) => env.DB.prepare("DELETE FROM subs WHERE chat_id = ?").bind(String(chat)).run();
 
 function listMessage(sub) {
   const lines = ["📋 <b>내 알림 목록</b>"];
@@ -84,8 +95,9 @@ async function handleMessage(env, msg) {
   const sub = await getSub(env, chat);
 
   if (cmd === "start" && /^[A-Za-z0-9]{6,16}$/.test(arg)) {
-    const linked = await env.SUBS.get(`link:${arg}`, "json");
-    if (linked && linked.length) {
+    const row = await env.DB.prepare("SELECT artists FROM links WHERE code = ? AND expires > ?").bind(arg, Date.now()).first();
+    const linked = row ? JSON.parse(row.artists) : [];
+    if (linked.length) {
       const have = new Set(sub.artists.map((a) => a.toLowerCase()));
       const added = linked.filter((n) => !have.has(n.toLowerCase()));
       sub.artists = [...sub.artists, ...added].slice(0, MAX_ARTISTS);
@@ -132,7 +144,7 @@ async function handleMessage(env, msg) {
   }
   if (cmd === "now") return say(env, chat, await nowOpen(env));
   if (cmd === "stop") {
-    await env.SUBS.delete(`u:${chat}`);
+    await delSub(env, chat);
     return say(env, chat, "알림을 멈추고 목록을 지웠어요. 다시 받으려면 /start");
   }
   return say(env, chat, "모르는 명령이에요.\n\n" + HELP);
@@ -153,17 +165,8 @@ async function handleCallback(env, cq) {
 }
 
 async function allSubscribers(env) {
-  const out = [];
-  let cursor;
-  do {
-    const page = await env.SUBS.list({ prefix: "u:", cursor });
-    for (const k of page.keys) {
-      const v = await env.SUBS.get(k.name, "json");
-      if (v && (v.all || (v.artists || []).length)) out.push({ chat_id: k.name.slice(2), artists: v.artists || [], all: !!v.all, overseas: !!v.overseas });
-    }
-    cursor = page.list_complete ? undefined : page.cursor;
-  } while (cursor);
-  return out;
+  const { results } = await env.DB.prepare("SELECT chat_id, artists, all_on, overseas FROM subs WHERE all_on = 1 OR artists != '[]'").all();
+  return results.map((r) => ({ chat_id: r.chat_id, artists: JSON.parse(r.artists || "[]"), all: !!r.all_on, overseas: !!r.overseas }));
 }
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json; charset=utf-8" } });
@@ -197,13 +200,23 @@ export default {
       const abc = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
       const rnd = crypto.getRandomValues(new Uint8Array(10));
       const code = [...rnd].map((b) => abc[b % abc.length]).join("");
-      await env.SUBS.put(`link:${code}`, JSON.stringify(artists), { expirationTtl: 30 * 86400 });
+      await env.DB.batch([
+        env.DB.prepare("DELETE FROM links WHERE expires < ?").bind(Date.now()),
+        env.DB.prepare("INSERT INTO links (code, artists, expires) VALUES (?, ?, ?)").bind(code, JSON.stringify(artists), Date.now() + 30 * 86400000),
+      ]);
       return new Response(JSON.stringify({ code }), { headers: { ...cors, "content-type": "application/json" } });
     }
     // 수집 서버 → 구독 목록
     if (url.pathname === "/subscribers") {
       if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
-      return json({ subscribers: await allSubscribers(env) });
+      return json({ subscribers: await allSubscribers(env), admin: env.ADMIN_CHAT_ID || null });
+    }
+    // 수집 서버 → 봇을 차단했거나 탈퇴한 사람 지우기
+    if (url.pathname === "/unsubscribe" && req.method === "POST") {
+      if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
+      const ids = ((await req.json()).chat_ids || []).map(String).slice(0, 500);
+      if (ids.length) await env.DB.batch(ids.map((id) => env.DB.prepare("DELETE FROM subs WHERE chat_id = ?").bind(id)));
+      return json({ removed: ids.length });
     }
     // 처음 한 번: 텔레그램에 이 워커 주소 등록 + 명령 목록 설정
     if (url.pathname === "/setup" && req.method === "POST") {

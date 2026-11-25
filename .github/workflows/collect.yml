@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: "7 * * * *"
   workflow_dispatch:
+    inputs:
+      test_alert:
+        description: "테스트 알림을 관리자에게 한 통 보내기"
+        type: boolean
+        default: false
   push:                      # 이름 고침·수집 코드가 바뀌면 다음 정각을 기다리지 않고 바로 수집
     branches: [main]
     paths: ["artist_fix.json", "radar/**"]
@@ -13,9 +18,13 @@ concurrency:
   cancel-in-progress: false
 permissions:
   contents: write
+  actions: write             # 60일 휴면 방지(워크플로 다시 켜기)
 env:
   PYTHONUTF8: "1"          # 서버 콘솔이 영어 전용이라 한국어 출력이 깨지지 않게
   PYTHONIOENCODING: utf-8
+  TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  SUBS_URL: https://fansign-radar-bot.fansign-radar.workers.dev/subscribers
+  SUBS_KEY: ${{ secrets.SUBS_KEY }}
 jobs:
   collect:
     runs-on: windows-latest
@@ -44,9 +53,7 @@ jobs:
         env:
           FANSIGN_CLOUD: "1"
           FANSIGN_OCR_AUTOINSTALL: "1"
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          SUBS_URL: https://fansign-radar-bot.fansign-radar.workers.dev/subscribers
-          SUBS_KEY: ${{ secrets.SUBS_KEY }}
+          TEST_ALERT: ${{ inputs.test_alert && '1' || '' }}
         run: python -m radar.collect
       - name: 기록 저장 (data 브랜치)
         if: always()
@@ -56,6 +63,27 @@ jobs:
           git config user.name "fansign-radar-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet && { echo "바뀐 것 없음"; exit 0; }
-          git commit -q -m "수집 $(TZ=Asia/Seoul date '+%m-%d %H:%M')"
-          git push -q origin HEAD:data
+          if ! git diff --cached --quiet; then
+            git commit -q -m "수집 $(TZ=Asia/Seoul date '+%m-%d %H:%M')"
+          fi
+          # 매달 1일 0시대: 지난 기록을 한 커밋으로 합쳐 브랜치가 커지지 않게
+          if [ "$(TZ=Asia/Seoul date '+%d%H')" = "0100" ]; then
+            git checkout -q --orphan squashed
+            git commit -q -m "기록 정리 $(TZ=Asia/Seoul date '+%Y-%m')"
+            git push -q -f origin HEAD:data
+            echo "data 브랜치 정리함"
+          else
+            git push -q origin HEAD:data
+          fi
+      - name: 60일 휴면 방지 (매일 0시대)
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(TZ=Asia/Seoul date '+%H')" = "00" ]; then
+            gh api -X PUT "repos/${{ github.repository }}/actions/workflows/collect.yml/enable" && echo "워크플로 다시 켬(휴면 타이머 초기화)"
+          fi
+      - name: 실행 실패 알림 (관리자)
+        if: failure()
+        run: python .github/notify_failure.py "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -4,6 +4,9 @@ compatibility_date = "2026-11-01"
 account_id = "9c7f72a88bee1d098ea6cd70bc87adcf"
 workers_dev = true
 
-[[kv_namespaces]]
-binding = "SUBS"
-id = "534bea6686524d8482e5b8e60bb19a0e"
+# 옛 KV(SUBS, 534bea66…)는 D1로 옮긴 뒤 연결 해제 (2026-11-25)
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fansign-radar-db"
+database_id = "ece1f314-2389-4a7a-a76f-0806bb17a3e6"

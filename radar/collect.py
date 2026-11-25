@@ -508,6 +508,76 @@ def _check_bot():
     log("  알림 설정: " + ", ".join(parts))
 
 
+HEALTH = os.path.join(DATA, "health.json")
+HEALTH_RUNS = 3   # 판매처가 연속 몇 번 실패하면 관리자에게 알릴지
+
+
+def _health(sources: list[dict]):
+    """서버: 판매처가 연속 3번 실패하면 관리자에게 알리고, 다시 살아나면 한 번 더 알린다."""
+    h = load_json(HEALTH, {})
+    bad_now, fixed = [], []
+    for st in sources:
+        name = st["store"]
+        rec = h.get(name, {"fails": 0, "alerted": False})
+        failing = st["status"] in ("error", "blocked", "parse_error")
+        if failing:
+            rec["fails"] += 1
+            rec["last"] = st.get("message", st["status"])
+            if rec["fails"] >= HEALTH_RUNS and not rec["alerted"]:
+                bad_now.append(f"• <b>{name}</b> {st['status']} — {html_escape(str(rec['last'])[:120])}")
+                rec["alerted"] = True
+        else:
+            if rec.get("alerted"):
+                fixed.append(name)
+            rec = {"fails": 0, "alerted": False}
+        h[name] = rec
+    # PC가 올린 에버라인이 오래되면 (PC가 하루 넘게 꺼짐)
+    pc = load_json(PC_EVERLINE, {})
+    try:
+        old = (now_kst() - datetime.fromisoformat(pc["checked_at"])).total_seconds() > 36 * 3600
+    except (KeyError, ValueError, TypeError):
+        old = True
+    rec = h.get("_pc", {"alerted": False})
+    if old and not rec["alerted"]:
+        bad_now.append(f"• <b>에버라인</b> PC 수집이 36시간 넘게 없어요 (마지막 {pc.get('checked_at', '없음')}). PC를 켜 주세요.")
+        rec["alerted"] = True
+    elif not old and rec["alerted"]:
+        fixed.append("에버라인(PC)")
+        rec["alerted"] = False
+    h["_pc"] = rec
+    save_json(HEALTH, h)
+    msg = []
+    if bad_now:
+        msg.append("⚠️ <b>팬싸 레이더 수집 이상</b>" + chr(10) + chr(10).join(bad_now))
+    if fixed:
+        msg.append("✅ 다시 정상: " + ", ".join(fixed))
+    if msg:
+        try:
+            telegram.send_admin((chr(10) * 2).join(msg))
+            log("  관리자 알림: " + ("이상 " + str(len(bad_now)) if bad_now else "") + (" 회복 " + str(len(fixed)) if fixed else ""))
+        except Exception as e:  # noqa: BLE001
+            log(f"  관리자 알림 실패: {e}")
+
+
+def html_escape(s: str) -> str:
+    import html
+    return html.escape(s)
+
+
+def _test_alert(live: list[dict]):
+    """서버: 수동 실행 때 「테스트 알림」을 켜면, 실제 알림 형식 그대로 관리자에게 한 통."""
+    opens = [e for e in live if e.get("status") == "open"] or live
+    if not opens:
+        log("  테스트 알림: 보낼 공지가 없음")
+        return
+    ev = {k: iso(v) for k, v in opens[0].items()}
+    text = "🧪 <b>테스트 알림</b> (실제 새 공지가 아니에요)" + chr(10) * 2 + telegram.format_event(ev)
+    try:
+        log("  테스트 알림 보냄" if telegram.send_admin(text) else "  테스트 알림 못 보냄 (설정 없음)")
+    except Exception as e:  # noqa: BLE001
+        log(f"  테스트 알림 실패: {e}")
+
+
 def _load_pc_events() -> tuple[list[dict], dict]:
     """PC가 올린 에버라인 공지 (data/pc_everline.json)."""
     data = load_json(PC_EVERLINE, {})
@@ -699,6 +769,11 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
         elif CLOUD:
             missing = [k for k, v in (("TELEGRAM_TOKEN", token), ("SUBS_URL", subs_url), ("SUBS_KEY", subs_key)) if not v]
             log(f"구독자 알림 못 보냄: GitHub Secrets에 {', '.join(missing)} 없음")
+
+    if CLOUD:
+        _health(sources)
+        if os.environ.get("TEST_ALERT") == "1":
+            _test_alert(live)
 
     # 서버: 알림을 보낸 뒤 새 공지 이미지 읽기 (OCR 설치 포함) → 응모 기간 채워서 저장
     if pending_ocr:

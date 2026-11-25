@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import re
 import time
 from datetime import date, datetime
 
@@ -121,6 +122,7 @@ def notify_subscribers(events: list[dict], token: str, subs_url: str, subs_key: 
     subs = r.json().get("subscribers", [])
     from .collect import iso
     people = msgs = 0
+    gone = []   # 봇을 차단했거나 탈퇴한 사람
     for s in subs:
         cfg = {"favorites": s.get("artists", []), "notify": "all" if s.get("all") else "favorites",
                "include_overseas_alert": s.get("overseas", False)}
@@ -140,6 +142,29 @@ def notify_subscribers(events: list[dict], token: str, subs_url: str, subs_key: 
                     msgs += 1
                     time.sleep(0.05)
             people += 1
-        except Exception:  # noqa: BLE001  (봇을 차단한 사람 등은 건너뜀)
+        except Exception as e:  # noqa: BLE001
+            if re.search(r"blocked by the user|user is deactivated|chat not found", str(e), re.I):
+                gone.append(s["chat_id"])
             continue
+    if gone:
+        try:
+            requests.post(subs_url.rsplit("/", 1)[0] + "/unsubscribe", json={"chat_ids": gone},
+                          headers={"Authorization": f"Bearer {subs_key}"}, timeout=20)
+            from .collect import log
+            log(f"  봇을 차단한 구독자 {len(gone)}명 정리")
+        except Exception:  # noqa: BLE001
+            pass
     return people, msgs
+
+
+def send_admin(text: str) -> bool:
+    """관리자(봇 ADMIN_CHAT_ID)에게 한 통 — 테스트 알림·수집 이상 알림용. 서버 환경 변수로 동작."""
+    import os
+    token, url, key = (os.environ.get(k, "") for k in ("TELEGRAM_TOKEN", "SUBS_URL", "SUBS_KEY"))
+    if not (token and url and key):
+        return False
+    admin = requests.get(url, headers={"Authorization": f"Bearer {key}"}, timeout=20).json().get("admin")
+    if not admin:
+        return False
+    send(token, admin, text)
+    return True
