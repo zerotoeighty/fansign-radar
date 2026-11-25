@@ -1590,5 +1590,19 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996447&num2=00000": {
+  "_t": 1795591718.3930259,
+  "images": 4,
+  "apply_start": "2026-11-25T15:00+09:00",
+  "apply_end": "2026-11-28T23:59+09:00",
+  "winner": "2026-11-30T17:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
