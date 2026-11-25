@@ -1,0 +1,7 @@
+ocr_img/
+chrome_profile/
+_pc_branch/
+_seed/
+*.lock
+*.tmp
+pc_everline.json
