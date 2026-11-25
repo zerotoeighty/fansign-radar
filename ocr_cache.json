@@ -1821,5 +1821,18 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998931&num2=00000&number=685&lock=N": {
+  "_t": 1795602327.6938896,
+  "images": 2,
+  "apply_start": "2026-11-25T18:00+09:00",
+  "apply_end": "2026-11-27T17:59+09:00",
+  "winner": "2026-11-27T19:00+09:00",
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }

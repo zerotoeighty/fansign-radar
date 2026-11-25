@@ -63,20 +63,22 @@
   ]
  },
  "https://m2urecord.com/article/m2u-event/1/11151/": {
-  "_t": 1795553819.3182762,
+  "_t": 1795601386.8526928,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m2urecord.com/article/m2u-event/1/11148/": {
-  "_t": 1795553819.3573055,
+  "_t": 1795601386.8526928,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
@@ -94,7 +96,7 @@
   ]
  },
  "https://hellolive.tv/ko/detail/1634": {
-  "_t": 1795553819.432391,
+  "_t": 1795601386.8547049,
   "event_date": "2026-11-28",
   "seg_formats": [
    "대면",
@@ -104,129 +106,143 @@
   "start": null,
   "end": null,
   "winner": "2026-11-27T15:00+09:00",
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998933&num2=00000&number=684&lock=N": {
-  "_t": 1795553822.4019182,
+  "_t": 1795601388.6611917,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://hellolive.tv/ko/detail/1626": {
-  "_t": 1795553819.4373908,
+  "_t": 1795601386.8564641,
   "event_date": "2026-12-19",
   "gone": false,
   "start": null,
   "end": null,
   "winner": "2026-12-07T18:00+09:00",
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998934&num2=00000&number=683&lock=N": {
-  "_t": 1795553822.7801137,
+  "_t": 1795601389.7431967,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998937&num2=00000&number=680&lock=N": {
-  "_t": 1795553822.9562929,
+  "_t": 1795601390.1933007,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998939&num2=00000&number=678&lock=N": {
-  "_t": 1795553823.1218336,
+  "_t": 1795601390.2102995,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998935&num2=00000&number=682&lock=N": {
-  "_t": 1795553822.9049554,
+  "_t": 1795601389.764691,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998941&num2=00000&number=676&lock=N": {
-  "_t": 1795553823.3102953,
+  "_t": 1795601390.6645072,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11143&cate_no=48&display_group=1": {
-  "_t": 1795553823.3122952,
+  "_t": 1795601390.6786103,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11142&cate_no=48&display_group=1": {
-  "_t": 1795553823.4506135,
+  "_t": 1795601391.0639274,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11140&cate_no=48&display_group=1": {
-  "_t": 1795553823.845136,
+  "_t": 1795601392.5394926,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11137&cate_no=48&display_group=1": {
-  "_t": 1795553823.917794,
+  "_t": 1795601392.9959788,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11136&cate_no=48&display_group=1": {
-  "_t": 1795553824.2218518,
+  "_t": 1795601393.5960097,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11139&cate_no=48&display_group=1": {
-  "_t": 1795553824.14571,
+  "_t": 1795601393.1447048,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://hellolive.tv/ko/detail/1625": {
-  "_t": 1795553819.4414475,
+  "_t": 1795601386.8564641,
   "event_date": "2026-12-04",
   "seg_formats": [
    "영상통화"
@@ -235,69 +251,77 @@
   "start": null,
   "end": null,
   "winner": "2026-11-27T17:00+09:00",
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261739&board_no=1": {
-  "_t": 1795553824.794892,
+  "_t": 1795601393.7084162,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261392&board_no=1": {
-  "_t": 1795553824.822761,
+  "_t": 1795601394.1489067,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261229&board_no=1": {
-  "_t": 1795553825.2910497,
+  "_t": 1795601395.0401258,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261174&board_no=1": {
-  "_t": 1795553825.3065612,
+  "_t": 1795601395.345621,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261318&board_no=1": {
-  "_t": 1795553825.1338592,
+  "_t": 1795601394.8659744,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261071&board_no=1": {
-  "_t": 1795553825.4930165,
+  "_t": 1795601395.4755006,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261030&board_no=1": {
-  "_t": 1795553825.5180357,
+  "_t": 1795601395.805964,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
@@ -316,7 +340,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1731&mari_mode=view@view": {
-  "_t": 1795553825.5665596,
+  "_t": 1795601397.4204202,
   "event_date": "2026-11-29",
   "seg_formats": [
    "대면"
@@ -325,11 +349,12 @@
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1702&mari_mode=view@view": {
-  "_t": 1795553825.6740992,
+  "_t": 1795601397.6619647,
   "event_date": "2026-11-29",
   "seg_formats": [
    "대면"
@@ -338,177 +363,197 @@
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://www.kpop2gether.com/board/board.html?code=912enter_board4&page=1&type=v&board_cate=&num1=999761&num2=00000&number=234&lock=N": {
-  "_t": 1795553825.698608,
+  "_t": 1795601397.983551,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996449&num2=00000": {
-  "_t": 1795553826.7550523,
+  "_t": 1795601401.0454311,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996452&num2=00000": {
-  "_t": 1795553827.167685,
+  "_t": 1795601401.3131278,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://www.kpop2gether.com/board/board.html?code=912enter_board4&page=1&type=v&board_cate=&num1=999762&num2=00000&number=233&lock=N": {
-  "_t": 1795553826.4823313,
+  "_t": 1795601398.1281316,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996461&num2=00000": {
-  "_t": 1795553827.2563663,
+  "_t": 1795601401.9057088,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996465&num2=00000": {
-  "_t": 1795553827.3718991,
+  "_t": 1795601402.2642345,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996468&num2=00000": {
-  "_t": 1795553827.477977,
+  "_t": 1795601402.4615662,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996462&num2=00000": {
-  "_t": 1795553827.3384469,
+  "_t": 1795601402.0983543,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996469&num2=00000": {
-  "_t": 1795553827.5515401,
+  "_t": 1795601402.6262493,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996470&num2=00000": {
-  "_t": 1795553827.6120527,
+  "_t": 1795601402.816287,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996471&num2=00000": {
-  "_t": 1795553827.6350727,
+  "_t": 1795601402.8454478,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996473&num2=00000": {
-  "_t": 1795553827.6891265,
+  "_t": 1795601402.8898563,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996474&num2=00000": {
-  "_t": 1795553827.7251837,
+  "_t": 1795601402.979416,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996475&num2=00000": {
-  "_t": 1795553827.7712522,
+  "_t": 1795601403.161059,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996476&num2=00000": {
-  "_t": 1795553827.8037682,
+  "_t": 1795601403.2083416,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996483&num2=00000": {
-  "_t": 1795553827.8692417,
+  "_t": 1795601403.3705437,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996491&num2=00000": {
-  "_t": 1795553827.8885171,
+  "_t": 1795601403.5193064,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996492&num2=00000": {
-  "_t": 1795553827.975444,
+  "_t": 1795601403.5780897,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996493&num2=00000": {
-  "_t": 1795553827.9909534,
+  "_t": 1795601403.728093,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
@@ -522,286 +567,317 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996494&num2=00000": {
-  "_t": 1795553828.0940633,
+  "_t": 1795601403.8697705,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://www.kpop2gether.com/board/board.html?code=912enter_board4&page=1&type=v&board_cate=&num1=999764&num2=00000&number=231&lock=N": {
-  "_t": 1795553826.575994,
+  "_t": 1795601399.595193,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://www.kpop2gether.com/board/board.html?code=912enter_board4&page=1&type=v&board_cate=&num1=999763&num2=00000&number=232&lock=N": {
-  "_t": 1795553826.5388987,
+  "_t": 1795601398.3502557,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996499&num2=00000": {
-  "_t": 1795553828.11557,
+  "_t": 1795601403.9473357,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996509&num2=00000": {
-  "_t": 1795553828.1706274,
+  "_t": 1795601404.1029944,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996511&num2=00000": {
-  "_t": 1795553828.1926281,
+  "_t": 1795601404.2107196,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996529&num2=00000": {
-  "_t": 1795553828.2491858,
+  "_t": 1795601404.4479992,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996538&num2=00000": {
-  "_t": 1795553828.2746923,
+  "_t": 1795601404.563307,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996596&num2=00000": {
-  "_t": 1795553828.324747,
+  "_t": 1795601404.67189,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996503&num2=00000": {
-  "_t": 1795553828.1285734,
+  "_t": 1795601404.0571082,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996519&num2=00000": {
-  "_t": 1795553828.195629,
+  "_t": 1795601404.2921531,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996521&num2=00000": {
-  "_t": 1795553828.2091405,
+  "_t": 1795601404.4059565,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1203-11-영상통화-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6631/category/65/display/1/": {
-  "_t": 1795553828.6405733,
+  "_t": 1795601404.7798831,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://hellolive.tv/ko/detail/1568": {
-  "_t": 1795553820.7874668,
+  "_t": 1795601386.8564641,
   "event_date": "2026-11-28",
   "seg_formats": [
    "대면",
    "영상통화"
   ],
   "gone": false,
-  "start": null,
-  "end": null,
+  "start": "2026-11-23T12:00+09:00",
+  "end": "2026-11-26T23:59+09:00",
   "winner": "2026-11-27T12:00+09:00",
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1205-대면-팬사인회-onewe원위-정규-3집-面-unknown-atlas-面-ver/6714/category/65/display/1/": {
-  "_t": 1795553828.3984435,
+  "_t": 1795601404.740209,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1205-단체-영상통화-팬사인회-onewe원위-정규-3집-面-unknown-atlas-面-ver/6715/category/65/display/1/": {
-  "_t": 1795553828.3532608,
+  "_t": 1795601404.682886,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1127-단체-영상통화-팬사인회-heart-of-woman-하트오브우먼-미니-1집-eternal-fade-버전-랜덤-출고/6614/category/65/display/1/": {
-  "_t": 1795553829.165066,
+  "_t": 1795601406.1760178,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1203-대면-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6630/category/65/display/1/": {
-  "_t": 1795553828.7963808,
+  "_t": 1795601404.893896,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1127-11-영상통화-팬사인회-heart-of-woman-하트오브우먼-미니-1집-eternal-fade-버전-랜덤-출고/6615/category/65/display/1/": {
-  "_t": 1795553828.839949,
+  "_t": 1795601405.0138867,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1129-11-영상통화-팬사인회-8turn에잇턴-싱글-3집-8x/6612/category/65/display/1/": {
-  "_t": 1795553829.389934,
+  "_t": 1795601406.3738358,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1129-대면-팬사인회-8turn에잇턴-싱글-3집-8x/6611/category/65/display/1/": {
-  "_t": 1795553829.3979416,
+  "_t": 1795601406.3958309,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1127-대면-팬사인회-heart-of-woman-하트오브우먼-미니-1집-eternal-fade-버전-랜덤-출고/6613/category/65/display/1/": {
-  "_t": 1795553829.226137,
+  "_t": 1795601406.3288312,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1128-11-영상통화-팬사인회-sf9-에스에프나인-정규-2집-tenacity-버전-랜덤-출고/6609/category/65/display/1/": {
-  "_t": 1795553829.612711,
+  "_t": 1795601406.542831,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1128-11-스페셜-오프라인-이벤트-sf9-에스에프나인-정규-2집-tenacity-버전-랜덤-출고/6608/category/65/display/1/": {
-  "_t": 1795553829.642282,
+  "_t": 1795601406.8793995,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1127-대면-팬사인회-엔플라잉-nflying-미니-9집-still-photobook-ver-버전-랜덤-출고/6606/category/65/display/1/": {
-  "_t": 1795553829.8057642,
+  "_t": 1795601407.1109815,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://dearmymuse.com/product/1127-11-영상통화-팬사인회-엔플라잉-nflying-미니-9집-still-photobook-ver/6607/category/65/display/1/": {
-  "_t": 1795553829.712217,
+  "_t": 1795601407.0219834,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://kr.ktown4u.com/eventinfo?eve_no=44635943&biz_no=967": {
-  "_t": 1795553829.8669946,
+  "_t": 1795601407.115972,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://starlikemusic.com/product/11-video-call-event-1127-엔탑-ntop-webloom-ever-ver/1258/category/69/display/1/": {
-  "_t": 1795553830.0386763,
+  "_t": 1795601407.727155,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://starlikemusic.com/product/fan-sign-event-1205-이븐-evnne-미니-6집-on-our-noise-photobook-ver/1259/category/69/display/1/": {
-  "_t": 1795553830.0216415,
+  "_t": 1795601407.563568,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://starlikemusic.com/product/relay-video-call-event-1127-엔탑-ntop-webloom-ever-ver/1257/category/69/display/1/": {
-  "_t": 1795553830.1343231,
+  "_t": 1795601407.7611701,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://starlikemusic.com/product/11-video-call-event-1205-이븐-evnne-미니-6집-on-our-noise-photobook-ver/1261/category/69/display/1/": {
-  "_t": 1795553829.8715026,
+  "_t": 1795601407.2405362,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
@@ -846,7 +922,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1740&mari_mode=view@view": {
-  "_t": 1795554821.1799252,
+  "_t": 1795601396.2637866,
   "event_date": "2026-11-28",
   "seg_formats": [
    "대면"
@@ -855,26 +931,29 @@
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1701&mari_mode=view@view": {
-  "_t": 1795554821.311792,
+  "_t": 1795601397.6993604,
   "event_date": "2026-11-29",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1728&mari_mode=view@view": {
-  "_t": 1795554821.4540899,
+  "_t": 1795601397.9615505,
   "event_date": "2026-11-27",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
@@ -892,52 +971,57 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1736&mari_mode=view@view": {
-  "_t": 1795554821.1799252,
+  "_t": 1795601396.4806857,
   "event_date": "2026-12-03",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1735&mari_mode=view@view": {
-  "_t": 1795554821.1799252,
+  "_t": 1795601397.0626333,
   "event_date": "2026-12-03",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1730&mari_mode=view@view": {
-  "_t": 1795554821.1809292,
+  "_t": 1795601397.505755,
   "event_date": "2026-11-29",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1733&mari_mode=view@view": {
-  "_t": 1795554821.1799252,
+  "_t": 1795601397.3823645,
   "event_date": "2026-12-03",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1739&mari_mode=view@view": {
-  "_t": 1795554821.1799252,
+  "_t": 1795601395.9265122,
   "event_date": "2026-11-28",
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false
  },
@@ -1174,6 +1258,16 @@
  },
  "https://store.frommyarti.com/bundle/31087": {
   "_t": 1795596384.6581576,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998931&num2=00000&number=685&lock=N": {
+  "_t": 1795601388.6488872,
   "gone": false,
   "start": null,
   "end": null,
