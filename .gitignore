@@ -8,3 +8,4 @@ CLAUDE.md
 .cf/
 bot/node_modules/
 bot/.wrangler/
+bot/profile/out/

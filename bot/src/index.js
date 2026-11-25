@@ -180,7 +180,7 @@ export default {
       if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
       const hook = await tg(env, "setWebhook", {
         url: `${url.origin}/telegram`, secret_token: env.WEBHOOK_SECRET,
-        allowed_updates: ["message", "callback_query"], drop_pending_updates: true,
+        allowed_updates: ["message", "callback_query"],
       });
       const cmds = await tg(env, "setMyCommands", {
         commands: [
@@ -194,6 +194,9 @@ export default {
           { command: "stop", description: "알림 그만 받기" },
         ],
       });
+      await tg(env, "setMyDescription", { description:
+        "📡 팬싸 레이더\n음반 판매처 18곳의 팬사인회(대면·영상통화) 새 공지를, 원하는 아티스트만 골라 바로 알려 드려요.\n\n시작을 누르고 /add 아이브 처럼 아티스트를 등록해 보세요." })
+      await tg(env, "setMyShortDescription", { short_description: "음반 판매처 18곳의 팬싸(대면·영상통화) 새 공지를 원하는 아티스트만 골라 알려 드려요." })
       const me = await tg(env, "getMe", {});
       return json({ webhook: hook, commands: cmds.ok, bot: me.result && me.result.username });
     }
