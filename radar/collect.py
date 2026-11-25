@@ -601,7 +601,9 @@ def _health(sources: list[dict]):
             rec["fails"] += 1
             rec["last"] = st.get("message", st["status"])
             if rec["fails"] >= HEALTH_RUNS and not rec["alerted"]:
-                bad_now.append(f"• <b>{name}</b> {st['status']} — {html_escape(str(rec['last'])[:120])}")
+                kind = {"error": "접속 오류", "blocked": "접속 차단", "parse_error": "목록 구조가 바뀜(사이트 개편 의심)"}[st["status"]]
+                bad_now.append(f"• <b>{name}</b> {kind} — {html_escape(str(rec['last'])[:120])}")
+                bad_now.append(f"  → Claude에게 「팬싸 레이더 {name} 수집 고쳐줘」라고 말해 주세요.")
                 rec["alerted"] = True
         else:
             if rec.get("alerted"):
@@ -623,6 +625,19 @@ def _health(sources: list[dict]):
         fixed.append("에버라인(PC)")
         rec["alerted"] = False
     h["_pc"] = rec
+    # 에버라인 워커 경유가 막혀 PC 결과로 대신하는 중 (PC 자동 수집은 평소 꺼 둠) → 2번 연속이면 알림
+    rec = h.get("_proxy", {"fails": 0, "alerted": False})
+    if PROXY and uses_pc:
+        rec["fails"] += 1
+        if rec["fails"] >= 2 and not rec["alerted"]:
+            bad_now.append("• <b>에버라인</b> 서버 수집이 막혔어요 (Cloudflare 경유도 차단). 그동안은 PC가 마지막으로 올린 결과를 보여 줘요.")
+            bad_now.append("  → PC에서 <code>자동 수집 켜기.bat</code>을 실행하고 PC를 켜 두세요. 고치려면 Claude에게 「팬싸 레이더 에버라인 막혔어」라고 말해 주세요.")
+            rec["alerted"] = True
+    else:
+        if rec.get("alerted"):
+            fixed.append("에버라인 서버 수집 (PC 자동 수집은 <code>자동 수집 끄기.bat</code>으로 다시 꺼도 돼요)")
+        rec = {"fails": 0, "alerted": False}
+    h["_proxy"] = rec
     save_json(HEALTH, h)
     msg = []
     if bad_now:

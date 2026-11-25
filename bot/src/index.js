@@ -249,9 +249,27 @@ async function backupDispatch(env, force = false) {
   return d.status === 204 ? "대신 깨움" : `깨우기 실패 ${d.status}`;
 }
 
+// 구독자 목록 백업 (관리자 텔레그램에 JSON 파일). 공개 저장소에는 두지 않는다.
+// 되살리기: 파일의 subs를 D1에 다시 넣으면 됨 (CLAUDE.md 참고)
+async function sendSubsBackup(env) {
+  if (!env.ADMIN_CHAT_ID) return "관리자 없음";
+  const { results } = await env.DB.prepare("SELECT * FROM subs").all();
+  const day = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const body = JSON.stringify({ backup_at: new Date().toISOString(), count: results.length, subs: results }, null, 1);
+  const form = new FormData();
+  form.append("chat_id", String(env.ADMIN_CHAT_ID));
+  form.append("caption", `🗂 팬싸 레이더 구독자 백업 ${day} · ${results.length}명\n(봇 저장소가 지워졌을 때 되살리는 용도예요. 다른 사람에게 보내지 마세요.)`);
+  form.append("document", new Blob([body], { type: "application/json" }), `fansign_subs_${day}.json`);
+  const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/sendDocument`, { method: "POST", body: form });
+  return (await r.json()).ok ? `보냄 ${results.length}명` : "실패";
+}
+
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(backupDispatch(env).then((m) => console.log("예비 장치:", m)));
+    // 매주 월요일 오전 9시 25분(한국) = 월요일 00:25 UTC → 구독자 목록 백업 파일을 관리자에게
+    const t = new Date(event.scheduledTime);
+    if (t.getUTCDay() === 1 && t.getUTCHours() === 0) ctx.waitUntil(sendSubsBackup(env).then((m) => console.log("구독자 백업:", m)));
   },
   async fetch(req, env) {
     const url = new URL(req.url);
@@ -289,6 +307,10 @@ export default {
     if (url.pathname === "/backup-test" && req.method === "POST") {
       if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
       return json({ result: await backupDispatch(env, true) });
+    }
+    if (url.pathname === "/subs-backup-test" && req.method === "POST") {
+      if (!keyOk(req, env)) return new Response("forbidden", { status: 403 });
+      return json({ result: await sendSubsBackup(env) });
     }
     // 수집 서버 → 구독 목록
     // 에버라인 대신 받기: 에버라인이 GitHub 서버(미국 MS 클라우드) IP를 막아서, 수집 서버가 이 워커를 거쳐 받는다.
