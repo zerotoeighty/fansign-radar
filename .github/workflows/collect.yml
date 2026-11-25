@@ -1,0 +1,56 @@
+# 매시 서버 수집 + 텔레그램 알림. 결과·기록은 `data` 브랜치에 저장한다.
+# 에버라인은 서버 IP를 막아서 PC가 `pc` 브랜치에 올린 결과를 쓴다.
+name: collect
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+concurrency:
+  group: collect
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  collect:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: 지난 기록 가져오기 (data 브랜치)
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: data
+      - name: PC가 올린 에버라인·설정 가져오기 (pc 브랜치)
+        shell: bash
+        run: |
+          git fetch -q origin pc
+          git show origin/pc:pc_everline.json > data/pc_everline.json || echo "에버라인 결과 없음"
+          git show origin/pc:settings.json > settings.json || echo "{}" > settings.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: 설정 만들기 (텔레그램 토큰은 Secrets에서)
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python .github/make_config.py
+      - name: 수집
+        env:
+          PYTHONUTF8: "1"
+          FANSIGN_CLOUD: "1"
+          FANSIGN_OCR_AUTOINSTALL: "1"
+        run: python -m radar.collect
+      - name: 기록 저장 (data 브랜치)
+        if: always()
+        shell: bash
+        working-directory: data
+        run: |
+          git config user.name "fansign-radar-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "바뀐 것 없음"; exit 0; }
+          git commit -q -m "수집 $(TZ=Asia/Seoul date '+%m-%d %H:%M')"
+          git push -q origin HEAD:data

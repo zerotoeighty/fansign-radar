@@ -23,6 +23,11 @@ DETAIL_CACHE = os.path.join(DATA, "detail_cache.json")
 CONFIG = os.path.join(ROOT, "config.json")
 LOCK = os.path.join(DATA, "collect.lock")
 LOG = os.path.join(DATA, "collect.log")
+PC_EVERLINE = os.path.join(DATA, "pc_everline.json")   # PC가 수집한 에버라인 공지 (서버에서 막히는 판매처)
+
+# 서버(GitHub Actions)에서 돌 때: 에버라인은 해외·클라우드 IP를 막으므로 PC가 올린 결과를 쓴다
+CLOUD = os.environ.get("FANSIGN_CLOUD") == "1"
+PC_ONLY_STORES = {"에버라인"}
 
 POSTED_KEEP_DAYS = 21      # 날짜가 제목에 없는 공지는 올라온 지 이 기간까지만 보여 준다
 DETAIL_TTL_HOURS = 12
@@ -362,7 +367,7 @@ def ocr_pass(events: list[dict], now: datetime):
     todo, from_cache = [], 0
     for ev in events:
         need_fmt = not ev.get("_explicit") and not ev.get("_seg_formats")
-        if ev["store"] in OCR_SKIP_STORES or ev.get("_gone") or not is_live(ev, now)[0]:
+        if ev["store"] in OCR_SKIP_STORES or ev.get("_gone") or ev.get("_pc") or not is_live(ev, now)[0]:
             continue
         if ev.get("apply_end") and not need_fmt and ev["url"] in cache:
             continue
@@ -466,14 +471,14 @@ def matches_favorite(ev: dict, favorites: list[str]) -> bool:
 
 # ───────────────────────── 실행 ─────────────────────────
 
-def collect(notify: bool = True) -> dict:
+def collect(notify: bool = True, pc_export: bool = False) -> dict:
     os.makedirs(DATA, exist_ok=True)
     if os.path.exists(LOCK) and time.time() - os.path.getmtime(LOCK) < 15 * 60:
         log("다른 수집이 진행 중이라 건너뜀")
         return load_json(EVENTS, {})
     open(LOCK, "w").close()
     try:
-        return _collect(notify)
+        return _collect(notify, pc_export)
     finally:
         try:
             os.remove(LOCK)
@@ -481,11 +486,30 @@ def collect(notify: bool = True) -> dict:
             pass
 
 
-def _collect(notify: bool) -> dict:
+def _load_pc_events() -> tuple[list[dict], dict]:
+    """PC가 올린 에버라인 공지 (data/pc_everline.json)."""
+    data = load_json(PC_EVERLINE, {})
+    evs = []
+    for e in data.get("events", []):
+        ev = restore_event(e)
+        ev["_pc"] = True
+        evs.append(ev)
+    return evs, data
+
+
+def _collect(notify: bool, pc_export: bool = False) -> dict:
     started = now_kst()
-    log("수집 시작")
+    if pc_export:
+        todo = [s for s in SOURCES if s[0] in PC_ONLY_STORES]
+        log(f"PC 수집 시작 ({', '.join(s[0] for s in todo)})")
+    elif CLOUD:
+        todo = [s for s in SOURCES if s[0] not in PC_ONLY_STORES]
+        log("서버 수집 시작")
+    else:
+        todo = SOURCES
+        log("수집 시작")
     with ThreadPoolExecutor(max_workers=6) as pool:
-        results = list(pool.map(run_source, SOURCES))
+        results = list(pool.map(run_source, todo))
 
     sources, events = [], []
     for name, page, res, err, secs in results:
@@ -499,6 +523,16 @@ def _collect(notify: bool) -> dict:
             st.update(status="pending", found=res.found, fansign=len(built), empty_ok=res.empty_ok)
         sources.append(st)
 
+    if CLOUD and not pc_export:
+        pc_events, pc_data = _load_pc_events()
+        for name, page, _fn in SOURCES:
+            if name in PC_ONLY_STORES:
+                mine = [e for e in pc_events if e.get("store") == name]
+                st = {"store": name, "url": page, "seconds": 0, "status": "pc", "count": 0,
+                      "message": f"PC에서 수집 ({pc_data.get('checked_at', '기록 없음')})"}
+                events += mine
+                sources.append(st)
+
     events = dedupe(events)
     now = now_kst()
 
@@ -511,7 +545,7 @@ def _collect(notify: bool) -> dict:
             e["winner_posted"] = True
 
     # 일시적으로 접속이 안 된 판매처는 직전 결과를 이어 쓴다 (사라졌다가 NEW로 다시 뜨는 것 방지)
-    failed = {st["store"] for st in sources if st["status"] in ("error", "blocked")
+    failed = {st["store"] for st in sources if (st["status"] in ("error", "blocked") and not pc_export)
               or (st["status"] == "pending" and st.get("found") == 0 and not st.get("empty_ok"))}
     if failed:
         prev = load_json(EVENTS, {}).get("events", [])
@@ -544,7 +578,7 @@ def _collect(notify: bool) -> dict:
     # 응모 기간을 X(트위터)에만 올리는 판매처 (점프업이엔티) → FxTwitter 공개 API
     try:
         from .xfeed import apply_x
-        filled, extra = apply_x(events)
+        filled, extra = apply_x(events) if not pc_export else (0, [])
         added = 0
         for store, raw in extra:
             ev = build_event(store, raw)
@@ -574,6 +608,9 @@ def _collect(notify: bool) -> dict:
     live.sort(key=sort_key)
 
     for st in sources:
+        if st["status"] == "pc":
+            st["count"] = sum(1 for e in live if e["store"] == st["store"])
+            continue
         if st["status"] != "pending":
             continue
         n = sum(1 for e in live if e["store"] == st["store"])
@@ -585,6 +622,16 @@ def _collect(notify: bool) -> dict:
             st["status"] = "empty"
         else:
             st["status"] = "ok"
+
+    if pc_export:
+        # PC 모드: 에버라인 결과만 따로 저장 (알림·NEW 판별은 서버가 한다)
+        live = [ev for ev in live if ev["store"] in PC_ONLY_STORES]
+        payload = {"checked_at": iso(started), "sources": sources,
+                   "events": [{k: iso(v) for k, v in ev.items() if not k.startswith("_")} for ev in live]}
+        save_json(PC_EVERLINE, payload)
+        stat = ", ".join(f"{st['store']} {st['status']}" for st in sources)
+        log(f"PC 수집 끝: {stat}, 팬싸 {len(live)}건")
+        return payload
 
     # 새 공지 판별
     seen = load_json(SEEN, None)
@@ -634,7 +681,7 @@ def _collect(notify: bool) -> dict:
 
 def main():
     try:
-        collect(notify="--no-notify" not in sys.argv)
+        collect(notify="--no-notify" not in sys.argv, pc_export="--pc" in sys.argv)
     except Exception:  # noqa: BLE001
         log("수집 중 오류:\n" + traceback.format_exc())
         sys.exit(1)

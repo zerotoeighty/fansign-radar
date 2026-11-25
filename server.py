@@ -49,7 +49,11 @@ def run_collect_bg(notify=True):
         _state["running"] = True
         _state["last_error"] = None
         try:
-            collect(notify=notify)
+            from radar import pcsync
+            if pcsync.cloud_mode():
+                pcsync.run()          # 에버라인만 + 서버 결과 받아 오기 (알림은 서버가)
+            else:
+                collect(notify=notify)
         except Exception as e:  # noqa: BLE001
             _state["last_error"] = str(e)
             log(f"수집 오류: {e}")

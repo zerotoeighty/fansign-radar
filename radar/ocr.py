@@ -106,10 +106,29 @@ def download(url: str, referer: str = "", min_bytes: int = 12000) -> str | None:
         return None
 
 
+_OCR_READY = False
+
+
+def ensure_korean_ocr():
+    """서버(GitHub Actions)에서만: 한국어 OCR이 없으면 그때 설치한다(약 11분). 새로 읽을 이미지가 있을 때만 불린다."""
+    global _OCR_READY
+    if _OCR_READY or os.environ.get("FANSIGN_OCR_AUTOINSTALL") != "1":
+        return
+    ps = ("$c = Get-WindowsCapability -Online -Name 'Language.OCR~~~ko-KR*'; "
+          "if ($c.State -ne 'Installed') { Add-WindowsCapability -Online -Name $c.Name | Out-Null; 'installed' } else { 'ready' }")
+    import time
+    t0 = time.time()
+    r = subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, timeout=1800)
+    from .collect import log
+    log(f"  한국어 OCR: {r.stdout.decode('utf-8', 'ignore').strip() or r.stderr.decode('utf-8', 'ignore')[:200]} ({time.time() - t0:.0f}초)")
+    _OCR_READY = True
+
+
 def ocr_files(paths: list[str], timeout: int = 600) -> list[str]:
     """여러 이미지를 한 번에 OCR. 이미지마다 글자 묶음 하나."""
     if not paths:
         return []
+    ensure_korean_ocr()
     flags = 0x08000000 if os.name == "nt" else 0
     r = subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", PS1, *paths],
                        capture_output=True, timeout=timeout, creationflags=flags)
