@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-25T16:35+09:00",
- "took_seconds": 44.3,
+ "checked_at": "2026-11-25T17:05+09:00",
+ "took_seconds": 846.8,
  "events": [
   {
    "id": "eb415f0a1b6a",
@@ -470,11 +470,11 @@
    "first_seen": "base@2026-11-25T06:13+09:00"
   },
   {
-   "id": "4d544463a8d7",
+   "id": "1de4a9f5d897",
    "store": "뮤직플랜트",
-   "artist": "NAYEON (나연)",
-   "title": "[11/27 OFFLINE] 나연 (TWICE) - 싱글 앨범 [NA-sty] 팬사인회 이벤트 당첨자 발표",
-   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1727&mari_mode=view@view",
+   "artist": "P1Harmony (피원하모니)",
+   "title": "[11/27 OFFLINE] P1Harmony (피원하모니) - 10th Mini Album [BLOW UP] 발매기념 팬사인회 이벤트 당첨자 발표",
+   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1722&mari_mode=view@view",
    "formats": [
     "대면"
    ],
@@ -489,8 +489,31 @@
    "posted": null,
    "winner_posted": true,
    "status": "closed",
-   "artist_raw": "나연 (TWICE)",
-   "first_seen": "base@2026-11-25T06:13+09:00"
+   "artist_raw": "P1Harmony (피원하모니)",
+   "first_seen": "base@2026-11-25T17:05+09:00"
+  },
+  {
+   "id": "b46edce0b1ea",
+   "store": "뮤직플랜트",
+   "artist": "P1Harmony (피원하모니)",
+   "title": "[11/27 ONLINE] P1Harmony (피원하모니) - 10th Mini Album [BLOW UP] 발매기념 팬사인회 이벤트 당첨자 발표",
+   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1721&mari_mode=view@view",
+   "formats": [
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-27",
+   "apply_start": null,
+   "apply_end": null,
+   "winner": null,
+   "posted": null,
+   "winner_posted": true,
+   "status": "closed",
+   "artist_raw": "P1Harmony (피원하모니)",
+   "first_seen": "base@2026-11-25T17:05+09:00"
   },
   {
    "id": "663c300433ce",
@@ -1999,7 +2022,7 @@
   {
    "id": "7ade19a721f9",
    "store": "헬로라이브",
-   "artist": "CRAVITY",
+   "artist": "CRAVITY (크래비티)",
    "title": "[MEET&CALL EVENT] CRAVITY EP [sonorous]",
    "url": "https://hellolive.tv/ko/detail/1630",
    "formats": [
@@ -2098,7 +2121,7 @@
   {
    "id": "fe9b74e7cb54",
    "store": "사운드웨이브",
-   "artist": "DAILY:DIRECTION",
+   "artist": "DAILY:DIRECTION (데일리 디렉션)",
    "title": "[온라인몰] [1205 1:1스페셜/1:1영통] DAILY:DIRECTION THE 1ST EP ALBUM [WHICH WAY] FAN SIGN EVENT",
    "url": "https://sound-wave.co.kr/board/free/read.html?no=261174&board_no=1",
    "formats": [
@@ -2925,29 +2948,6 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
-   "id": "d2bd9b9271c2",
-   "store": "뮤직플랜트",
-   "artist": "B1A4 (비원에이포)",
-   "title": "[12/18 ONLINE] B1A4 (비원에이포) - 2027 SEASON'S GREETINGS [B1A4 COMPANY] 발매기념 팬사인회 이벤트 당첨자 발표",
-   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1719&mari_mode=view@view",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-18",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": true,
-   "status": "closed",
-   "artist_raw": "B1A4 (비원에이포)",
-   "first_seen": "base@2026-11-25T06:13+09:00"
-  },
-  {
    "id": "d9fc4651968e",
    "store": "애플뮤직",
    "artist": "WENDY (웬디)",
@@ -3544,7 +3544,7 @@
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.5,
+   "seconds": 1.4,
    "status": "ok",
    "found": 11,
    "fansign": 6,
@@ -3554,7 +3554,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.9,
+   "seconds": 1.4,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -3564,7 +3564,7 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 42.3,
+   "seconds": 49.1,
    "status": "ok",
    "found": 35,
    "fansign": 14,
@@ -3584,7 +3584,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 32.6,
+   "seconds": 35.0,
    "status": "ok",
    "found": 64,
    "fansign": 50,
@@ -3594,7 +3594,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.6,
+   "seconds": 0.5,
    "status": "ok",
    "found": 25,
    "fansign": 11,
@@ -3614,7 +3614,7 @@
   {
    "store": "사운드웨이브",
    "url": "https://sound-wave.co.kr/board/event-notice/1/",
-   "seconds": 1.6,
+   "seconds": 1.4,
    "status": "ok",
    "found": 15,
    "fansign": 7,
@@ -3624,7 +3624,7 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.5,
+   "seconds": 1.1,
    "status": "ok",
    "found": 12,
    "fansign": 12,
@@ -3634,7 +3634,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.3,
+   "seconds": 1.1,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -3654,7 +3654,7 @@
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 1.9,
+   "seconds": 1.3,
    "status": "ok",
    "found": 20,
    "fansign": 13,
@@ -3664,7 +3664,7 @@
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 0.9,
+   "seconds": 0.2,
    "status": "ok",
    "found": 19,
    "fansign": 1,
@@ -3674,7 +3674,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 2.7,
+   "seconds": 1.2,
    "status": "empty",
    "found": 0,
    "fansign": 0,
@@ -3684,7 +3684,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 1.8,
+   "seconds": 3.5,
    "status": "ok",
    "found": 7,
    "fansign": 4,
@@ -3694,7 +3694,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 38.9,
+   "seconds": 53.1,
    "status": "ok",
    "found": 40,
    "fansign": 24,
@@ -3704,7 +3704,7 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 4.4,
+   "seconds": 2.7,
    "status": "empty",
    "found": 305,
    "fansign": 0,
@@ -3717,7 +3717,7 @@
    "seconds": 0,
    "status": "pc",
    "count": 6,
-   "message": "PC에서 수집 (2026-11-25T15:53+09:00)"
+   "message": "PC에서 수집 (2026-11-25T17:00+09:00)"
   }
  ]
 }
