@@ -1,0 +1,18 @@
+# 에버라인 차단 원인 확인 — 손으로만 실행. 결과는 실행 화면의 알림(notice)으로 남긴다.
+name: everline-check
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 에버라인 열어 보기
+        env:
+          PYTHONUTF8: "1"
+        run: python .github/everline_check.py
