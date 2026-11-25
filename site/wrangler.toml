@@ -1,0 +1,8 @@
+# 팬싸 레이더 웹 화면 (정적 파일만 — 코드 실행 없음). 배포: XDG_CONFIG_HOME=../.cf npx wrangler deploy (site 폴더에서)
+name = "fansign-radar"
+compatibility_date = "2026-11-01"
+account_id = "9c7f72a88bee1d098ea6cd70bc87adcf"
+workers_dev = true
+
+[assets]
+directory = "../web"

@@ -1,7 +1,13 @@
 "use strict";
 const $ = (s, el = document) => el.querySelector(s);
 const WEEK = "일월화수목금토";
-const STATUS_TEXT = { ok: "", empty: "진행 팬싸 없음", blocked: "접속 막힘", error: "접속 실패", parse_error: "목록 못 읽음" };
+const STATUS_TEXT = { ok: "", empty: "진행 팬싸 없음", blocked: "접속 막힘", error: "접속 실패", parse_error: "목록 못 읽음", pc: "" };
+// 이 PC(127.0.0.1:8771)에서 열면 PC 서버(api), 웹(pages.dev)에서 열면 GitHub에 저장된 서버 결과를 바로 읽는다
+const LOCAL = /^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+const EVENTS_URL = "https://raw.githubusercontent.com/zerotoeighty/fansign-radar/data/events.json";
+const BOT = "fansign_radar_bot";
+const BOT_API = "https://fansign-radar-bot.fansign-radar.workers.dev";
+const FAV_KEY = "fr-favorites";
 
 const state = {
   data: null, events: [], config: { favorites: [], telegram: {} },
@@ -47,14 +53,25 @@ function inTab(e) {
 function isNew(ev) { return ev.first_seen && !ev.first_seen.startsWith("base") && (Date.now() - new Date(ev.first_seen)) < 86400000; }
 
 // ───────── 불러오기 ─────────
+function localFavs() { try { return JSON.parse(localStorage.getItem(FAV_KEY) || "[]"); } catch { return []; } }
 async function load() {
   try {
-    const data = await api("/api/events");
-    state.data = data; state.events = data.events || []; state.config = data.config || state.config;
-    renderAll();
-    if (data.running) pollUntilDone();
+    if (LOCAL) {
+      const data = await api("/api/events");
+      state.data = data; state.events = data.events || []; state.config = data.config || state.config;
+      renderAll();
+      if (data.running) pollUntilDone();
+    } else {
+      const r = await fetch(EVENTS_URL, { cache: "no-store" });
+      if (!r.ok) throw new Error(r.status);
+      const data = await r.json();
+      state.data = data; state.events = data.events || []; state.config = { favorites: localFavs() };
+      renderAll();
+    }
   } catch (e) {
-    $("#list").innerHTML = `<div class="empty">서버에 연결하지 못했어요. 「팬싸 레이더 열기.bat」로 다시 켜 주세요.</div>`;
+    $("#list").innerHTML = LOCAL
+      ? `<div class="empty">서버에 연결하지 못했어요. 「팬싸 레이더 열기.bat」로 다시 켜 주세요.</div>`
+      : `<div class="empty">팬싸 목록을 불러오지 못했어요. 잠시 뒤에 새로고침해 주세요.</div>`;
   }
 }
 
@@ -271,64 +288,65 @@ function renderFavs() {
   $("#favOnly").classList.toggle("on", state.favOnly);
 }
 async function saveFavs(favs) {
-  const cfg = await api("/api/favorites", { favorites: favs });
-  state.config = cfg; renderFavs(); renderList(); renderTelegram();
+  favs = [...new Set(favs)];
+  if (LOCAL) state.config = await api("/api/favorites", { favorites: favs });
+  else { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); state.config = { ...state.config, favorites: favs }; }
+  renderFavs(); renderList(); renderTelegram();
 }
 
-// ───────── 텔레그램 ─────────
-function notifyScopeHtml() {
-  const favN = (state.config.favorites || []).length;
-  const favOnly = state.config.notify !== "all";
-  return `<div class="scope">
-      <p class="scope-h">알림 받을 공지</p>
-      <label><input type="radio" name="notify" value="favorites" ${favOnly ? "checked" : ""}> <b>관심 아티스트만</b> ${favN ? `<span class="hint" style="margin:0">(${favN}명)</span>` : ""}</label>
-      <label><input type="radio" name="notify" value="all" ${!favOnly ? "checked" : ""}> 새 팬싸 전부</label>
-      <label><input type="checkbox" id="tgOverseas" ${state.config.include_overseas_alert ? "checked" : ""}> 해외 행사도 받기</label>
-      ${favOnly && !favN ? `<p class="warn">관심 아티스트가 비어 있어서 지금은 알림이 오지 않아요. 위에서 아티스트를 추가해 주세요.</p>` : ""}
-      <p class="hint" style="margin:6px 0 0">새로 올라온 응모 중 공지만 보내요. 마감된 공지는 보내지 않아요.</p>
-    </div>`;
+// ───────── 텔레그램 봇 안내 ─────────
+// 관심 아티스트를 봇에 맡겨 두고 받은 코드로 t.me/봇?start=코드 → 봇에서 「시작」만 누르면 등록된다
+const tgLink = { key: "", code: "" };
+async function botLink(favs) {
+  const key = JSON.stringify(favs);
+  if (!favs.length) return `https://t.me/${BOT}`;
+  if (tgLink.key !== key) {
+    tgLink.key = key; tgLink.code = "";
+    try {
+      const r = await fetch(`${BOT_API}/link`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ artists: favs }) });
+      tgLink.code = (await r.json()).code || "";
+    } catch { tgLink.code = ""; }
+  }
+  return tgLink.code ? `https://t.me/${BOT}?start=${tgLink.code}` : `https://t.me/${BOT}`;
 }
 
 function renderTelegram() {
-  const tg = state.config.telegram || {};
-  const body = $("#tgBody");
-  if (!tg.has_token) {
-    body.innerHTML = `<p class="hint">새 공지가 올라오면 휴대폰으로 알려 줘요. 처음 한 번만 설정하면 돼요.</p>
-      <ol class="steps">
-        <li>텔레그램에서 <b>@BotFather</b>를 찾아 <code>/newbot</code>을 보내요. 봇 이름과 아이디(끝이 <code>bot</code>)를 정하면 <b>토큰</b>을 줘요.</li>
-        <li>받은 토큰을 아래에 붙여 넣어요.
-          <form id="tgTokenForm" class="addrow" style="margin-top:6px"><input id="tgToken" placeholder="1234567890:AA…" autocomplete="off"><button type="submit">연결</button></form>
-        </li>
-      </ol>
-      <p class="hint">토큰은 이 PC의 config.json에만 저장돼요.</p>${notifyScopeHtml()}`;
-    return;
-  }
-  if (!tg.connected) {
-    body.innerHTML = `<p class="tgstate">봇 <b>@${esc(tg.bot)}</b> 확인됨</p>
-      <ol class="steps" start="3">
-        <li><a href="https://t.me/${esc(tg.bot)}" target="_blank" rel="noopener">t.me/${esc(tg.bot)}</a>을 열고 <b>시작(/start)</b>을 눌러요.</li>
-        <li>그다음 아래 버튼을 눌러요.</li>
-      </ol>
-      <div class="tgrow"><button class="btn" id="tgFind" type="button">채팅 찾기</button><button class="btn sub" id="tgReset" type="button">처음부터</button></div>${notifyScopeHtml()}`;
-    return;
-  }
-  body.innerHTML = `<p class="tgstate"><b>● 연결됨</b> · ${esc(tg.chat)} (@${esc(tg.bot)})</p>
-    <label class="radio" style="flex-direction:row"><input type="checkbox" id="tgEnabled" ${tg.enabled ? "checked" : ""}> 알림 켜기</label>
-    ${notifyScopeHtml()}
-    <div class="tgrow"><button class="btn" id="tgTest" type="button">테스트 알림</button><button class="btn sub" id="tgReset" type="button">연결 해제</button></div>
-    <p class="hint" style="margin-top:10px">1시간마다 수집해요.</p>`;
+  const favs = state.config.favorites || [];
+  const addCmd = favs.length ? `/add ${favs.join(", ")}` : "/add 아이브, NMIXX";
+  $("#tgBody").innerHTML = `<p class="hint">새 팬싸 공지가 올라오면 텔레그램 봇이 바로 알려 드려요. 관심 아티스트만 골라 받을 수 있어요.</p>
+    <a class="btn tgbtn" id="tgOpen" href="https://t.me/${BOT}" target="_blank" rel="noopener">${favs.length ? `관심 아티스트 ${favs.length}명으로 알림 받기` : "텔레그램에서 알림 받기"}</a>
+    <ol class="steps">
+      <li>버튼을 누르면 텔레그램에서 <b>@${BOT}</b>이 열려요. <b>시작</b>을 눌러 주세요.</li>
+      ${favs.length
+        ? `<li>위 관심 아티스트가 봇에 바로 등록돼요. 나중에 바꾸려면 봇에서 <code>/list</code>를 보내요.</li>`
+        : `<li>받고 싶은 아티스트를 봇에 보내요. 예: <code>/add 아이브, NMIXX</code><br><span class="hint" style="margin:0">위에서 관심 아티스트를 먼저 고르면 시작만 눌러도 등록돼요.</span></li>`}
+    </ol>
+    <div class="tgcmd"><code id="tgCmd">${esc(addCmd)}</code><button type="button" class="btn sub" id="tgCopy">복사</button></div>
+    <details class="tghelp"><summary>봇 명령어</summary>
+      <ul>
+        <li><code>/add 이름</code> 아티스트 추가 (쉼표로 여러 명)</li>
+        <li><code>/list</code> 내 목록 · 버튼으로 빼기</li>
+        <li><code>/del 이름</code> 빼기</li>
+        <li><code>/now</code> 지금 응모 중인 아티스트</li>
+        <li><code>/all</code> 모든 새 공지 받기 (켜기/끄기)</li>
+        <li><code>/overseas</code> 해외 팬싸도 받기 (켜기/끄기)</li>
+        <li><code>/stop</code> 알림 그만 받기</li>
+      </ul>
+    </details>
+    <p class="hint" style="margin-top:10px">1시간마다 새 공지를 확인해요. 응모가 끝난 공지는 보내지 않아요.</p>`;
+  botLink(favs).then(href => { const a = $("#tgOpen"); if (a) a.href = href; });
 }
 
 // ───────── 판매처 상태 ─────────
 function renderStores() {
   const src = state.data?.sources || [];
   $("#storeList").innerHTML = src.map(s => {
-    const label = s.status === "ok" ? `${s.count}건` : s.carried ? `${STATUS_TEXT[s.status]} · 이전 ${s.carried}건 유지` : STATUS_TEXT[s.status] || s.status;
+    const label = s.status === "ok" || s.status === "pc" ? `${s.count}건` : s.carried ? `${STATUS_TEXT[s.status]} · 이전 ${s.carried}건 유지` : STATUS_TEXT[s.status] || s.status;
     const bad = ["blocked", "error", "parse_error"].includes(s.status);
     return `<li title="${esc(s.message || "")}"><span class="dot st-${s.status}"></span><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.store)}</a><span class="n${bad ? " bad" : ""}">${esc(label)}</span></li>`;
   }).join("");
   const d = state.data;
-  $("#tookLine").textContent = d?.took_seconds ? `마지막 수집 ${d.took_seconds}초 · 1시간마다 자동` : "";
+  $("#tookLine").textContent = d?.checked_at ? "1시간마다 자동으로 확인해요." : "";
 }
 
 // ───────── 새로고침 ─────────
@@ -375,10 +393,11 @@ document.addEventListener("click", async (ev) => {
     } else if (t.id === "favOnly") { state.favOnly = !state.favOnly; t.classList.toggle("on", state.favOnly); renderList(); }
     else if (t.id === "publicOnly") { state.publicOnly = !state.publicOnly; t.classList.toggle("on", state.publicOnly); renderList(); }
     else if (t.id === "hideOverseas") { state.hideOverseas = !state.hideOverseas; localStorage.setItem("fr-hide-overseas", state.hideOverseas ? "1" : "0"); t.classList.toggle("on", state.hideOverseas); renderList(); }
-    else if (t.id === "refreshBtn") { await api("/api/collect", {}); pollUntilDone(); }
-    else if (t.id === "tgFind") { t.disabled = true; state.config = await api("/api/telegram/find", {}); renderTelegram(); toast("연결됐어요! 텔레그램을 확인해 보세요."); }
-    else if (t.id === "tgTest") { t.disabled = true; await api("/api/telegram/test", {}); toast("테스트 알림을 보냈어요."); t.disabled = false; }
-    else if (t.id === "tgReset") { state.config = await api("/api/telegram/reset", {}); renderTelegram(); }
+    else if (t.id === "refreshBtn") {
+      if (LOCAL) { await api("/api/collect", {}); pollUntilDone(); }
+      else { t.disabled = true; await load(); t.disabled = false; toast("최신 목록을 불러왔어요."); }
+    }
+    else if (t.id === "tgCopy") { await navigator.clipboard.writeText($("#tgCmd").textContent); toast("복사했어요. 봇 대화창에 붙여 넣어 주세요."); }
   } catch (e) { toast(e.message); t.disabled = false; }
 });
 
@@ -386,9 +405,6 @@ document.addEventListener("change", async (ev) => {
   const t = ev.target;
   try {
     if (t.id === "storeSel") { state.store = t.value; renderList(); }
-    else if (t.name === "notify") { state.config = await api("/api/settings", { notify: t.value }); renderTelegram(); }
-    else if (t.id === "tgOverseas") { state.config = await api("/api/settings", { include_overseas_alert: t.checked }); }
-    else if (t.id === "tgEnabled") { state.config = await api("/api/settings", { enabled: t.checked }); toast(t.checked ? "알림을 켰어요." : "알림을 껐어요."); }
   } catch (e) { toast(e.message); }
 });
 
@@ -401,13 +417,8 @@ document.addEventListener("submit", async (ev) => {
       if (!v.length) return;
       await saveFavs([...(state.config.favorites || []), ...v]);
       $("#favInput").value = "";
-    } else if (f.id === "tgTokenForm") {
-      const token = $("#tgToken").value.trim();
-      if (!token) return;
-      state.config = await api("/api/telegram/token", { token });
-      renderTelegram(); toast("봇을 확인했어요.");
     }
-  } catch (e) { toast(e.message.includes("Unauthorized") ? "토큰이 맞지 않아요. 다시 확인해 주세요." : e.message); }
+  } catch (e) { toast(e.message); }
 });
 
 $("#q").addEventListener("input", e => { state.q = e.target.value; renderList(); });

@@ -134,7 +134,7 @@ select{height:40px;border:1px solid var(--line);background:var(--card);border-ra
 
 .subs{grid-column:1;list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:3px}
 .subs li{font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:baseline;min-width:0}
-.subs a{text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.subs a{min-width:0;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .subs a:hover{color:var(--hot);text-decoration:underline}
 .subs .k{flex:none;font-size:11.5px;font-weight:700;color:var(--mute)}
 .due .sub.ocr{color:#9a8f6e;font-size:11px;cursor:help}
@@ -146,7 +146,7 @@ select{height:40px;border:1px solid var(--line);background:var(--card);border-ra
 .tabs button b{font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
 .tabs .tn{font-size:22px;font-weight:800;letter-spacing:-.03em}
 .tabs small{grid-column:1/-1;font-size:12.5px;color:var(--mute)}
-.tabs .tabnew{justify-self:end;font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--new);color:#2b3300;border:1px solid #9fbf00}
+.tabs .tabnew{justify-self:end;white-space:nowrap;font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--new);color:#2b3300;border:1px solid #9fbf00}
 .tabs button.on{border-color:var(--ink);background:var(--ink);color:var(--paper)}
 .tabs button.on b,.tabs button.on .tn{color:var(--paper)}
 .tabs button.on small{color:#bdb8ad}
@@ -247,3 +247,21 @@ select{height:40px;border:1px solid var(--line);background:var(--card);border-ra
 #publicOnly.on{background:var(--pub);border-color:var(--pub);color:#fff}
 .cchip.c-pub{outline:2px solid var(--pub);outline-offset:-2px}
 .legend .c-pubs{background:var(--card);color:var(--pub);border:2px solid var(--pub)}
+/* 텔레그램 봇 안내 */
+.tgbtn{display:flex;align-items:center;justify-content:center;gap:8px;height:44px;margin:4px 0 12px;text-decoration:none;border-radius:12px;font-size:14px;background:#2aa3e0;color:#fff}
+.tgbtn::before{content:"";width:18px;height:18px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.2c.4-.4-.1-.6-.6-.2L6.3 13 1.5 11.5c-1-.3-1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z'/%3E%3C/svg%3E") center/contain no-repeat}
+.tgbtn:hover{background:#1f8fc7}
+.tgcmd{display:flex;gap:6px;align-items:center;margin:2px 0 10px}
+.tgcmd code{flex:1;font-family:inherit;min-width:0;font-size:12.5px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:9px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tghelp{font-size:13px;color:var(--ink2)}
+.tghelp summary{cursor:pointer;font-weight:700;color:var(--ink)}
+.tghelp ul{margin:8px 0 0;padding-left:18px}
+.tghelp li{margin-bottom:5px}
+.tghelp code{font-size:12px;background:var(--paper);padding:1px 5px;border-radius:5px}
+.list,.card,.subs{min-width:0}
+/* 휴대폰: 봇 안내가 맨 아래라 위에 바로 가기 띠 */
+.botbar{display:none}
+@media (max-width:980px){
+  .botbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 0;padding:12px 14px;border-radius:14px;background:#e8f5fc;border:1px solid #bfe3f5;color:var(--ink);text-decoration:none;font-size:14px;font-weight:700}
+  .botbar span{font-size:12.5px;font-weight:600;color:#1f8fc7;white-space:nowrap}
+}

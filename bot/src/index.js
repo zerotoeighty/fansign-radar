@@ -81,6 +81,18 @@ async function handleMessage(env, msg) {
   const arg = m ? m[2].trim() : text;
   const sub = await getSub(env, chat);
 
+  if (cmd === "start" && /^[A-Za-z0-9]{6,16}$/.test(arg)) {
+    const linked = await env.SUBS.get(`link:${arg}`, "json");
+    if (linked && linked.length) {
+      const have = new Set(sub.artists.map((a) => a.toLowerCase()));
+      const added = linked.filter((n) => !have.has(n.toLowerCase()));
+      sub.artists = [...sub.artists, ...added].slice(0, MAX_ARTISTS);
+      await putSub(env, chat, { ...sub, joined: sub.joined || new Date().toISOString() });
+      await say(env, chat, HELP);
+      return say(env, chat, `✅ 웹에서 고른 관심 아티스트를 등록했어요${added.length ? `: ${added.map(esc).join(", ")}` : " (이미 다 있어요)"}
+지금 ${sub.artists.length}팀을 받아요. (/list)`);
+    }
+  }
   if (cmd === "start" || cmd === "help") {
     if (!sub.joined) await putSub(env, chat, { ...sub, joined: new Date().toISOString() });
     return say(env, chat, HELP);
@@ -153,14 +165,15 @@ async function allSubscribers(env) {
 }
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json; charset=utf-8" } });
-const keyOk = (req, env) => req.headers.get("authorization") === `Bearer ${env.EXPORT_KEY}`;
+// 비밀 값이 비어 있으면(다른 이름으로 잘못 배포된 사본 등) 무조건 거절
+const keyOk = (req, env) => !!env.EXPORT_KEY && env.EXPORT_KEY.length >= 20 && req.headers.get("authorization") === `Bearer ${env.EXPORT_KEY}`;
 
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     // 텔레그램 → 봇
     if (url.pathname === "/telegram" && req.method === "POST") {
-      if (req.headers.get("x-telegram-bot-api-secret-token") !== env.WEBHOOK_SECRET) return new Response("forbidden", { status: 403 });
+      if (!env.WEBHOOK_SECRET || req.headers.get("x-telegram-bot-api-secret-token") !== env.WEBHOOK_SECRET) return new Response("forbidden", { status: 403 });
       const up = await req.json();
       try {
         if (up.message) await handleMessage(env, up.message);
@@ -169,6 +182,21 @@ export default {
         console.log("error", e && e.stack);
       }
       return new Response("ok");
+    }
+    // 웹 → 관심 아티스트를 잠시 맡겨 두고 코드 받기 (t.me/봇?start=코드)
+    if (url.pathname === "/link") {
+      const cors = { "access-control-allow-origin": "*", "access-control-allow-methods": "POST, OPTIONS", "access-control-allow-headers": "content-type" };
+      if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+      if (req.method !== "POST") return new Response("method", { status: 405, headers: cors });
+      let artists = [];
+      try { artists = (await req.json()).artists || []; } catch { /* 빈 값 */ }
+      artists = [...new Set(artists.map((a) => String(a).trim().replace(/\s+/g, " ")).filter((a) => a && a.length <= 40))].slice(0, MAX_ARTISTS);
+      if (!artists.length) return new Response(JSON.stringify({ error: "empty" }), { status: 400, headers: { ...cors, "content-type": "application/json" } });
+      const abc = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
+      const rnd = crypto.getRandomValues(new Uint8Array(10));
+      const code = [...rnd].map((b) => abc[b % abc.length]).join("");
+      await env.SUBS.put(`link:${code}`, JSON.stringify(artists), { expirationTtl: 30 * 86400 });
+      return new Response(JSON.stringify({ code }), { headers: { ...cors, "content-type": "application/json" } });
     }
     // 수집 서버 → 구독 목록
     if (url.pathname === "/subscribers") {
