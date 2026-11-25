@@ -1,10 +1,11 @@
 {
  "https://everlineshop.com/events/a7503be7-7943-45e3-88ab-173442953952": {
-  "_t": 1795553818.5647957,
+  "_t": 1795618868.3385057,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false,
   "formats": [
