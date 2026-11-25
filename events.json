@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-26T02:49+09:00",
- "took_seconds": 37.1,
+ "checked_at": "2026-11-26T03:50+09:00",
+ "took_seconds": 65.6,
  "events": [
   {
    "id": "9e9e8a52c5c1",
@@ -612,6 +612,32 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "b433751538c4",
+   "store": "점프업이엔티",
+   "artist": "ODD YOUTH (오드 유스)",
+   "title": "[11/28 EVENT] 오드유스 (ODD YOUTH) - 3rd Single [can't go back] MEET&CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2123295203960496154",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-28",
+   "apply_start": null,
+   "apply_end": "2026-11-22T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/JumpUp_ent/status/2123295203960496154",
+   "status": "closed",
+   "artist_raw": "오드유스 (ODD YOUTH)",
+   "first_seen": "base@2026-11-25T06:20+09:00"
+  },
+  {
    "id": "94ebdac3afdc",
    "store": "사운드웨이브",
    "artist": "TUNEXX (튜넥스)",
@@ -902,6 +928,32 @@
    "status": "closed",
    "artist_raw": "키빗업 (KEYVITUP)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "455f21ce5a27",
+   "store": "점프업이엔티",
+   "artist": "NouerA (누에라)",
+   "title": "누에라 (NouerA) - 4th Mini Album [.exe] MEET&CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2122208242269073746",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-29",
+   "apply_start": null,
+   "apply_end": "2026-11-18T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/JumpUp_ent/status/2122208242269073746",
+   "status": "closed",
+   "artist_raw": "누에라 (NouerA)",
+   "first_seen": "base@2026-11-25T06:20+09:00"
   },
   {
    "id": "8783556ce68f",
@@ -1965,6 +2017,32 @@
    "status": "closed",
    "artist_raw": "언차일드 (UNCHILD)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "ccf44703bb58",
+   "store": "점프업이엔티",
+   "artist": "KEYVITUP (키빗업)",
+   "title": "KEYVITUP(키빗업) 2ND EP [NA-GARI] MEET& CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2123302754466550184",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-05",
+   "apply_start": null,
+   "apply_end": "2026-11-19T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/JumpUp_ent/status/2123302754466550184",
+   "status": "closed",
+   "artist_raw": "KEYVITUP(키빗업)",
+   "first_seen": "base@2026-11-25T06:20+09:00"
   },
   {
    "id": "915ba7469317",
@@ -3494,7 +3572,7 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.6,
+   "seconds": 1.0,
    "status": "ok",
    "found": 12,
    "fansign": 9,
@@ -3504,7 +3582,7 @@
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.6,
+   "seconds": 1.0,
    "status": "empty",
    "found": 11,
    "fansign": 6,
@@ -3514,7 +3592,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.7,
+   "seconds": 1.1,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -3524,19 +3602,17 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 33.5,
-   "status": "parse_error",
-   "found": 0,
-   "fansign": 0,
+   "seconds": 46.7,
+   "status": "ok",
+   "found": 35,
+   "fansign": 14,
    "empty_ok": false,
-   "carried": 5,
-   "count": 5,
-   "message": "목록 구조를 못 찾았어요 (사이트가 바뀌었을 수 있어요)"
+   "count": 5
   },
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 2.0,
+   "seconds": 1.0,
    "status": "ok",
    "found": 10,
    "fansign": 8,
@@ -3546,7 +3622,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 26.2,
+   "seconds": 35.0,
    "status": "ok",
    "found": 64,
    "fansign": 50,
@@ -3556,7 +3632,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.6,
+   "seconds": 0.5,
    "status": "ok",
    "found": 21,
    "fansign": 9,
@@ -3566,17 +3642,17 @@
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.4,
+   "seconds": 1.0,
    "status": "ok",
    "found": 9,
    "fansign": 4,
    "empty_ok": false,
-   "count": 7
+   "count": 10
   },
   {
    "store": "사운드웨이브",
    "url": "https://sound-wave.co.kr/board/event-notice/1/",
-   "seconds": 1.6,
+   "seconds": 1.2,
    "status": "ok",
    "found": 15,
    "fansign": 7,
@@ -3586,7 +3662,7 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.3,
+   "seconds": 1.2,
    "status": "ok",
    "found": 12,
    "fansign": 12,
@@ -3596,7 +3672,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.1,
+   "seconds": 0.9,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -3606,7 +3682,7 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 1.3,
+   "seconds": 1.4,
    "status": "ok",
    "found": 66,
    "fansign": 29,
@@ -3616,7 +3692,7 @@
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 1.6,
+   "seconds": 1.3,
    "status": "ok",
    "found": 20,
    "fansign": 13,
@@ -3626,7 +3702,7 @@
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 1.1,
+   "seconds": 0.6,
    "status": "ok",
    "found": 19,
    "fansign": 1,
@@ -3636,7 +3712,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 2.6,
+   "seconds": 1.2,
    "status": "empty",
    "found": 0,
    "fansign": 0,
@@ -3646,7 +3722,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 1.8,
+   "seconds": 3.0,
    "status": "ok",
    "found": 4,
    "fansign": 2,
@@ -3656,7 +3732,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 30.3,
+   "seconds": 44.3,
    "status": "ok",
    "found": 37,
    "fansign": 22,
@@ -3666,7 +3742,7 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 3.6,
+   "seconds": 2.4,
    "status": "empty",
    "found": 305,
    "fansign": 0,
@@ -3676,7 +3752,7 @@
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 2.5,
+   "seconds": 2.3,
    "status": "ok",
    "found": 14,
    "fansign": 11,
@@ -3686,10 +3762,10 @@
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 14.4,
+   "seconds": 17.5,
    "status": "ok",
-   "found": 7,
-   "fansign": 7,
+   "found": 12,
+   "fansign": 12,
    "empty_ok": true,
    "count": 4
   }
