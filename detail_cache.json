@@ -12,11 +12,12 @@
   ]
  },
  "https://everlineshop.com/events/2929c869-87c8-4410-bf71-d8fac6e0af5e": {
-  "_t": 1795553818.5637956,
+  "_t": 1795604725.1980853,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false,
   "formats": [
@@ -24,11 +25,12 @@
   ]
  },
  "https://everlineshop.com/events/c2aaf813-f03f-4051-b4e8-a5215343930b": {
-  "_t": 1795553818.5617952,
+  "_t": 1795604725.19204,
   "gone": false,
   "start": "2026-11-23T00:00+09:00",
   "end": "2026-11-25T23:59+09:00",
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false,
   "formats": [
@@ -37,11 +39,12 @@
   ]
  },
  "https://everlineshop.com/events/b252d0dd-73a7-4f1f-b082-427ce25fe3c6": {
-  "_t": 1795553818.5617952,
+  "_t": 1795604725.1940553,
   "gone": false,
   "start": "2026-11-22T00:00+09:00",
   "end": "2026-11-25T23:59+09:00",
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false,
   "formats": [
@@ -50,11 +53,12 @@
   ]
  },
  "https://everlineshop.com/events/8ce80762-f834-42d4-8d3c-ebb3ab58672b": {
-  "_t": 1795553818.5637956,
+  "_t": 1795604725.1960678,
   "gone": false,
   "start": null,
   "end": null,
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false,
   "formats": [
@@ -83,11 +87,12 @@
   "last": false
  },
  "https://everlineshop.com/events/b5342c6f-1e35-41ef-91ac-ce98fb1ab56f": {
-  "_t": 1795553818.5617952,
+  "_t": 1795604725.1915472,
   "gone": false,
   "start": "2026-11-23T00:00+09:00",
   "end": "2026-11-25T23:59+09:00",
   "winner": null,
+  "public": false,
   "venue": null,
   "last": false,
   "formats": [
