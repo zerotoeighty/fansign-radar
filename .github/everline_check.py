@@ -1,4 +1,6 @@
 """서버에서 에버라인을 여러 방식으로 열어 보고, 응답 상태·헤더·본문 앞부분을 알림으로 남긴다."""
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import requests
 from radar.common import UA
 
