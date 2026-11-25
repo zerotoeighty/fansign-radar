@@ -1,0 +1,7 @@
+config.json
+data/
+__pycache__/
+*.bat
+*.pyw
+CLAUDE.md
+웹_빌드_계획.md

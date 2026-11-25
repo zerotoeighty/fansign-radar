@@ -1,0 +1,45 @@
+# 2단계 윈도우 서버 테스트 — 손으로만 실행(Actions 탭 → server-test → Run workflow).
+# 알림은 보내지 않고(--no-notify), 결과(events.json, 로그, OCR 점검)를 내려받을 수 있게 남긴다.
+name: server-test
+on:
+  workflow_dispatch:
+jobs:
+  collect:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 패키지 설치
+        run: pip install -r requirements.txt
+      - name: 한국어 OCR 설치
+        shell: powershell
+        run: |
+          $c = Get-WindowsCapability -Online -Name "Language.OCR~~~ko-KR*"
+          $c | Format-List Name, State
+          if ($c.State -ne 'Installed') { Add-WindowsCapability -Online -Name $c.Name | Format-List }
+      - name: OCR 엔진 점검
+        shell: powershell
+        run: |
+          $null = [Windows.Media.Ocr.OcrEngine, Windows.Foundation, ContentType = WindowsRuntime]
+          "사용 가능한 OCR 언어: " + (([Windows.Media.Ocr.OcrEngine]::AvailableRecognizerLanguages | % LanguageTag) -join ', ') | Tee-Object -FilePath ocr_check.txt
+          $ko = [Windows.Media.Ocr.OcrEngine]::TryCreateFromLanguage((New-Object Windows.Globalization.Language 'ko'))
+          "한국어 엔진: " + ($(if ($ko) { '있음' } else { '없음' })) | Tee-Object -FilePath ocr_check.txt -Append
+          "크롬: " + (Test-Path "C:\Program Files\Google\Chrome\Application\chrome.exe") | Tee-Object -FilePath ocr_check.txt -Append
+      - name: 수집 (알림 없이)
+        env:
+          PYTHONUTF8: "1"
+        run: python -m radar.collect --no-notify
+        continue-on-error: true
+      - name: 결과 남기기
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-test-result
+          path: |
+            data/events.json
+            data/collect.log
+            data/ocr_cache.json
+            ocr_check.txt
