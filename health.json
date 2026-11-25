@@ -8,9 +8,8 @@
   "alerted": false
  },
  "헬로라이브": {
-  "fails": 1,
-  "alerted": false,
-  "last": "목록 구조를 못 찾았어요 (사이트가 바뀌었을 수 있어요)"
+  "fails": 0,
+  "alerted": false
  },
  "뮤직아트": {
   "fails": 0,
