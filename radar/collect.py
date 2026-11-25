@@ -373,6 +373,9 @@ def ocr_pass(events: list[dict], now: datetime, allow_new: bool = True) -> int:
         if ev["store"] in OCR_SKIP_STORES or ev.get("_gone") or ev.get("_pc") or not is_live(ev, now)[0]                 or re.search(r"//(?:x|twitter)\.com/", ev["url"]):   # X에만 있는 공지(트윗 링크)는 이미지 없음
             continue
         if ev.get("apply_end") and not need_fmt and ev["url"] in cache:
+            # 응모 기간·형식은 이미 있어도 행사일·장소는 이미지에만 있을 수 있다(프롬스토어) → 저장된 결과로 채움
+            apply_ocr(ev, _ocr_sched_from_cache(cache[ev["url"]]))
+            from_cache += 1
             continue
         hit = cache.get(ev["url"])
         if hit and ("formats" not in hit or "last" not in hit or "public" not in hit):
