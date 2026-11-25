@@ -381,13 +381,15 @@ function renderTelegram() {
         <li><code>/add 이름</code> 아티스트 추가 (쉼표로 여러 명)</li>
         <li><code>/list</code> 내 목록 · 버튼으로 빼기</li>
         <li><code>/del 이름</code> 빼기</li>
+        <li><code>/today</code> 오늘 마감·발표하는 내 아티스트</li>
         <li><code>/now</code> 지금 응모 중인 아티스트</li>
         <li><code>/all</code> 모든 새 공지 받기 (켜기/끄기)</li>
         <li><code>/overseas</code> 해외 팬싸도 받기 (켜기/끄기)</li>
+        <li><code>/remind</code> 응모 마감·당첨자 발표 알림 (켜기/끄기)</li>
         <li><code>/stop</code> 알림 그만 받기</li>
       </ul>
     </details>
-    <p class="hint" style="margin-top:10px">1시간마다 새 공지를 확인해요. 응모가 끝난 공지는 보내지 않아요.</p>
+    <p class="hint" style="margin-top:10px">1시간마다 새 공지를 확인해요. 등록한 아티스트는 응모 마감 날과 당첨자 발표 날에도 한 번 더 알려 드려요.</p>
     <p class="hint">🔒 봇에 저장되는 건 텔레그램 채팅 ID와 등록한 아티스트뿐이에요. 봇에 <code>/stop</code>을 보내면 바로 지워져요.</p>`;
   botLink(favs).then(href => { const a = $("#tgOpen"); if (a) a.href = href; });
 }
