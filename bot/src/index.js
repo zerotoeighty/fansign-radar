@@ -22,6 +22,8 @@ const HELP = [
   "",
   "영문 이름은 단어 단위로 맞춰요 (IVE ≠ DRIVE). 한글은 띄어쓰기 상관없어요.",
   "새 공지는 매시 확인해요.",
+  "",
+  "🌐 전체 목록·캘린더: https://fansign-radar.pages.dev",
 ].join("\n");
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -223,7 +225,7 @@ export default {
         ],
       });
       await tg(env, "setMyDescription", { description:
-        "📡 팬싸 레이더\n음반 판매처 18곳의 팬사인회(대면·영상통화) 새 공지를, 원하는 아티스트만 골라 바로 알려 드려요.\n\n시작을 누르고 /add 아이브 처럼 아티스트를 등록해 보세요." })
+        "📡 팬싸 레이더\n음반 판매처 18곳의 팬사인회(대면·영상통화) 새 공지를, 원하는 아티스트만 골라 바로 알려 드려요.\n🌐 fansign-radar.pages.dev\n\n시작을 누르고 /add 아이브 처럼 아티스트를 등록해 보세요." })
       await tg(env, "setMyShortDescription", { short_description: "음반 판매처 18곳의 팬싸(대면·영상통화) 새 공지를 원하는 아티스트만 골라 알려 드려요." })
       const me = await tg(env, "getMe", {});
       return json({ webhook: hook, commands: cmds.ok, bot: me.result && me.result.username });

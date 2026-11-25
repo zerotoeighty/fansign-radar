@@ -1,8 +1,6 @@
-# 팬싸 레이더 웹 화면 (정적 파일만 — 코드 실행 없음). 배포: XDG_CONFIG_HOME=../.cf npx wrangler deploy (site 폴더에서)
+# 옛 웹 주소를 새 주소(fansign-radar.pages.dev)로 넘기는 워커. 웹 화면 배포는 CLAUDE.md 「웹 공개판」 참고 (Pages 직접 업로드).
 name = "fansign-radar"
+main = "redirect.js"
 compatibility_date = "2026-11-01"
 account_id = "9c7f72a88bee1d098ea6cd70bc87adcf"
 workers_dev = true
-
-[assets]
-directory = "../web"
