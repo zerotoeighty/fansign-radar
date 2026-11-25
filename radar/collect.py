@@ -487,6 +487,27 @@ def collect(notify: bool = True, pc_export: bool = False) -> dict:
             pass
 
 
+def _check_bot():
+    """서버: 알림 설정(Secrets)과 봇 구독자 수를 매번 로그에 남긴다 (값은 남기지 않음)."""
+    token, url, key = (os.environ.get(k, "") for k in ("TELEGRAM_TOKEN", "SUBS_URL", "SUBS_KEY"))
+    parts = [f"{k} {'있음' if v else '없음'}" for k, v in (("TELEGRAM_TOKEN", token), ("SUBS_KEY", key))]
+    if url and key:
+        try:
+            import requests
+            r = requests.get(url, headers={"Authorization": f"Bearer {key}"}, timeout=15)
+            parts.append(f"봇 구독자 {len(r.json()['subscribers'])}명" if r.ok else f"봇 응답 {r.status_code}")
+        except Exception as e:  # noqa: BLE001
+            parts.append(f"봇 확인 실패 {type(e).__name__}")
+    if token:
+        try:
+            import requests
+            me = requests.get(f"https://api.telegram.org/bot{token}/getMe", timeout=15).json()
+            parts.append(f"봇 @{me['result']['username']}" if me.get("ok") else "봇 토큰이 틀림")
+        except Exception as e:  # noqa: BLE001
+            parts.append(f"토큰 확인 실패 {type(e).__name__}")
+    log("  알림 설정: " + ", ".join(parts))
+
+
 def _load_pc_events() -> tuple[list[dict], dict]:
     """PC가 올린 에버라인 공지 (data/pc_everline.json)."""
     data = load_json(PC_EVERLINE, {})
@@ -506,6 +527,7 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
     elif CLOUD:
         todo = [s for s in SOURCES if s[0] not in PC_ONLY_STORES]
         log("서버 수집 시작")
+        _check_bot()
     else:
         todo = SOURCES
         log("수집 시작")
