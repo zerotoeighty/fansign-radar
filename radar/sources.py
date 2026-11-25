@@ -271,6 +271,76 @@ def aladin() -> Result:
     return res
 
 
+def firstmusic() -> Result:
+    """퍼스트뮤직(카페24): 「팬사인회 공지」 게시판. 응모 기간은 X(@1stmusicx) 글에서 채운다(xfeed)."""
+    url = "https://1stmusic.co.kr/board/팬사인회-공지/1002/"
+    res = _board(fetch(url), url, r"/article/[^/]+/1002/\d+")
+    res.items = [it for it in res.items if not re.search(r"필독|숙지|배송\s*안내|PRE-?ORDER", it["title"], re.I)]
+    return res
+
+
+FROMM_LINKS: dict[str, str] = {}   # bit.ly → 상품 주소 (한 번 푼 건 다시 안 풂)
+
+
+def fromm() -> Result:
+    """프롬스토어: 사이트 목록은 앱이라 못 읽음 → X(@fromm_store) 「… FANSIGN EVENT OPEN」 글이 공지.
+    글의 bit.ly 링크를 풀어 상품(번들) 주소로, 「📆 ~ 11.19 23:59」 = 응모 마감. 행사일·형식은 상품 이미지 OCR."""
+    import requests
+    from .common import nearest_year
+    from .xfeed import fetch_tweets, tweet_title
+    res = Result(empty_ok=True)
+    seen = set()
+    for t in fetch_tweets("fromm_store"):
+        text = t["text"]
+        if not re.search(r"FANSIGN|팬\s*사인|영상\s*통화|MEET\s*&", text, re.I) or not re.search(r"\bOPEN\b", text):
+            continue
+        m = re.search(r"https?://(?:bit\.ly|buly\.kr|han\.gl)/\S+|https?://store\.frommyarti\.com/\S+", text)
+        if not m:
+            continue
+        link = m.group(0).rstrip(").,")
+        if "frommyarti.com" not in link:
+            if link not in FROMM_LINKS:
+                try:
+                    FROMM_LINKS[link] = requests.head(link, allow_redirects=True, timeout=15).url
+                except Exception:  # noqa: BLE001
+                    FROMM_LINKS[link] = link
+            link = FROMM_LINKS[link]
+        link = link.split("?")[0]
+        if link in seen:
+            continue
+        seen.add(link)
+        res.found += 1
+        # 첫 줄: "#롱샷 #LNGSHOT EP [S.W.I.S.H.] MEET & VIDEO CALL FANSIGN EVENT OPEN🎉"
+        first = text.strip().splitlines()[0]
+        tags = re.findall(r"#([^\s#]+)", first)
+        ko = [x for x in tags if re.search(r"[가-힣]", x)]
+        en = [x for x in tags if not re.search(r"[가-힣]", x)]
+        # 해시태그 영문은 띄어쓰기가 빠져서(PARKWOOJIN) 한글 이름을 쓰고, 영문 짝은 이름 통일(artist.py)이 찾는다
+        artist = ko[0] if ko else (en[0] if en else None)
+        title = re.sub(r"#", "", tweet_title(text))
+        title = re.sub(r"\s*(?:OPEN|CLOSING).*$", "", title).strip()
+        end = None
+        e = re.search(r"~\s*(\d{1,2})\s*[./]\s*(\d{1,2})\s*(?:\([^)]{0,4}\))?\s*(\d{1,2}):(\d{2})", text)
+        if e:
+            mo, d, h, mi = map(int, e.groups())
+            try:
+                y = nearest_year(mo, d).year
+                end = datetime(y, mo, d, min(h, 23), min(mi, 59), tzinfo=KST)
+            except (ValueError, AttributeError):
+                end = None
+        posted = datetime.fromtimestamp(t["ts"], KST).date() if t.get("ts") else None
+        # 형식: 프롬스토어의 「MEET & CALL」 = 대면 + 영상통화, 「1:1 PHOTO & FANSIGN」 = 대면
+        head = title + " " + text[:600]
+        fm = []
+        if re.search(r"\bMEET\b|대면|(?<!CALL )FANSIGN(?!.*CALL)", head, re.I):
+            fm.append("대면")
+        if re.search(r"\bCALL\b|영상\s*통화|영통", head, re.I):
+            fm.append("영상통화")
+        res.items.append({"title": title, "url": link, "row": text, "artist": artist, "end": end,
+                          "posted": posted, "render_detail": True, "hint": text, "formats": fm})
+    return res
+
+
 # (가게 이름, 사이트에서 사람이 보는 목록 주소, 수집 함수)
 SOURCES = [
     ("에버라인", "https://everlineshop.com/events", everline),
@@ -291,4 +361,6 @@ SOURCES = [
     ("스타라이크뮤직", "https://starlikemusic.com/category/event/69/", starlike),
     ("후즈팬", "https://whosfanstore.com/collections/offevent", whosfan),
     ("알라딘", "https://www.aladin.co.kr/events/wevent_main_music.aspx", aladin),
+    ("퍼스트뮤직", "https://1stmusic.co.kr/board/팬사인회-공지/1002/", firstmusic),
+    ("프롬스토어", "https://x.com/fromm_store", fromm),
 ]

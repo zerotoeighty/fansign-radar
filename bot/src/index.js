@@ -12,7 +12,7 @@ const MAX_ARTISTS = 50;
 
 const HELP = [
   "📡 <b>팬싸 레이더</b>",
-  "음반 판매처 18곳의 팬사인회(대면·영상통화) 새 공지를 알려 드려요.",
+  "음반 판매처 20곳의 팬사인회(대면·영상통화) 새 공지를 알려 드려요.",
   "",
   "<b>쓰는 법</b>",
   "/add 아이브 — 아티스트 추가 (쉼표로 여러 명: <code>/add 아이브, NMIXX</code>)",
@@ -270,8 +270,8 @@ export default {
         ],
       });
       await tg(env, "setMyDescription", { description:
-        "📡 팬싸 레이더\n음반 판매처 18곳의 팬사인회(대면·영상통화) 새 공지를, 원하는 아티스트만 골라 바로 알려 드려요.\n🌐 fansign-radar.pages.dev\n\n시작을 누르고 /add 아이브 처럼 아티스트를 등록해 보세요." })
-      await tg(env, "setMyShortDescription", { short_description: "음반 판매처 18곳의 팬싸(대면·영상통화) 새 공지를 원하는 아티스트만 골라 알려 드려요." })
+        "📡 팬싸 레이더\n음반 판매처 20곳의 팬사인회(대면·영상통화) 새 공지를, 원하는 아티스트만 골라 바로 알려 드려요.\n🌐 fansign-radar.pages.dev\n\n시작을 누르고 /add 아이브 처럼 아티스트를 등록해 보세요." })
+      await tg(env, "setMyShortDescription", { short_description: "음반 판매처 20곳의 팬싸(대면·영상통화) 새 공지를 원하는 아티스트만 골라 알려 드려요." })
       const me = await tg(env, "getMe", {});
       return json({ webhook: hook, commands: cmds.ok, bot: me.result && me.result.username });
     }

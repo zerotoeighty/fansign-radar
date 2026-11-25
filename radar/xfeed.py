@@ -22,7 +22,7 @@ CACHE_TTL = 50 * 60      # 50분 (매시 수집 때 한 번씩만 새로 받기)
 PAGES = 3                # 한 번에 최근 약 60개 트윗
 
 # 판매처 → X 계정
-X_ACCOUNTS = {"점프업이엔티": "JumpUp_ent", "디어마이뮤즈": "dearmymuse_forU"}
+X_ACCOUNTS = {"점프업이엔티": "JumpUp_ent", "디어마이뮤즈": "dearmymuse_forU", "퍼스트뮤직": "1stmusicx"}
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; fansign-radar/1.0; personal use)"}
 

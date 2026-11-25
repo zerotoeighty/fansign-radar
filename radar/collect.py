@@ -106,6 +106,8 @@ def build_event(store: str, raw: dict) -> dict | None:
         fmt.append("대면")
     if kind["call"]:
         fmt.append("영상통화")
+    if raw.get("formats"):       # 판매처 규칙으로 정한 형식(프롬스토어 MEET & CALL 등)이 있으면 그걸로
+        fmt = list(raw["formats"])
     return {
         "id": hashlib.sha1(f"{store}|{url}|{title}".encode()).hexdigest()[:12],
         "store": store,
@@ -304,7 +306,7 @@ OCR_CACHE = os.path.join(DATA, "ocr_cache.json")
 OCR_PER_RUN = 80          # 한 번 수집할 때 새로 읽을 최대 공지 수
 OCR_IMAGES_PER_EVENT = 4
 OCR_SKIP_STORES = {"헬로라이브", "메이크스타"}   # 목록·API에 일정이 이미 있음
-RENDER_STORES = {"위드뮤", "후즈팬"}             # 상세 페이지도 크롬으로 열어야 함
+RENDER_STORES = {"위드뮤", "후즈팬", "프롬스토어"}             # 상세 페이지도 크롬으로 열어야 함
 
 
 def _ocr_sched_from_cache(hit: dict) -> dict:
