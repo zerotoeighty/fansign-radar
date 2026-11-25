@@ -684,6 +684,9 @@ def _collect(notify: bool, pc_export: bool = False) -> dict:
                 log(f"구독자 알림: {people}명에게 {msgs}통")
             except Exception as e:  # noqa: BLE001
                 log(f"구독자 알림 실패: {e}")
+        elif CLOUD:
+            missing = [k for k, v in (("TELEGRAM_TOKEN", token), ("SUBS_URL", subs_url), ("SUBS_KEY", subs_key)) if not v]
+            log(f"구독자 알림 못 보냄: GitHub Secrets에 {', '.join(missing)} 없음")
     return payload
 
 
