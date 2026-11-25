@@ -107,7 +107,7 @@ function renderTabs() {
   const dated = evs.filter(e => e.event_date).length;
   $("#tabs").innerHTML = `
     <button type="button" data-tab="open" class="${state.tab === "open" ? "on" : ""}"><b>응모 중</b><span class="tn">${open.length}</span>${badge(open)}<small>지금 응모할 수 있거나 곧 열리는 팬싸</small></button>
-    <button type="button" data-tab="today" class="t-today ${state.tab === "today" ? "on" : ""}"><b>오늘 마감</b><span class="tn">${today.length}</span><small>오늘 응모가 끝나는 팬싸, 마감 시각순</small></button>
+    <button type="button" data-tab="today" class="t-today ${state.tab === "today" ? "on" : ""}"><b>오늘 마감</b><span class="tn">${today.length}</span><small>오늘 응모가 끝나는 팬싸, 마감 시각 순</small></button>
     <button type="button" data-tab="closed" class="${state.tab === "closed" ? "on" : ""}"><b>응모 마감</b><span class="tn">${closed.length}</span>${badge(closed)}<small>응모는 끝났고 행사는 아직 안 열린 팬싸</small></button>
     <button type="button" data-tab="new" class="t-new ${state.tab === "new" ? "on" : ""}"><b>NEW</b><span class="tn">${fresh.length}</span><small>24시간 안에 새로 뜬 팬싸</small></button>
     <button type="button" data-tab="cal" class="t-cal ${state.tab === "cal" ? "on" : ""}"><b>캘린더</b><span class="tn">${dated}</span><small>행사 날짜별로 한눈에</small></button>`;
@@ -252,7 +252,7 @@ function renderList() {
   const list = mergeCards(raw);
   $("#countLine").textContent = state.tab === "cal"
     ? `${parseDate(state.calDay).getMonth() + 1}월 ${parseDate(state.calDay).getDate()}일 · 공지 ${raw.length}건 · 카드 ${list.length}장`
-    : `${TAB_NAME[state.tab]} · 공지 ${raw.length}건 · 카드 ${list.length}장 · ${state.tab === "today" ? "마감 시각순" : "행사 날짜순"}`;
+    : `${TAB_NAME[state.tab]} · 공지 ${raw.length}건 · 카드 ${list.length}장 · ${state.tab === "today" ? "마감 시각 순" : "행사 날짜순"}`;
   if (!list.length) {
     $("#list").innerHTML = `<div class="empty">${state.events.length ? (state.tab === "today" ? "오늘 응모가 끝나는 팬싸가 없어요." : state.tab === "closed" ? "응모 마감된 팬싸 중 조건에 맞는 게 없어요." : state.tab === "new" ? "24시간 안에 새로 뜬 팬싸가 아직 없어요." : state.tab === "cal" ? "이 날은 조건에 맞는 팬싸가 없어요." : "조건에 맞는 응모 중 팬싸가 없어요. 필터를 바꿔 보세요.") : "지금 확인된 팬싸 공지가 없어요."}</div>`;
     return;
