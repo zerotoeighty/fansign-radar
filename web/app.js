@@ -11,7 +11,7 @@ const FAV_KEY = "fr-favorites";
 
 const state = {
   data: null, events: [], config: { favorites: [], telegram: {} },
-  tab: ({ "#closed": "closed", "#new": "new", "#cal": "cal" })[location.hash] || "open", format: "all",
+  tab: ({ "#today": "today", "#closed": "closed", "#new": "new", "#cal": "cal" })[location.hash] || "open", format: "all",
   calMonth: null, calDay: null, favOnly: false, publicOnly: false,
   hideOverseas: localStorage.getItem("fr-hide-overseas") === "1", store: "", q: "",
 };
@@ -44,7 +44,10 @@ function favMatch(text, f) {
 }
 function isFav(ev) { return (state.config.favorites || []).some(f => favMatch(ev.artist + " " + ev.title, f)); }
 const isClosed = e => e.status === "closed";
+// 오늘(한국 시간) 응모 마감 + 마감 시각이 아직 안 지남
+function isToday(e) { const d = parseDate(e.apply_end); return !isClosed(e) && !!d && d > Date.now() && daysFromToday(d) === 0; }
 function inTab(e) {
+  if (state.tab === "today") return isToday(e);
   if (state.tab === "closed") return isClosed(e);
   if (state.tab === "new") return isNew(e);
   if (state.tab === "cal") return !state.calDay || e.event_date === state.calDay;
@@ -99,11 +102,12 @@ function renderStats() {
 
 function renderTabs() {
   const evs = state.events;
-  const open = evs.filter(e => !isClosed(e)), closed = evs.filter(isClosed), fresh = evs.filter(isNew);
+  const open = evs.filter(e => !isClosed(e)), closed = evs.filter(isClosed), fresh = evs.filter(isNew), today = evs.filter(isToday);
   const badge = list => { const n = list.filter(isNew).length; return n ? `<span class="tabnew" data-tab="new" title="새 공지만 보기">NEW ${n}</span>` : ""; };
   const dated = evs.filter(e => e.event_date).length;
   $("#tabs").innerHTML = `
     <button type="button" data-tab="open" class="${state.tab === "open" ? "on" : ""}"><b>응모 중</b><span class="tn">${open.length}</span>${badge(open)}<small>지금 응모할 수 있거나 곧 열리는 팬싸</small></button>
+    <button type="button" data-tab="today" class="t-today ${state.tab === "today" ? "on" : ""}"><b>오늘 마감</b><span class="tn">${today.length}</span><small>오늘 응모가 끝나는 팬싸, 마감 시각순</small></button>
     <button type="button" data-tab="closed" class="${state.tab === "closed" ? "on" : ""}"><b>응모 마감</b><span class="tn">${closed.length}</span>${badge(closed)}<small>응모는 끝났고 행사는 아직 안 열린 팬싸</small></button>
     <button type="button" data-tab="new" class="t-new ${state.tab === "new" ? "on" : ""}"><b>NEW</b><span class="tn">${fresh.length}</span><small>24시간 안에 새로 뜬 팬싸</small></button>
     <button type="button" data-tab="cal" class="t-cal ${state.tab === "cal" ? "on" : ""}"><b>캘린더</b><span class="tn">${dated}</span><small>행사 날짜별로 한눈에</small></button>`;
@@ -142,7 +146,7 @@ function dueHtml(e) {
   const time = (end.getHours() === 23 && end.getMinutes() === 59) ? "" : " " + hm(end);
   const start = parseDate(e.apply_start);
   if (start && start > kstNow()) return `<span class="due"><span class="lab">응모 기간</span>${md(start)}${start.getHours() ? " " + hm(start) : ""} 오픈<span class="sub">~${md(end)}${time}</span>${src}</span>`;
-  if (n <= 0) return `<span class="due hot"><span class="lab">응모 기간</span>오늘${time} 마감<span class="sub">서둘러 주세요</span>${src}</span>`;
+  if (n <= 0) return `<span class="due hot"><span class="lab">응모 기간</span>오늘 ${hm(end)} 마감<span class="sub">서둘러 주세요</span>${src}</span>`;
   if (n === 1) return `<span class="due hot"><span class="lab">응모 기간</span>내일 마감<span class="sub">~${md(end)}${time}</span>${src}</span>`;
   return `<span class="due"><span class="lab">응모 기간</span>D-${n} 마감<span class="sub">~${md(end)}${time}</span>${src}</span>`;
 }
@@ -196,7 +200,7 @@ function cardHtml(e) {
   </article>`;
 }
 
-const TAB_NAME = { open: "응모 중", closed: "응모 마감", new: "NEW · 새로 뜬 팬싸", cal: "캘린더" };
+const TAB_NAME = { open: "응모 중", today: "오늘 마감", closed: "응모 마감", new: "NEW · 새로 뜬 팬싸", cal: "캘린더" };
 
 function renderList() {
   renderCalendar();
@@ -205,9 +209,16 @@ function renderList() {
   const list = mergeCards(raw);
   $("#countLine").textContent = state.tab === "cal"
     ? `${parseDate(state.calDay).getMonth() + 1}월 ${parseDate(state.calDay).getDate()}일 · 공지 ${raw.length}건 · 카드 ${list.length}장`
-    : `${TAB_NAME[state.tab]} · 공지 ${raw.length}건 · 카드 ${list.length}장 · 행사 날짜순`;
+    : `${TAB_NAME[state.tab]} · 공지 ${raw.length}건 · 카드 ${list.length}장 · ${state.tab === "today" ? "마감 시각순" : "행사 날짜순"}`;
   if (!list.length) {
-    $("#list").innerHTML = `<div class="empty">${state.events.length ? (state.tab === "closed" ? "응모 마감된 팬싸 중 조건에 맞는 게 없어요." : state.tab === "new" ? "24시간 안에 새로 뜬 팬싸가 아직 없어요." : state.tab === "cal" ? "이 날은 조건에 맞는 팬싸가 없어요." : "조건에 맞는 응모 중 팬싸가 없어요. 필터를 바꿔 보세요.") : "지금 확인된 팬싸 공지가 없어요."}</div>`;
+    $("#list").innerHTML = `<div class="empty">${state.events.length ? (state.tab === "today" ? "오늘 응모가 끝나는 팬싸가 없어요." : state.tab === "closed" ? "응모 마감된 팬싸 중 조건에 맞는 게 없어요." : state.tab === "new" ? "24시간 안에 새로 뜬 팬싸가 아직 없어요." : state.tab === "cal" ? "이 날은 조건에 맞는 팬싸가 없어요." : "조건에 맞는 응모 중 팬싸가 없어요. 필터를 바꿔 보세요.") : "지금 확인된 팬싸 공지가 없어요."}</div>`;
+    return;
+  }
+  if (state.tab === "today") {
+    // 오늘 마감: 행사 날짜 대신 마감 시각이 빠른 순으로 한 묶음
+    list.sort((a, b) => String(a.apply_end).localeCompare(String(b.apply_end)));
+    const d = kstNow();
+    $("#list").innerHTML = `<section class="group"><div class="gh today"><span class="d">${d.getMonth() + 1}.${String(d.getDate()).padStart(2, "0")}</span><span class="w">${WEEK[d.getDay()]}요일</span><span class="dd">오늘 마감 · ${list.length}건</span></div>${list.map(cardHtml).join("")}</section>`;
     return;
   }
   const groups = new Map();
