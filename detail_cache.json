@@ -1352,5 +1352,79 @@
   "public": false,
   "venue": null,
   "last": false
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996444&num2=00000": {
+  "_t": 1795672845.2338145,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998930&num2=00000&number=686&lock=N": {
+  "_t": 1795672845.2053962,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://1stmusic.co.kr/article/팬사인회-공지/1002/11602/": {
+  "_t": 1795672846.5766697,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://1stmusic.co.kr/article/팬사인회-공지/1002/11630/": {
+  "_t": 1795672845.237095,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://starlikemusic.com/product/fan-sign-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-way/1264/category/69/display/1/": {
+  "_t": 1795672845.2350764,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://starlikemusic.com/product/video-call-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-w/1265/category/69/display/1/": {
+  "_t": 1795672845.2350764,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://hellolive.tv/ko/detail/1633": {
+  "_t": 1795672845.2053962,
+  "event_date": "2026-12-02",
+  "seg_formats": [
+   "영상통화"
+  ],
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": "2026-11-30T15:00+09:00",
+  "public": false,
+  "venue": null,
+  "last": false
  }
 }

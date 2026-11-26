@@ -1455,20 +1455,24 @@
   "venue": null
  },
  "https://dearmymuse.com/product/1203-11-영상통화-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6631/category/65/display/1/": {
-  "_t": 1795555949.0720074,
-  "images": 2,
-  "formats": [],
+  "_t": 1795673751.8705547,
+  "images": 3,
+  "formats": [
+   "영상통화"
+  ],
   "last": false,
-  "venue": null,
-  "public": false
+  "public": false,
+  "venue": null
  },
  "https://dearmymuse.com/product/1203-대면-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6630/category/65/display/1/": {
-  "_t": 1795555949.0740075,
-  "images": 2,
-  "formats": [],
+  "_t": 1795673751.8763397,
+  "images": 3,
+  "formats": [
+   "대면"
+  ],
   "last": false,
-  "venue": null,
-  "public": false
+  "public": false,
+  "venue": null
  },
  "https://jumpupent.com/product/detail.html?product_no=11140&cate_no=48&display_group=1": {
   "_t": 1795555949.109699,
@@ -1922,6 +1926,87 @@
   "_t": 1795670269.1111836,
   "images": 1,
   "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://1stmusic.co.kr/article/팬사인회-공지/1002/11602/": {
+  "_t": 1795673751.8843837,
+  "images": 2,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-28T23:59+09:00",
+  "winner": "2026-11-30T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998930&num2=00000&number=686&lock=N": {
+  "_t": 1795673751.8843837,
+  "images": 4,
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996444&num2=00000": {
+  "_t": 1795673751.8901637,
+  "images": 4,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-28T23:59+09:00",
+  "winner": "2026-11-30T17:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": true,
+  "public": false,
+  "venue": null
+ },
+ "https://starlikemusic.com/product/video-call-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-w/1265/category/69/display/1/": {
+  "_t": 1795673751.9042323,
+  "images": 3,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-28T23:59+09:00",
+  "winner": "2026-11-30T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://starlikemusic.com/product/fan-sign-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-way/1264/category/69/display/1/": {
+  "_t": 1795673751.916036,
+  "images": 3,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-28T23:59+09:00",
+  "winner": "2026-11-30T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://1stmusic.co.kr/article/팬사인회-공지/1002/11630/": {
+  "_t": 1795673751.9238229,
+  "images": 2,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-28T23:59+09:00",
+  "winner": "2026-11-30T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
   "last": false,
   "public": false,
   "venue": null
