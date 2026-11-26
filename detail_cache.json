@@ -1042,15 +1042,15 @@
   "last": false
  },
  "https://hellolive.tv/ko/detail/1630": {
-  "_t": 1795626219.1792748,
+  "_t": 1795669480.9862862,
   "event_date": "2026-12-04",
   "seg_formats": [
    "대면",
    "영상통화"
   ],
   "gone": false,
-  "start": "2026-11-25T11:00+09:00",
-  "end": "2026-11-27T23:59+09:00",
+  "start": null,
+  "end": null,
   "winner": "2026-11-28T15:00+09:00",
   "public": false,
   "venue": null,
@@ -1284,6 +1284,67 @@
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996446&num2=00000": {
   "_t": 1795659772.2609253,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://whosfanstore.com/products/1213-%EB%8C%80%EB%A9%B4-%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C-%EC%9D%B4%EC%B0%BD%EC%84%AD-3rd-mini-album-lee-make-fragmenta-amoris": {
+  "_t": 1795669481.0237489,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://whosfanstore.com/products/1130-%EB%8B%A8%EC%B2%B4-%EC%98%81%EC%83%81%ED%86%B5%ED%99%94-%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C-v01d%EB%B3%B4%EC%9D%B4%EB%93%9C-2nd-mini-album-youth-ver-quake-ver": {
+  "_t": 1795669481.0237489,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://whosfanstore.com/products/1130-1-1-%EC%98%81%EC%83%81%ED%86%B5%ED%99%94-%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C-v01d%EB%B3%B4%EC%9D%B4%EB%93%9C-2nd-mini-album-youth-ver-quake-ver": {
+  "_t": 1795669481.0217156,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1768&mari_mode=view@view": {
+  "_t": 1795669481.0217156,
+  "event_date": "2026-11-27",
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://whosfanstore.com/products/1213-%EC%98%81%EC%83%81%ED%86%B5%ED%99%94-%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C-%EC%9D%B4%EC%B0%BD%EC%84%AD-3rd-mini-album-lee-make-fragmenta-amoris": {
+  "_t": 1795669482.1956358,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://sound-wave.co.kr/board/free/read.html?no=262203&board_no=1": {
+  "_t": 1795669481.0217156,
   "gone": false,
   "start": null,
   "end": null,
