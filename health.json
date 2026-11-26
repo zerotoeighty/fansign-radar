@@ -64,9 +64,8 @@
   "alerted": false
  },
  "알라딘": {
-  "fails": 1,
-  "alerted": false,
-  "last": "HTTPError: 403 Client Error: Forbidden for url: https://www.aladin.co.kr/events/wevent_main_music.aspx"
+  "fails": 0,
+  "alerted": false
  },
  "에버라인": {
   "fails": 0,
