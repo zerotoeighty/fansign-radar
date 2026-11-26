@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-26T10:06+09:00",
- "took_seconds": 46.8,
+ "checked_at": "2026-11-26T11:22+09:00",
+ "took_seconds": 749.1,
  "events": [
   {
    "id": "9e9e8a52c5c1",
@@ -3071,6 +3071,31 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
+   "id": "e8a37bee8e58",
+   "store": "애플뮤직",
+   "artist": "B1A4 (비원에이포)",
+   "title": "비원에이포 (B1A4) 대면 팬사인회 & 영상통화 이벤트 공지 (12/20) [온라인]",
+   "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996446&num2=00000",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": true,
+   "venue": null,
+   "event_date": "2026-12-20",
+   "apply_start": "2026-11-26T11:00+09:00",
+   "apply_end": "2026-11-30T23:59+09:00",
+   "winner": "2026-12-01T14:00+09:00",
+   "posted": "2026-11-26",
+   "winner_posted": false,
+   "status": "open",
+   "artist_raw": "비원에이포 (B1A4)",
+   "first_seen": "2026-11-26T11:22+09:00",
+   "schedule_src": "image"
+  },
+  {
    "id": "ca36f27e909b",
    "store": "위드뮤",
    "artist": "JAY B",
@@ -3572,7 +3597,7 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.4,
+   "seconds": 1.5,
    "status": "ok",
    "found": 12,
    "fansign": 9,
@@ -3582,7 +3607,7 @@
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.2,
+   "seconds": 1.3,
    "status": "empty",
    "found": 11,
    "fansign": 6,
@@ -3602,17 +3627,19 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 30.3,
-   "status": "ok",
-   "found": 35,
-   "fansign": 14,
+   "seconds": 30.5,
+   "status": "parse_error",
+   "found": 0,
+   "fansign": 0,
    "empty_ok": false,
-   "count": 5
+   "carried": 5,
+   "count": 5,
+   "message": "목록 구조를 못 찾았어요 (사이트가 바뀌었을 수 있어요)"
   },
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 1.8,
+   "seconds": 1.7,
    "status": "ok",
    "found": 10,
    "fansign": 8,
@@ -3622,7 +3649,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 22.4,
+   "seconds": 25.3,
    "status": "ok",
    "found": 64,
    "fansign": 50,
@@ -3632,7 +3659,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.7,
+   "seconds": 0.5,
    "status": "ok",
    "found": 21,
    "fansign": 9,
@@ -3642,7 +3669,7 @@
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.4,
+   "seconds": 1.5,
    "status": "ok",
    "found": 9,
    "fansign": 4,
@@ -3652,7 +3679,7 @@
   {
    "store": "사운드웨이브",
    "url": "https://sound-wave.co.kr/board/event-notice/1/",
-   "seconds": 1.3,
+   "seconds": 1.6,
    "status": "ok",
    "found": 15,
    "fansign": 7,
@@ -3682,17 +3709,17 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 1.4,
+   "seconds": 1.9,
    "status": "ok",
-   "found": 66,
-   "fansign": 29,
+   "found": 67,
+   "fansign": 30,
    "empty_ok": false,
-   "count": 26
+   "count": 27
   },
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 1.6,
+   "seconds": 1.8,
    "status": "ok",
    "found": 20,
    "fansign": 13,
@@ -3702,7 +3729,7 @@
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 1.1,
+   "seconds": 1.3,
    "status": "ok",
    "found": 19,
    "fansign": 1,
@@ -3712,7 +3739,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 1.6,
+   "seconds": 3.5,
    "status": "empty",
    "found": 0,
    "fansign": 0,
@@ -3722,7 +3749,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 2.6,
+   "seconds": 1.9,
    "status": "ok",
    "found": 4,
    "fansign": 2,
@@ -3732,9 +3759,9 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 24.0,
+   "seconds": 30.1,
    "status": "ok",
-   "found": 37,
+   "found": 38,
    "fansign": 22,
    "empty_ok": false,
    "count": 2
@@ -3742,7 +3769,7 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 2.1,
+   "seconds": 3.5,
    "status": "empty",
    "found": 305,
    "fansign": 0,
@@ -3752,7 +3779,7 @@
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 1.8,
+   "seconds": 2.4,
    "status": "ok",
    "found": 14,
    "fansign": 11,
@@ -3762,7 +3789,7 @@
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 8.1,
+   "seconds": 4.6,
    "status": "ok",
    "found": 4,
    "fansign": 4,

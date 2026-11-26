@@ -1281,5 +1281,15 @@
   "public": false,
   "venue": null,
   "last": false
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996446&num2=00000": {
+  "_t": 1795659772.2609253,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
  }
 }
