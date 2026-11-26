@@ -2010,5 +2010,46 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://dearmymuse.com/product/1220-13-스페셜-대면-이벤트-루시lucy-2027-seasons-greetings-our/6717/category/65/display/1/": {
+  "_t": 1795678140.2910428,
+  "images": 4,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T15:00+09:00",
+  "formats": [
+   "대면"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://dearmymuse.com/product/1227-11-영상통화-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6719/category/65/display/1/": {
+  "_t": 1795678140.304089,
+  "images": 4,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-01T18:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://dearmymuse.com/product/1227-대면-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6718/category/65/display/1/": {
+  "_t": 1795678140.3166535,
+  "images": 4,
+  "apply_start": "2026-11-26T15:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-01T18:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
