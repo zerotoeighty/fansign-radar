@@ -2147,5 +2147,68 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://jumpupent.com/product/detail.html?product_no=11147&cate_no=48&display_group=1": {
+  "_t": 1795760301.9872456,
+  "images": 2,
+  "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://jumpupent.com/product/detail.html?product_no=11146&cate_no=48&display_group=1": {
+  "_t": 1795760301.9872456,
+  "images": 2,
+  "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://jumpupent.com/product/detail.html?product_no=11148&cate_no=48&display_group=1": {
+  "_t": 1795760301.9910169,
+  "images": 3,
+  "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=Zm13UQ%3D%3D": {
+  "_t": 1795760301.9910169,
+  "images": 2,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996441&num2=00000": {
+  "_t": 1795760302.0018876,
+  "images": 4,
+  "apply_start": "2026-11-27T15:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T17:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://kr.ktown4u.com/eventinfo?eve_no=44636535&biz_no=967": {
+  "_t": 1795760302.0108645,
+  "images": 1,
+  "apply_start": "2026-11-27T15:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-02T17:00+09:00",
+  "event_date": "2026-12-04",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
