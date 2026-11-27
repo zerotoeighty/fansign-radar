@@ -1,6 +1,6 @@
 {
  "https://everlineshop.com/events/a7503be7-7943-45e3-88ab-173442953952": {
-  "_t": 1795708809.6247802,
+  "_t": 1795755866.0315135,
   "gone": false,
   "start": null,
   "end": null,
@@ -1500,6 +1500,51 @@
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996443&num2=00000": {
   "_t": 1795751922.734249,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996442&num2=00000": {
+  "_t": 1795755866.064735,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1744&mari_mode=view@view": {
+  "_t": 1795755866.064735,
+  "event_date": "2026-12-17",
+  "seg_formats": [
+   "대면"
+  ],
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1743&mari_mode=view@view": {
+  "_t": 1795755866.064735,
+  "event_date": "2026-12-17",
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://sound-wave.co.kr/board/free/read.html?no=262184&board_no=1": {
+  "_t": 1795755866.064735,
   "gone": false,
   "start": null,
   "end": null,

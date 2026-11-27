@@ -2103,5 +2103,49 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996442&num2=00000": {
+  "_t": 1795756495.0594134,
+  "images": 4,
+  "apply_start": "2026-11-27T14:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T17:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1744&mari_mode=view@view": {
+  "_t": 1795756495.0606925,
+  "images": 2,
+  "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1743&mari_mode=view@view": {
+  "_t": 1795756495.0606925,
+  "images": 1,
+  "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://sound-wave.co.kr/board/free/read.html?no=262184&board_no=1": {
+  "_t": 1795756495.065442,
+  "images": 2,
+  "apply_start": "2026-11-27T14:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T14:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
