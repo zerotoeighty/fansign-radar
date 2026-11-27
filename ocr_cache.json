@@ -1945,7 +1945,7 @@
   "venue": null
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998930&num2=00000&number=686&lock=N": {
-  "_t": 1795673751.8843837,
+  "_t": 1795764612.274361,
   "images": 4,
   "formats": [
    "대면",
@@ -2205,6 +2205,44 @@
   "event_date": "2026-12-04",
   "formats": [
    "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://everlineshop.com/events/2bccb28a-63c5-4dd5-b311-6cbb6f2b5b70": {
+  "_t": 1795764612.2723463,
+  "images": 2,
+  "apply_start": "2026-11-27T16:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T12:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://sound-wave.co.kr/board/free/read.html?no=261755&board_no=1": {
+  "_t": 1795764612.282163,
+  "images": 2,
+  "apply_start": "2026-11-27T16:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-02T14:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmx7W1w%3D": {
+  "_t": 1795764612.282163,
+  "images": 2,
+  "formats": [
    "영상통화"
   ],
   "last": false,
