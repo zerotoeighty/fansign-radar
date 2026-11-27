@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-27T20:55+09:00",
- "took_seconds": 978.5,
+ "checked_at": "2026-11-27T22:10+09:00",
+ "took_seconds": 794.1,
  "events": [
   {
    "id": "cc9aa9bd1e0b",
@@ -1149,54 +1149,8 @@
    "apply_end": null,
    "winner": null,
    "posted": null,
-   "winner_posted": true,
-   "status": "closed",
-   "artist_raw": "WENDY",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "1f6677334a57",
-   "store": "뮤직플랜트",
-   "artist": "WENDY (웬디)",
-   "title": "[11/29 OFFLINE (2)] WENDY The 4th Mini Album [Gleam Hour] 발매기념 팬사인회 이벤트 당첨자 발표",
-   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1730&mari_mode=view@view",
-   "formats": [
-    "대면"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-29",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": true,
-   "status": "closed",
-   "artist_raw": "WENDY",
-   "first_seen": "base@2026-11-25T06:13+09:00"
-  },
-  {
-   "id": "70840014e099",
-   "store": "뮤직플랜트",
-   "artist": "WENDY (웬디)",
-   "title": "[11/29 ONLINE] WENDY The 4th Mini Album [Gleam Hour] 발매기념 팬사인회 이벤트",
-   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1702&mari_mode=view@view",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-29",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": true,
-   "status": "closed",
+   "winner_posted": false,
+   "status": "unknown",
    "artist_raw": "WENDY",
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
@@ -2565,11 +2519,11 @@
    "first_seen": "2026-11-27T18:00+09:00"
   },
   {
-   "id": "a3d7819f1cb5",
+   "id": "10701664735c",
    "store": "블루드림미디어",
    "artist": "KickFlip (킥플립)",
    "title": "(1207 개인영통) 킥플립(KickFlip) - The 5th Mini Album 'KICK OFF THE WALL Pt. 1' (DIGIPACK Ver.)",
-   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bWp3UQ%3D%3D",
+   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aGp3UQ%3D%3D",
    "formats": [
     "영상통화"
    ],
@@ -2585,7 +2539,7 @@
    "winner_posted": false,
    "status": "unknown",
    "artist_raw": "킥플립(KickFlip)",
-   "first_seen": "2026-11-27T20:55+09:00"
+   "first_seen": "2026-11-27T19:04+09:00"
   },
   {
    "id": "6d500c577d49",
@@ -2611,6 +2565,52 @@
    "status": "closed",
    "artist_raw": "RESCENE",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "414c692ef9ad",
+   "store": "뮤직플랜트",
+   "artist": "ALPHA DRIVE ONE (알파드라이브원)",
+   "title": "[12/8 OFFLINE] ALPHA DRIVE ONE 2ND MINI ALBUM 'UNBREAKABLE : 少年BEAST' 발매기념 팬사인회 이벤트 당첨자 발표",
+   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1761&mari_mode=view@view",
+   "formats": [
+    "대면"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-08",
+   "apply_start": null,
+   "apply_end": null,
+   "winner": null,
+   "posted": null,
+   "winner_posted": true,
+   "status": "closed",
+   "artist_raw": "ALPHA DRIVE ONE",
+   "first_seen": "base@2026-11-27T22:10+09:00"
+  },
+  {
+   "id": "a3aeb36ef20b",
+   "store": "뮤직플랜트",
+   "artist": "ALPHA DRIVE ONE (알파드라이브원)",
+   "title": "[12/8 ONLINE] ALPHA DRIVE ONE 2ND MINI ALBUM [UNBREAKABLE : 少年BEAST] 발매 기념 팬 사인회 이벤트 당첨자 발표",
+   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1760&mari_mode=view@view",
+   "formats": [
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-08",
+   "apply_start": null,
+   "apply_end": null,
+   "winner": null,
+   "posted": null,
+   "winner_posted": true,
+   "status": "closed",
+   "artist_raw": "ALPHA DRIVE ONE",
+   "first_seen": "base@2026-11-27T22:10+09:00"
   },
   {
    "id": "c24afdabf5ed",
@@ -3991,7 +3991,7 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.6,
+   "seconds": 1.5,
    "status": "ok",
    "found": 12,
    "fansign": 8,
@@ -4001,7 +4001,7 @@
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.7,
+   "seconds": 1.3,
    "status": "empty",
    "found": 11,
    "fansign": 5,
@@ -4011,7 +4011,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.9,
+   "seconds": 1.6,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -4021,17 +4021,19 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 36.6,
-   "status": "ok",
-   "found": 37,
-   "fansign": 15,
+   "seconds": 33.1,
+   "status": "parse_error",
+   "found": 0,
+   "fansign": 0,
    "empty_ok": false,
-   "count": 7
+   "carried": 7,
+   "count": 7,
+   "message": "목록 구조를 못 찾았어요 (사이트가 바뀌었을 수 있어요)"
   },
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 2.0,
+   "seconds": 1.8,
    "status": "ok",
    "found": 10,
    "fansign": 8,
@@ -4041,7 +4043,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 27.9,
+   "seconds": 31.7,
    "status": "ok",
    "found": 67,
    "fansign": 51,
@@ -4051,7 +4053,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.5,
+   "seconds": 0.6,
    "status": "ok",
    "found": 18,
    "fansign": 8,
@@ -4061,7 +4063,7 @@
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.7,
+   "seconds": 1.1,
    "status": "ok",
    "found": 10,
    "fansign": 5,
@@ -4081,7 +4083,7 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.5,
+   "seconds": 1.4,
    "status": "ok",
    "found": 12,
    "fansign": 12,
@@ -4091,7 +4093,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.3,
+   "seconds": 1.1,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -4101,7 +4103,7 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 2.3,
+   "seconds": 1.4,
    "status": "ok",
    "found": 74,
    "fansign": 35,
@@ -4111,7 +4113,7 @@
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 2.0,
+   "seconds": 1.5,
    "status": "ok",
    "found": 20,
    "fansign": 12,
@@ -4121,7 +4123,7 @@
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 1.0,
+   "seconds": 1.2,
    "status": "ok",
    "found": 19,
    "fansign": 3,
@@ -4131,7 +4133,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 2.1,
+   "seconds": 1.9,
    "status": "ok",
    "found": 1,
    "fansign": 1,
@@ -4141,7 +4143,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 2.0,
+   "seconds": 3.5,
    "status": "ok",
    "found": 4,
    "fansign": 2,
@@ -4151,7 +4153,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 29.4,
+   "seconds": 23.1,
    "status": "ok",
    "found": 41,
    "fansign": 25,
@@ -4161,7 +4163,7 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 7.6,
+   "seconds": 2.9,
    "status": "empty",
    "found": 307,
    "fansign": 0,
@@ -4171,7 +4173,7 @@
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 2.2,
+   "seconds": 2.1,
    "status": "ok",
    "found": 17,
    "fansign": 13,
@@ -4181,7 +4183,7 @@
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 15.2,
+   "seconds": 12.6,
    "status": "ok",
    "found": 12,
    "fansign": 12,
