@@ -1610,7 +1610,7 @@
   "venue": null
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1722&mari_mode=view@view": {
-  "_t": 1795682335.7642019,
+  "_t": 1795770634.2485225,
   "images": 1,
   "formats": [],
   "last": false,
@@ -1618,7 +1618,7 @@
   "venue": null
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1721&mari_mode=view@view": {
-  "_t": 1795682335.765957,
+  "_t": 1795770634.2485225,
   "images": 4,
   "formats": [],
   "last": false,
@@ -2252,6 +2252,56 @@
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmx9W1w%3D": {
   "_t": 1795768781.9042377,
   "images": 2,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmt6W1w%3D": {
+  "_t": 1795770634.2485225,
+  "images": 2,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://whosfanstore.com/products/videocallxnghanxoul-glowadventurepart2ver": {
+  "_t": 1795770634.25304,
+  "images": 4,
+  "apply_start": "2026-11-27T18:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T11:00+09:00",
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998929&num2=00000&number=687&lock=N": {
+  "_t": 1795770634.2570555,
+  "images": 3,
+  "apply_start": "2026-11-27T18:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T13:59+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996482&num2=00000": {
+  "_t": 1795770634.2591162,
+  "images": 2,
+  "apply_start": "2026-11-27T18:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T11:00+09:00",
   "formats": [
    "영상통화"
   ],

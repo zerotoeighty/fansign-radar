@@ -1091,7 +1091,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996447&num2=00000": {
-  "_t": 1795726480.586006,
+  "_t": 1795770057.791804,
   "gone": false,
   "start": null,
   "end": null,
@@ -1649,6 +1649,46 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmx9W1w%3D": {
   "_t": 1795767976.9495332,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://whosfanstore.com/products/videocallxnghanxoul-glowadventurepart2ver": {
+  "_t": 1795770057.7938106,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996482&num2=00000": {
+  "_t": 1795770057.791804,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998929&num2=00000&number=687&lock=N": {
+  "_t": 1795770057.7897968,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmt6W1w%3D": {
+  "_t": 1795770057.793056,
   "gone": false,
   "start": null,
   "end": null,
