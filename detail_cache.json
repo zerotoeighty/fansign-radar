@@ -1057,7 +1057,7 @@
   "last": false
  },
  "https://everlineshop.com/events/00ae069c-0f77-4bf9-bf45-e10be83fd764": {
-  "_t": 1795723343.9720986,
+  "_t": 1795767975.7562203,
   "gone": false,
   "start": "2026-11-25T00:00+09:00",
   "end": "2026-11-27T23:59+09:00",
@@ -1071,7 +1071,7 @@
   ]
  },
  "https://jumpupent.com/product/detail.html?product_no=11144&cate_no=48&display_group=1": {
-  "_t": 1795723343.977355,
+  "_t": 1795767975.7622707,
   "gone": false,
   "start": null,
   "end": null,
@@ -1081,7 +1081,7 @@
   "last": false
  },
  "https://jumpupent.com/product/detail.html?product_no=11145&cate_no=48&display_group=1": {
-  "_t": 1795723343.977355,
+  "_t": 1795767975.7602546,
   "gone": false,
   "start": null,
   "end": null,
@@ -1428,7 +1428,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1220-13-스페셜-대면-이벤트-루시lucy-2027-seasons-greetings-our/6717/category/65/display/1/": {
-  "_t": 1795723343.9801557,
+  "_t": 1795767975.7660542,
   "gone": false,
   "start": null,
   "end": null,
@@ -1438,7 +1438,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1227-11-영상통화-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6719/category/65/display/1/": {
-  "_t": 1795723343.977355,
+  "_t": 1795767975.7622707,
   "gone": false,
   "start": null,
   "end": null,
@@ -1448,7 +1448,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1227-대면-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6718/category/65/display/1/": {
-  "_t": 1795723343.979372,
+  "_t": 1795767975.7645438,
   "gone": false,
   "start": null,
   "end": null,
@@ -1646,5 +1646,15 @@
    "대면",
    "영상통화"
   ]
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmx9W1w%3D": {
+  "_t": 1795767976.9495332,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
  }
 }
