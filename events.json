@@ -1,249 +1,7 @@
 {
- "checked_at": "2026-11-27T23:53+09:00",
- "took_seconds": 929.7,
+ "checked_at": "2026-11-28T00:57+09:00",
+ "took_seconds": 881.9,
  "events": [
-  {
-   "id": "cc9aa9bd1e0b",
-   "store": "위드뮤",
-   "artist": "RESCENE",
-   "title": "(261127) RESCENE 4th Mini Album [PULSE] 발매 기념 팬사인회 이벤트 안내",
-   "url": "https://withmuu.com/goods/event_sale.php?sno=1639&type=ing",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-10-29T15:00+09:00",
-   "apply_end": "2026-10-31T23:59+09:00",
-   "winner": "2026-11-02T17:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "RESCENE",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "06ae3aca045f",
-   "store": "디어마이뮤즈",
-   "artist": "HEART OF WOMAN (하트오브우먼)",
-   "title": "[11/27 1:1 영상통화 팬사인회] HEART OF WOMAN (하트오브우먼) - 미니 1집 [ETERNAL FADE] (버전 랜덤 출고)",
-   "url": "https://dearmymuse.com/product/1127-11-영상통화-팬사인회-heart-of-woman-하트오브우먼-미니-1집-eternal-fade-버전-랜덤-출고/6615/category/65/display/1/",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-16T15:00+09:00",
-   "apply_end": "2026-11-17T23:59+09:00",
-   "winner": "2026-11-18T15:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "HEART OF WOMAN (하트오브우먼)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "61310ef48d9d",
-   "store": "디어마이뮤즈",
-   "artist": "HEART OF WOMAN (하트오브우먼)",
-   "title": "[11/27 단체 영상통화 팬사인회] HEART OF WOMAN (하트오브우먼) - 미니 1집 [ETERNAL FADE] (버전 랜덤 출고)",
-   "url": "https://dearmymuse.com/product/1127-단체-영상통화-팬사인회-heart-of-woman-하트오브우먼-미니-1집-eternal-fade-버전-랜덤-출고/6614/category/65/display/1/",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-16T15:00+09:00",
-   "apply_end": "2026-11-17T23:59+09:00",
-   "winner": "2026-11-18T15:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "HEART OF WOMAN (하트오브우먼)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "765ff0968477",
-   "store": "디어마이뮤즈",
-   "artist": "HEART OF WOMAN (하트오브우먼)",
-   "title": "[11/27 대면 팬사인회] HEART OF WOMAN (하트오브우먼) - 미니 1집 [ETERNAL FADE] (버전 랜덤 출고)",
-   "url": "https://dearmymuse.com/product/1127-대면-팬사인회-heart-of-woman-하트오브우먼-미니-1집-eternal-fade-버전-랜덤-출고/6613/category/65/display/1/",
-   "formats": [
-    "대면"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-16T15:00+09:00",
-   "apply_end": "2026-11-17T23:59+09:00",
-   "winner": "2026-11-18T15:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "HEART OF WOMAN (하트오브우먼)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "cd6f2a117a5e",
-   "store": "애플뮤직",
-   "artist": "Lee Eun Sang (이은상)",
-   "title": "이은상 (Lee Eun Sang) 대면 팬사인회 & 영상통화 이벤트 공지 (11/27) [온라인]",
-   "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996493&num2=00000",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-16T15:00+09:00",
-   "apply_end": "2026-11-18T23:59+09:00",
-   "winner": "2026-11-19T17:00+09:00",
-   "posted": "2026-11-16",
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "이은상 (Lee Eun Sang)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "66748e4e79f0",
-   "store": "위드뮤",
-   "artist": "AND2BLE (앤더블)",
-   "title": "(261127) AND2BLE (앤더블) 2ND MINI ALBUM ‘Sequence 02: Attraction’ 발매 기념 팬사인회 이벤트 안내",
-   "url": "https://withmuu.com/goods/event_sale.php?sno=1677&type=ing",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-18T11:00+09:00",
-   "apply_end": "2026-11-20T23:59+09:00",
-   "winner": "2026-11-23T14:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "AND2BLE (앤더블)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "5554d2542881",
-   "store": "애플뮤직",
-   "artist": "idntt (아이덴티티)",
-   "title": "아이덴티티 (idntt) 대면 팬사인회 & 영상통화 이벤트 공지 (11/27) [온라인]",
-   "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996475&num2=00000",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-20T14:00+09:00",
-   "apply_end": "2026-11-22T23:59+09:00",
-   "winner": "2026-11-23T17:00+09:00",
-   "posted": "2026-11-20",
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "아이덴티티 (idntt)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "395050bbfdbc",
-   "store": "퍼스트뮤직",
-   "artist": "WOO",
-   "title": "[1127] WOO 2nd Digital Single 'MUSICBOXER' 발매기념 영상통화 팬사인회",
-   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11552/",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": "2026-11-20T03:00+09:00",
-   "apply_end": "2026-11-22T23:59+09:00",
-   "winner": "2026-11-23T15:00+09:00",
-   "posted": "2026-11-20",
-   "winner_posted": false,
-   "schedule_src": "image",
-   "status": "closed",
-   "artist_raw": "WOO",
-   "first_seen": "base@2026-11-25T17:45+09:00"
-  },
-  {
-   "id": "1de4a9f5d897",
-   "store": "뮤직플랜트",
-   "artist": "P1Harmony (피원하모니)",
-   "title": "[11/27 OFFLINE] P1Harmony (피원하모니) - 10th Mini Album [BLOW UP] 발매기념 팬사인회 이벤트 당첨자 발표",
-   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1722&mari_mode=view@view",
-   "formats": [
-    "대면"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": true,
-   "status": "closed",
-   "artist_raw": "P1Harmony (피원하모니)",
-   "first_seen": "base@2026-11-25T17:05+09:00"
-  },
-  {
-   "id": "b46edce0b1ea",
-   "store": "뮤직플랜트",
-   "artist": "P1Harmony (피원하모니)",
-   "title": "[11/27 ONLINE] P1Harmony (피원하모니) - 10th Mini Album [BLOW UP] 발매기념 팬사인회 이벤트 당첨자 발표",
-   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1721&mari_mode=view@view",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-27",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": true,
-   "status": "closed",
-   "artist_raw": "P1Harmony (피원하모니)",
-   "first_seen": "base@2026-11-25T17:05+09:00"
-  },
   {
    "id": "663c300433ce",
    "store": "위드뮤",
@@ -1053,32 +811,9 @@
    "posted": "2026-11-24",
    "winner_posted": false,
    "schedule_src": "image",
-   "status": "open",
+   "status": "closed",
    "artist_raw": "아이브 (IVE)",
    "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "508fd08fc32c",
-   "store": "메이크스타",
-   "artist": "NAYEON (나연)",
-   "title": "NAYEON SINGLE “NA-sty” MEET&CALL EVENT",
-   "url": "https://www.makestar.com/product/21791",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-29",
-   "apply_start": "2026-11-25T15:00+09:00",
-   "apply_end": "2026-11-27T23:59+09:00",
-   "winner": "2026-11-28T12:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "status": "open",
-   "artist_raw": "NAYEON (나연)",
-   "first_seen": "2026-11-25T16:12+09:00"
   },
   {
    "id": "a9588865a935",
@@ -1098,10 +833,33 @@
    "apply_end": null,
    "winner": null,
    "posted": null,
-   "winner_posted": false,
-   "status": "unknown",
+   "winner_posted": true,
+   "status": "closed",
    "artist_raw": "WENDY",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "1f6677334a57",
+   "store": "뮤직플랜트",
+   "artist": "WENDY (웬디)",
+   "title": "[11/29 OFFLINE (2)] WENDY The 4th Mini Album [Gleam Hour] 발매기념 팬사인회 이벤트 당첨자 발표",
+   "url": "https://m.musicplant.co.kr/board/?db=gallery_1&no=1730&mari_mode=view@view",
+   "formats": [
+    "대면"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-29",
+   "apply_start": null,
+   "apply_end": null,
+   "winner": null,
+   "posted": null,
+   "winner_posted": true,
+   "status": "closed",
+   "artist_raw": "WENDY",
+   "first_seen": "base@2026-11-25T06:13+09:00"
   },
   {
    "id": "be9a40ef7950",
@@ -2026,32 +1784,8 @@
    "posted": null,
    "winner_posted": false,
    "schedule_src": "image",
-   "status": "open",
+   "status": "closed",
    "artist_raw": "FLARE U",
-   "first_seen": "2026-11-25T15:00+09:00"
-  },
-  {
-   "id": "4817e0916560",
-   "store": "에버라인",
-   "artist": "LUN8 (루네이트)",
-   "title": "[261205] 루네이트 (LUN8) 4TH MINI ALBUM [Off the Grid] 사인회 이벤트",
-   "url": "https://everlineshop.com/events/00ae069c-0f77-4bf9-bf45-e10be83fd764",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-05",
-   "apply_start": "2026-11-25T00:00+09:00",
-   "apply_end": "2026-11-27T23:59+09:00",
-   "winner": null,
-   "posted": null,
-   "winner_posted": false,
-   "status": "open",
-   "artist_raw": "루네이트 (LUN8)",
    "first_seen": "2026-11-25T15:00+09:00"
   },
   {
@@ -2075,7 +1809,7 @@
    "posted": "2026-11-24",
    "winner_posted": false,
    "schedule_src": "image",
-   "status": "open",
+   "status": "closed",
    "artist_raw": "WHIB (휘브)",
    "first_seen": "2026-11-25T17:45+09:00"
   },
@@ -2468,11 +2202,11 @@
    "first_seen": "2026-11-27T18:00+09:00"
   },
   {
-   "id": "054b0baf35a0",
+   "id": "a82d9539a3ad",
    "store": "블루드림미디어",
    "artist": "KickFlip (킥플립)",
    "title": "(1207 개인영통) 킥플립(KickFlip) - The 5th Mini Album 'KICK OFF THE WALL Pt. 1' (DIGIPACK Ver.)",
-   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bGp3UQ%3D%3D",
+   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=a2x3UQ%3D%3D",
    "formats": [
     "영상통화"
    ],
@@ -2488,7 +2222,7 @@
    "winner_posted": false,
    "status": "unknown",
    "artist_raw": "킥플립(KickFlip)",
-   "first_seen": "2026-11-27T23:53+09:00"
+   "first_seen": "2026-11-28T00:57+09:00"
   },
   {
    "id": "6d500c577d49",
@@ -2954,11 +2688,11 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
-   "id": "1adaa371749b",
+   "id": "53bc82c34292",
    "store": "점프업이엔티",
    "artist": "ARTMS (아르테미스)",
-   "title": "[12/15 1:1 영상통화 EVENT] ARTMS (아르테미스) [Hyper-Ego] (Objekt Music Album)",
-   "url": "https://jumpupent.com/product/detail.html?product_no=11145&cate_no=48&display_group=1",
+   "title": "ARTMS <Hyper-Ego> VIDEO CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2125470144881402319",
    "formats": [
     "영상통화"
    ],
@@ -2974,34 +2708,9 @@
    "winner_posted": false,
    "schedule_src": "x",
    "schedule_url": "https://x.com/JumpUp_ent/status/2125470144881402319",
-   "status": "open",
-   "artist_raw": "ARTMS (아르테미스)",
-   "first_seen": "base@2026-11-25T15:00+09:00"
-  },
-  {
-   "id": "cf20001a91a9",
-   "store": "점프업이엔티",
-   "artist": "ARTMS (아르테미스)",
-   "title": "[12/15 단체 영상통화 EVENT] ARTMS (아르테미스) [Hyper-Ego] (Objekt Music Album)",
-   "url": "https://jumpupent.com/product/detail.html?product_no=11144&cate_no=48&display_group=1",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-15",
-   "apply_start": null,
-   "apply_end": "2026-11-27T23:59+09:00",
-   "winner": null,
-   "posted": null,
-   "winner_posted": false,
-   "schedule_src": "x",
-   "schedule_url": "https://x.com/JumpUp_ent/status/2125470144881402319",
-   "status": "open",
-   "artist_raw": "ARTMS (아르테미스)",
-   "first_seen": "base@2026-11-25T15:00+09:00"
+   "status": "closed",
+   "artist_raw": "ARTMS",
+   "first_seen": "base@2026-11-28T00:57+09:00"
   },
   {
    "id": "bed6016ebdd9",
@@ -3292,29 +3001,6 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
-   "id": "47355e22adfc",
-   "store": "메이크스타",
-   "artist": "SUNGHANBIN (성한빈)",
-   "title": "SUNGHANBIN (성한빈) 1st EP [DEAD:ALIVE] FANSIGN & PHOTO EVENT IN TOKYO PART.2",
-   "url": "https://www.makestar.com/product/22224",
-   "formats": [
-    "대면"
-   ],
-   "overseas": true,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-20",
-   "apply_start": "2026-11-24T15:00+09:00",
-   "apply_end": "2026-11-27T23:59+09:00",
-   "winner": "2026-11-30T15:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "status": "open",
-   "artist_raw": "Sung Han Bin (성한빈)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
    "id": "606767746f8e",
    "store": "디어마이뮤즈",
    "artist": "LUCY (루시)",
@@ -3583,32 +3269,6 @@
    "schedule_src": "image",
    "status": "closed",
    "artist_raw": "CHADONGHYEOP",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "5ce91bf354ad",
-   "store": "케타포",
-   "artist": "YERIN (예린)",
-   "title": "예린(YERIN) 대면/영상통화 사인회/1:1 DIY 이벤트",
-   "url": "https://kr.ktown4u.com/eventinfo?eve_no=44635943&biz_no=967",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2027-01-09",
-   "apply_start": "2026-11-24T14:00+09:00",
-   "apply_end": "2026-11-27T23:59+09:00",
-   "winner": "2026-11-30T15:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "event_date_src": "image",
-   "schedule_src": "image",
-   "status": "open",
-   "artist_raw": "예린(YERIN)",
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
@@ -3940,12 +3600,12 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.3,
+   "seconds": 1.2,
    "status": "ok",
    "found": 12,
    "fansign": 8,
    "empty_ok": false,
-   "count": 5
+   "count": 4
   },
   {
    "store": "엠투유",
@@ -3960,7 +3620,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.3,
+   "seconds": 1.5,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -3970,17 +3630,17 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 38.0,
+   "seconds": 29.1,
    "status": "ok",
-   "found": 37,
-   "fansign": 15,
+   "found": 35,
+   "fansign": 13,
    "empty_ok": false,
    "count": 7
   },
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 1.5,
+   "seconds": 1.3,
    "status": "ok",
    "found": 10,
    "fansign": 8,
@@ -3990,32 +3650,32 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 30.0,
+   "seconds": 21.8,
    "status": "ok",
-   "found": 67,
-   "fansign": 51,
+   "found": 66,
+   "fansign": 50,
    "empty_ok": false,
-   "count": 30
+   "count": 28
   },
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.4,
+   "seconds": 0.5,
    "status": "ok",
-   "found": 18,
-   "fansign": 8,
+   "found": 16,
+   "fansign": 6,
    "empty_ok": false,
-   "count": 8
+   "count": 6
   },
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.6,
+   "seconds": 1.5,
    "status": "ok",
-   "found": 10,
-   "fansign": 5,
+   "found": 8,
+   "fansign": 3,
    "empty_ok": false,
-   "count": 11
+   "count": 10
   },
   {
    "store": "사운드웨이브",
@@ -4030,12 +3690,12 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.5,
+   "seconds": 1.2,
    "status": "ok",
    "found": 12,
    "fansign": 12,
    "empty_ok": false,
-   "count": 12
+   "count": 11
   },
   {
    "store": "케이팝투게더",
@@ -4050,37 +3710,37 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 1.6,
+   "seconds": 1.4,
    "status": "ok",
    "found": 74,
    "fansign": 35,
    "empty_ok": false,
-   "count": 32
+   "count": 30
   },
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 1.5,
+   "seconds": 1.7,
    "status": "ok",
    "found": 20,
    "fansign": 12,
    "empty_ok": false,
-   "count": 12
+   "count": 9
   },
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 0.6,
+   "seconds": 0.5,
    "status": "ok",
    "found": 19,
-   "fansign": 3,
+   "fansign": 2,
    "empty_ok": false,
-   "count": 3
+   "count": 2
   },
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 1.4,
+   "seconds": 1.5,
    "status": "ok",
    "found": 1,
    "fansign": 1,
@@ -4100,7 +3760,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 37.3,
+   "seconds": 25.0,
    "status": "ok",
    "found": 41,
    "fansign": 25,
@@ -4110,30 +3770,29 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 3.0,
-   "status": "empty",
-   "found": 307,
-   "fansign": 0,
-   "empty_ok": true,
-   "count": 0
+   "seconds": 4.9,
+   "status": "error",
+   "message": "HTTPError: 403 Client Error: Forbidden for url: https://www.aladin.co.kr/events/wevent_main_music.aspx",
+   "count": 0,
+   "carried": 0
   },
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 2.9,
+   "seconds": 1.4,
    "status": "ok",
    "found": 17,
    "fansign": 13,
    "empty_ok": false,
-   "count": 11
+   "count": 10
   },
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 9.9,
+   "seconds": 14.2,
    "status": "ok",
-   "found": 12,
-   "fansign": 12,
+   "found": 7,
+   "fansign": 7,
    "empty_ok": true,
    "count": 4
   }
