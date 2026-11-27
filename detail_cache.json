@@ -1428,7 +1428,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1220-13-스페셜-대면-이벤트-루시lucy-2027-seasons-greetings-our/6717/category/65/display/1/": {
-  "_t": 1795767975.7660542,
+  "_t": 1795812897.4334626,
   "gone": false,
   "start": null,
   "end": null,
@@ -1438,7 +1438,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1227-11-영상통화-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6719/category/65/display/1/": {
-  "_t": 1795767975.7622707,
+  "_t": 1795812897.432038,
   "gone": false,
   "start": null,
   "end": null,
@@ -1448,7 +1448,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1227-대면-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6718/category/65/display/1/": {
-  "_t": 1795767975.7645438,
+  "_t": 1795812897.4334626,
   "gone": false,
   "start": null,
   "end": null,
@@ -1811,6 +1811,16 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmh8W1w%3D": {
   "_t": 1795809455.6115315,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmp8W1w%3D": {
+  "_t": 1795812897.434046,
   "gone": false,
   "start": null,
   "end": null,
