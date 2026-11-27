@@ -1487,5 +1487,25 @@
   "public": false,
   "venue": null,
   "last": false
+ },
+ "https://kr.ktown4u.com/eventinfo?eve_no=44635899&biz_no=967": {
+  "_t": 1795751922.734249,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996443&num2=00000": {
+  "_t": 1795751922.734249,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
  }
 }

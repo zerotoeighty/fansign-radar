@@ -2078,5 +2078,30 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996443&num2=00000": {
+  "_t": 1795752516.8686643,
+  "images": 4,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://kr.ktown4u.com/eventinfo?eve_no=44635899&biz_no=967": {
+  "_t": 1795752516.873208,
+  "images": 1,
+  "apply_start": "2026-11-27T12:00+09:00",
+  "apply_end": "2026-11-29T23:59+09:00",
+  "winner": "2026-11-30T14:00+09:00",
+  "event_date": "2026-12-20",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
