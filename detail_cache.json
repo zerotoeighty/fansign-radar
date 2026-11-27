@@ -1489,7 +1489,7 @@
   "last": false
  },
  "https://kr.ktown4u.com/eventinfo?eve_no=44635899&biz_no=967": {
-  "_t": 1795751922.734249,
+  "_t": 1795799148.0069253,
   "gone": false,
   "start": null,
   "end": null,
@@ -1499,7 +1499,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996443&num2=00000": {
-  "_t": 1795751922.734249,
+  "_t": 1795799148.0049136,
   "gone": false,
   "start": null,
   "end": null,
@@ -1509,7 +1509,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996442&num2=00000": {
-  "_t": 1795755866.064735,
+  "_t": 1795799148.0049136,
   "gone": false,
   "start": null,
   "end": null,
@@ -1519,7 +1519,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1744&mari_mode=view@view": {
-  "_t": 1795755866.064735,
+  "_t": 1795799148.0029013,
   "event_date": "2026-12-17",
   "seg_formats": [
    "대면"
@@ -1533,7 +1533,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1743&mari_mode=view@view": {
-  "_t": 1795755866.064735,
+  "_t": 1795799148.0049136,
   "event_date": "2026-12-17",
   "gone": false,
   "start": null,
@@ -1544,7 +1544,7 @@
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=262184&board_no=1": {
-  "_t": 1795755866.064735,
+  "_t": 1795799148.0029013,
   "gone": false,
   "start": null,
   "end": null,
@@ -1771,6 +1771,16 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=a2x3UQ%3D%3D": {
   "_t": 1795795108.988808,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aWh3UQ%3D%3D": {
+  "_t": 1795799149.0090952,
   "gone": false,
   "start": null,
   "end": null,

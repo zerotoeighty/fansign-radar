@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-28T00:57+09:00",
- "took_seconds": 881.9,
+ "checked_at": "2026-11-28T02:04+09:00",
+ "took_seconds": 1368.7,
  "events": [
   {
    "id": "663c300433ce",
@@ -51,32 +51,6 @@
    "status": "closed",
    "artist_raw": "웬디 (WENDY)",
    "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "4517a180e88e",
-   "store": "퍼스트뮤직",
-   "artist": "NouerA (누에라)",
-   "title": "[1128] NouerA(누에라) 4th Mini Album [.exe] 대면 & 맥세이프 카드 지갑 꾸미기 & 단체 & 1:1 영상통화",
-   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-28",
-   "apply_start": "2026-11-13T15:00+09:00",
-   "apply_end": "2026-11-15T11:59+09:00",
-   "winner": null,
-   "posted": "2026-11-12",
-   "winner_posted": false,
-   "schedule_src": "x",
-   "schedule_url": "https://x.com/1stmusicx/status/2121120882743468264",
-   "status": "closed",
-   "artist_raw": "NouerA(누에라)",
-   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "036f6e7b103b",
@@ -276,6 +250,30 @@
    "status": "closed",
    "artist_raw": "KiiiKiii",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "4517a180e88e",
+   "store": "퍼스트뮤직",
+   "artist": "NouerA (누에라)",
+   "title": "[1128] NouerA(누에라) 4th Mini Album [.exe] 대면 & 맥세이프 카드 지갑 꾸미기 & 단체 & 1:1 영상통화",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-28",
+   "apply_start": null,
+   "apply_end": null,
+   "winner": null,
+   "posted": "2026-11-12",
+   "winner_posted": false,
+   "status": "unknown",
+   "artist_raw": "NouerA(누에라)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "add95c8cd368",
@@ -2202,11 +2200,11 @@
    "first_seen": "2026-11-27T18:00+09:00"
   },
   {
-   "id": "a82d9539a3ad",
+   "id": "0bf01bf8c546",
    "store": "블루드림미디어",
    "artist": "KickFlip (킥플립)",
    "title": "(1207 개인영통) 킥플립(KickFlip) - The 5th Mini Album 'KICK OFF THE WALL Pt. 1' (DIGIPACK Ver.)",
-   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=a2x3UQ%3D%3D",
+   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aWh3UQ%3D%3D",
    "formats": [
     "영상통화"
    ],
@@ -2222,7 +2220,7 @@
    "winner_posted": false,
    "status": "unknown",
    "artist_raw": "킥플립(KickFlip)",
-   "first_seen": "2026-11-28T00:57+09:00"
+   "first_seen": "2026-11-28T02:04+09:00"
   },
   {
    "id": "6d500c577d49",
@@ -2907,29 +2905,6 @@
    "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
-   "id": "9d31716aaaec",
-   "store": "메이크스타",
-   "artist": "NCT 127 (엔시티127)",
-   "title": "NCT 127 7th Album [BLINGY] VIDEO CALL EVENT Part.2",
-   "url": "https://www.makestar.com/product/22280",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-19",
-   "apply_start": "2026-11-24T17:00+09:00",
-   "apply_end": "2026-11-28T00:59+09:00",
-   "winner": "2026-11-30T17:00+09:00",
-   "posted": null,
-   "winner_posted": false,
-   "status": "open",
-   "artist_raw": "NCT 127",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
    "id": "13def68212d8",
    "store": "헬로라이브",
    "artist": "소년주의",
@@ -3600,7 +3575,7 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.2,
+   "seconds": 1.5,
    "status": "ok",
    "found": 12,
    "fansign": 8,
@@ -3610,7 +3585,7 @@
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.1,
+   "seconds": 1.2,
    "status": "empty",
    "found": 11,
    "fansign": 5,
@@ -3620,7 +3595,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.5,
+   "seconds": 1.9,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -3630,7 +3605,7 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 29.1,
+   "seconds": 94.4,
    "status": "ok",
    "found": 35,
    "fansign": 13,
@@ -3640,7 +3615,7 @@
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 1.3,
+   "seconds": 1.9,
    "status": "ok",
    "found": 10,
    "fansign": 8,
@@ -3650,7 +3625,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 21.8,
+   "seconds": 82.8,
    "status": "ok",
    "found": 66,
    "fansign": 50,
@@ -3662,15 +3637,15 @@
    "url": "https://www.makestar.com/event?status=ON_SALE",
    "seconds": 0.5,
    "status": "ok",
-   "found": 16,
-   "fansign": 6,
+   "found": 15,
+   "fansign": 5,
    "empty_ok": false,
-   "count": 6
+   "count": 5
   },
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.5,
+   "seconds": 1.3,
    "status": "ok",
    "found": 8,
    "fansign": 3,
@@ -3680,7 +3655,7 @@
   {
    "store": "사운드웨이브",
    "url": "https://sound-wave.co.kr/board/event-notice/1/",
-   "seconds": 1.2,
+   "seconds": 1.4,
    "status": "ok",
    "found": 15,
    "fansign": 7,
@@ -3690,7 +3665,7 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.2,
+   "seconds": 1.4,
    "status": "ok",
    "found": 12,
    "fansign": 12,
@@ -3700,7 +3675,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.1,
+   "seconds": 1.2,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -3710,7 +3685,7 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 1.4,
+   "seconds": 2.2,
    "status": "ok",
    "found": 74,
    "fansign": 35,
@@ -3740,7 +3715,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 1.5,
+   "seconds": 1.4,
    "status": "ok",
    "found": 1,
    "fansign": 1,
@@ -3750,7 +3725,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 1.4,
+   "seconds": 1.5,
    "status": "ok",
    "found": 4,
    "fansign": 2,
@@ -3760,7 +3735,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 25.0,
+   "seconds": 99.1,
    "status": "ok",
    "found": 41,
    "fansign": 25,
@@ -3770,16 +3745,17 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 4.9,
-   "status": "error",
-   "message": "HTTPError: 403 Client Error: Forbidden for url: https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "count": 0,
-   "carried": 0
+   "seconds": 2.5,
+   "status": "empty",
+   "found": 307,
+   "fansign": 0,
+   "empty_ok": true,
+   "count": 0
   },
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 1.4,
+   "seconds": 2.9,
    "status": "ok",
    "found": 17,
    "fansign": 13,
@@ -3789,10 +3765,10 @@
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 14.2,
+   "seconds": 7.6,
    "status": "ok",
-   "found": 7,
-   "fansign": 7,
+   "found": 4,
+   "fansign": 4,
    "empty_ok": true,
    "count": 4
   }

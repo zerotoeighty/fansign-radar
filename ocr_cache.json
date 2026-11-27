@@ -1665,7 +1665,7 @@
   "venue": null
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/": {
-  "_t": 1795688619.591324,
+  "_t": 1795800411.7582366,
   "images": 2,
   "formats": [
    "대면",
@@ -2403,6 +2403,16 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=a2x3UQ%3D%3D": {
   "_t": 1795795960.5086122,
+  "images": 2,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aWh3UQ%3D%3D": {
+  "_t": 1795800411.7602463,
   "images": 2,
   "formats": [
    "영상통화"
