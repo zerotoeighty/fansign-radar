@@ -16,9 +16,8 @@
   "alerted": false
  },
  "위드뮤": {
-  "fails": 2,
-  "alerted": false,
-  "last": "접속 대기열을 통과하지 못했어요"
+  "fails": 0,
+  "alerted": false
  },
  "메이크스타": {
   "fails": 0,
