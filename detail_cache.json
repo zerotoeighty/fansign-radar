@@ -1042,15 +1042,15 @@
   "last": false
  },
  "https://hellolive.tv/ko/detail/1630": {
-  "_t": 1795759396.29656,
+  "_t": 1795809454.8370707,
   "event_date": "2026-12-04",
   "seg_formats": [
    "대면",
    "영상통화"
   ],
   "gone": false,
-  "start": null,
-  "end": null,
+  "start": "2026-11-25T11:00+09:00",
+  "end": "2026-11-27T23:59+09:00",
   "winner": "2026-11-28T15:00+09:00",
   "public": false,
   "venue": null,
@@ -1354,7 +1354,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996444&num2=00000": {
-  "_t": 1795763698.6107135,
+  "_t": 1795809454.8645074,
   "gone": false,
   "start": null,
   "end": null,
@@ -1364,7 +1364,7 @@
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998930&num2=00000&number=686&lock=N": {
-  "_t": 1795763698.6066053,
+  "_t": 1795809454.862754,
   "gone": false,
   "start": null,
   "end": null,
@@ -1374,7 +1374,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11602/": {
-  "_t": 1795763700.1302624,
+  "_t": 1795809456.4578795,
   "gone": false,
   "start": null,
   "end": null,
@@ -1384,7 +1384,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11630/": {
-  "_t": 1795763700.0386357,
+  "_t": 1795809456.025758,
   "gone": false,
   "start": null,
   "end": null,
@@ -1394,7 +1394,7 @@
   "last": false
  },
  "https://starlikemusic.com/product/fan-sign-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-way/1264/category/69/display/1/": {
-  "_t": 1795763700.022046,
+  "_t": 1795809455.838309,
   "gone": false,
   "start": null,
   "end": null,
@@ -1404,7 +1404,7 @@
   "last": false
  },
  "https://starlikemusic.com/product/video-call-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-w/1265/category/69/display/1/": {
-  "_t": 1795763699.965386,
+  "_t": 1795809455.8062646,
   "gone": false,
   "start": null,
   "end": null,
@@ -1414,14 +1414,14 @@
   "last": false
  },
  "https://hellolive.tv/ko/detail/1633": {
-  "_t": 1795763698.6066053,
+  "_t": 1795809454.8370707,
   "event_date": "2026-12-02",
   "seg_formats": [
    "영상통화"
   ],
   "gone": false,
-  "start": null,
-  "end": null,
+  "start": "2026-11-26T15:00+09:00",
+  "end": "2026-11-28T23:59+09:00",
   "winner": "2026-11-30T15:00+09:00",
   "public": false,
   "venue": null,
@@ -1624,7 +1624,7 @@
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261755&board_no=1": {
-  "_t": 1795763698.6086218,
+  "_t": 1795809454.8645074,
   "gone": false,
   "start": null,
   "end": null,
@@ -1634,7 +1634,7 @@
   "last": false
  },
  "https://everlineshop.com/events/2bccb28a-63c5-4dd5-b311-6cbb6f2b5b70": {
-  "_t": 1795763698.602576,
+  "_t": 1795809454.8335154,
   "gone": false,
   "start": "2026-11-27T00:00+09:00",
   "end": "2026-11-29T23:59+09:00",
@@ -1801,6 +1801,16 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bWl3UQ%3D%3D": {
   "_t": 1795805792.4484289,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmh8W1w%3D": {
+  "_t": 1795809455.6115315,
   "gone": false,
   "start": null,
   "end": null,
