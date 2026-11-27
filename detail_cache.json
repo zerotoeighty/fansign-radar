@@ -1477,5 +1477,15 @@
   "public": false,
   "venue": null,
   "last": false
+ },
+ "https://sound-wave.co.kr/board/free/read.html?no=262182&board_no=1": {
+  "_t": 1795746372.4671018,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
  }
 }
