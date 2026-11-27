@@ -331,20 +331,6 @@
   "venue": null,
   "last": false
  },
- "https://hellolive.tv/ko/detail/1622": {
-  "_t": 1795553819.8696022,
-  "event_date": "2026-11-29",
-  "seg_formats": [
-   "대면",
-   "영상통화"
-  ],
-  "gone": false,
-  "start": "2026-11-19T15:00+09:00",
-  "end": "2026-11-22T23:59+09:00",
-  "winner": "2026-11-24T17:00+09:00",
-  "venue": null,
-  "last": false
- },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1731&mari_mode=view@view": {
   "_t": 1795780579.759676,
   "event_date": "2026-11-29",
@@ -560,15 +546,6 @@
   "end": null,
   "winner": null,
   "public": false,
-  "venue": null,
-  "last": false
- },
- "https://hellolive.tv/ko/detail/1608": {
-  "_t": 1795553819.8751128,
-  "gone": false,
-  "start": "2026-11-16T11:00+09:00",
-  "end": "2026-11-22T23:59+09:00",
-  "winner": "2026-11-23T20:00+09:00",
   "venue": null,
   "last": false
  },
@@ -963,19 +940,6 @@
   "venue": null,
   "last": false
  },
- "https://m.musicplant.co.kr/board/?db=gallery_1&no=1727&mari_mode=view@view": {
-  "_t": 1795554821.5578635,
-  "event_date": "2026-11-27",
-  "seg_formats": [
-   "영상통화"
-  ],
-  "gone": false,
-  "start": null,
-  "end": null,
-  "winner": null,
-  "venue": null,
-  "last": false
- },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1736&mari_mode=view@view": {
   "_t": 1795780578.8761172,
   "event_date": "2026-12-03",
@@ -1031,16 +995,6 @@
   "venue": null,
   "last": false
  },
- "https://m.musicplant.co.kr/board/?db=gallery_1&no=1719&mari_mode=view@view": {
-  "_t": 1795554821.639128,
-  "event_date": "2026-12-18",
-  "gone": false,
-  "start": null,
-  "end": null,
-  "winner": null,
-  "venue": null,
-  "last": false
- },
  "https://hellolive.tv/ko/detail/1630": {
   "_t": 1795809454.8370707,
   "event_date": "2026-12-04",
@@ -1091,7 +1045,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996447&num2=00000": {
-  "_t": 1795770057.791804,
+  "_t": 1795816488.0089312,
   "gone": false,
   "start": null,
   "end": null,
@@ -1658,7 +1612,7 @@
   "last": false
  },
  "https://whosfanstore.com/products/videocallxnghanxoul-glowadventurepart2ver": {
-  "_t": 1795770057.7938106,
+  "_t": 1795816488.0109425,
   "gone": false,
   "start": null,
   "end": null,
@@ -1668,7 +1622,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996482&num2=00000": {
-  "_t": 1795770057.791804,
+  "_t": 1795816488.0089312,
   "gone": false,
   "start": null,
   "end": null,
@@ -1678,7 +1632,7 @@
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998929&num2=00000&number=687&lock=N": {
-  "_t": 1795770057.7897968,
+  "_t": 1795816487.9829016,
   "gone": false,
   "start": null,
   "end": null,
@@ -1821,6 +1775,16 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmp8W1w%3D": {
   "_t": 1795812897.434046,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bm14W1w%3D": {
+  "_t": 1795816488.0089312,
   "gone": false,
   "start": null,
   "end": null,
