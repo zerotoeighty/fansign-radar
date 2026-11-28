@@ -1443,7 +1443,7 @@
   "last": false
  },
  "https://kr.ktown4u.com/eventinfo?eve_no=44635899&biz_no=967": {
-  "_t": 1795799148.0069253,
+  "_t": 1795845382.565447,
   "gone": false,
   "start": null,
   "end": null,
@@ -1453,7 +1453,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996443&num2=00000": {
-  "_t": 1795799148.0049136,
+  "_t": 1795845382.474047,
   "gone": false,
   "start": null,
   "end": null,
@@ -1463,7 +1463,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996442&num2=00000": {
-  "_t": 1795799148.0049136,
+  "_t": 1795845381.3537552,
   "gone": false,
   "start": null,
   "end": null,
@@ -1473,7 +1473,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1744&mari_mode=view@view": {
-  "_t": 1795799148.0029013,
+  "_t": 1795845381.351741,
   "event_date": "2026-12-17",
   "seg_formats": [
    "대면"
@@ -1487,7 +1487,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1743&mari_mode=view@view": {
-  "_t": 1795799148.0049136,
+  "_t": 1795845381.351741,
   "event_date": "2026-12-17",
   "gone": false,
   "start": null,
@@ -1498,7 +1498,7 @@
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=262184&board_no=1": {
-  "_t": 1795799148.0029013,
+  "_t": 1795845381.347708,
   "gone": false,
   "start": null,
   "end": null,
@@ -1568,7 +1568,7 @@
   "last": false
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmx7W1w%3D": {
-  "_t": 1795763698.6107135,
+  "_t": 1795845382.6883585,
   "gone": false,
   "start": null,
   "end": null,
@@ -1855,6 +1855,31 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmp3UQ%3D%3D": {
   "_t": 1795838095.0380864,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1749&mari_mode=view@view": {
+  "_t": 1795845381.3497202,
+  "event_date": "2026-12-26",
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1748&mari_mode=view@view": {
+  "_t": 1795845381.3497202,
+  "event_date": "2026-12-26",
+  "seg_formats": [
+   "영상통화"
+  ],
   "gone": false,
   "start": null,
   "end": null,
