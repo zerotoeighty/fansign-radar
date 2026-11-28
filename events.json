@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-28T19:50+09:00",
- "took_seconds": 775.1,
+ "checked_at": "2026-11-28T20:46+09:00",
+ "took_seconds": 68.0,
  "events": [
   {
    "id": "663c300433ce",
@@ -127,6 +127,32 @@
    "status": "closed",
    "artist_raw": "CHAERYEONG",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "b433751538c4",
+   "store": "점프업이엔티",
+   "artist": "ODD YOUTH (오드 유스)",
+   "title": "[11/28 EVENT] 오드유스 (ODD YOUTH) - 3rd Single [can't go back] MEET&CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2123295203960496154",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-28",
+   "apply_start": null,
+   "apply_end": "2026-11-22T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/JumpUp_ent/status/2123295203960496154",
+   "status": "closed",
+   "artist_raw": "오드유스 (ODD YOUTH)",
+   "first_seen": "base@2026-11-25T06:20+09:00"
   },
   {
    "id": "509de6687112",
@@ -394,6 +420,32 @@
    "status": "closed",
    "artist_raw": "키빗업 (KEYVITUP)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "6730431971e4",
+   "store": "점프업이엔티",
+   "artist": "A2O SOUL DEBUT",
+   "title": "A2O SOUL DEBUT ALBUM [SUPERSTAR] MEET&CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2123702905354023209",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-29",
+   "apply_start": null,
+   "apply_end": "2026-11-20T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/JumpUp_ent/status/2123702905354023209",
+   "status": "closed",
+   "artist_raw": "A2O SOUL DEBUT",
+   "first_seen": "base@2026-11-25T06:20+09:00"
   },
   {
    "id": "24642b591450",
@@ -1032,6 +1084,56 @@
    "first_seen": "2026-11-27T16:14+09:00"
   },
   {
+   "id": "c4531cd64753",
+   "store": "디어마이뮤즈",
+   "artist": "ALL(H)OURS (올아워즈)",
+   "title": "[12/03 1:1 영상통화 팬사인회] ALL(H)OURS(올아워즈) - 미니 6집 [UNBOUND] (버전 랜덤 출고)",
+   "url": "https://dearmymuse.com/product/1203-11-영상통화-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6631/category/65/display/1/",
+   "formats": [
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-03",
+   "apply_start": "2026-11-19T15:00+09:00",
+   "apply_end": "2026-11-21T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/dearmymuse_foru/status/2123295206321910250",
+   "status": "closed",
+   "artist_raw": "ALL(H)OURS(올아워즈)",
+   "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "4a1a4b8b0dc6",
+   "store": "디어마이뮤즈",
+   "artist": "ALL(H)OURS (올아워즈)",
+   "title": "[12/03 대면 팬사인회] ALL(H)OURS(올아워즈) - 미니 6집 [UNBOUND] (버전 랜덤 출고)",
+   "url": "https://dearmymuse.com/product/1203-대면-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6630/category/65/display/1/",
+   "formats": [
+    "대면"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-03",
+   "apply_start": "2026-11-19T15:00+09:00",
+   "apply_end": "2026-11-21T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/dearmymuse_foru/status/2123295206321910250",
+   "status": "closed",
+   "artist_raw": "ALL(H)OURS(올아워즈)",
+   "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
    "id": "0d0685c3ccf0",
    "store": "뮤직아트",
    "artist": "EXO-KASE (엑소 카이세훈)",
@@ -1077,52 +1179,6 @@
    "status": "open",
    "artist_raw": "TRENDZ (트렌드지)",
    "first_seen": "2026-11-27T15:02+09:00"
-  },
-  {
-   "id": "c4531cd64753",
-   "store": "디어마이뮤즈",
-   "artist": "ALL(H)OURS (올아워즈)",
-   "title": "[12/03 1:1 영상통화 팬사인회] ALL(H)OURS(올아워즈) - 미니 6집 [UNBOUND] (버전 랜덤 출고)",
-   "url": "https://dearmymuse.com/product/1203-11-영상통화-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6631/category/65/display/1/",
-   "formats": [
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-03",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": false,
-   "status": "unknown",
-   "artist_raw": "ALL(H)OURS(올아워즈)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "4a1a4b8b0dc6",
-   "store": "디어마이뮤즈",
-   "artist": "ALL(H)OURS (올아워즈)",
-   "title": "[12/03 대면 팬사인회] ALL(H)OURS(올아워즈) - 미니 6집 [UNBOUND] (버전 랜덤 출고)",
-   "url": "https://dearmymuse.com/product/1203-대면-팬사인회-allhours올아워즈-미니-6집-unbound-버전-랜덤-출고/6630/category/65/display/1/",
-   "formats": [
-    "대면"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-12-03",
-   "apply_start": null,
-   "apply_end": null,
-   "winner": null,
-   "posted": null,
-   "winner_posted": false,
-   "status": "unknown",
-   "artist_raw": "ALL(H)OURS(올아워즈)",
-   "first_seen": "base@2026-11-25T06:07+09:00"
   },
   {
    "id": "8633b59022cc",
@@ -1462,6 +1518,32 @@
    "status": "closed",
    "artist_raw": "언차일드 (UNCHILD)",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "ccf44703bb58",
+   "store": "점프업이엔티",
+   "artist": "KEYVITUP (키빗업)",
+   "title": "KEYVITUP(키빗업) 2ND EP [NA-GARI] MEET& CALL EVENT",
+   "url": "https://x.com/JumpUp_ent/status/2123302754466550184",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-12-05",
+   "apply_start": null,
+   "apply_end": "2026-11-19T23:59+09:00",
+   "winner": null,
+   "posted": null,
+   "winner_posted": false,
+   "schedule_src": "x",
+   "schedule_url": "https://x.com/JumpUp_ent/status/2123302754466550184",
+   "status": "closed",
+   "artist_raw": "KEYVITUP(키빗업)",
+   "first_seen": "base@2026-11-25T06:20+09:00"
   },
   {
    "id": "915ba7469317",
@@ -2051,11 +2133,11 @@
    "first_seen": "2026-11-27T18:00+09:00"
   },
   {
-   "id": "6deaee77c64b",
+   "id": "cb81a63aa1fb",
    "store": "블루드림미디어",
    "artist": "KickFlip (킥플립)",
    "title": "(1207 개인영통) 킥플립(KickFlip) - The 5th Mini Album 'KICK OFF THE WALL Pt. 1' (DIGIPACK Ver.)",
-   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bm53UQ%3D%3D",
+   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aGx3UQ%3D%3D",
    "formats": [
     "영상통화"
    ],
@@ -2071,7 +2153,7 @@
    "winner_posted": false,
    "status": "unknown",
    "artist_raw": "킥플립(KickFlip)",
-   "first_seen": "2026-11-28T19:50+09:00"
+   "first_seen": "2026-11-28T18:25+09:00"
   },
   {
    "id": "6d500c577d49",
@@ -3545,7 +3627,7 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.5,
+   "seconds": 1.3,
    "status": "ok",
    "found": 12,
    "fansign": 8,
@@ -3555,7 +3637,7 @@
   {
    "store": "엠투유",
    "url": "https://m2urecord.com/board/m2u-event/1/",
-   "seconds": 1.6,
+   "seconds": 1.1,
    "status": "empty",
    "found": 11,
    "fansign": 5,
@@ -3565,7 +3647,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 2.0,
+   "seconds": 1.2,
    "status": "empty",
    "found": 5,
    "fansign": 2,
@@ -3575,7 +3657,7 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 32.6,
+   "seconds": 38.7,
    "status": "ok",
    "found": 35,
    "fansign": 13,
@@ -3595,7 +3677,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 24.2,
+   "seconds": 25.5,
    "status": "ok",
    "found": 66,
    "fansign": 50,
@@ -3605,7 +3687,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.5,
+   "seconds": 0.9,
    "status": "ok",
    "found": 15,
    "fansign": 5,
@@ -3615,17 +3697,17 @@
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.6,
+   "seconds": 1.2,
    "status": "ok",
    "found": 8,
    "fansign": 3,
    "empty_ok": false,
-   "count": 7
+   "count": 10
   },
   {
    "store": "사운드웨이브",
    "url": "https://sound-wave.co.kr/board/event-notice/1/",
-   "seconds": 2.0,
+   "seconds": 1.2,
    "status": "ok",
    "found": 15,
    "fansign": 7,
@@ -3635,7 +3717,7 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.6,
+   "seconds": 1.3,
    "status": "ok",
    "found": 12,
    "fansign": 12,
@@ -3645,7 +3727,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.2,
+   "seconds": 1.0,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -3655,7 +3737,7 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 2.0,
+   "seconds": 1.3,
    "status": "ok",
    "found": 75,
    "fansign": 36,
@@ -3665,7 +3747,7 @@
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 1.7,
+   "seconds": 1.5,
    "status": "ok",
    "found": 20,
    "fansign": 12,
@@ -3685,7 +3767,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 1.6,
+   "seconds": 1.9,
    "status": "ok",
    "found": 1,
    "fansign": 1,
@@ -3695,7 +3777,7 @@
   {
    "store": "스타라이크뮤직",
    "url": "https://starlikemusic.com/category/event/69/",
-   "seconds": 3.4,
+   "seconds": 2.5,
    "status": "ok",
    "found": 7,
    "fansign": 5,
@@ -3705,7 +3787,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 24.0,
+   "seconds": 30.9,
    "status": "ok",
    "found": 41,
    "fansign": 25,
@@ -3715,7 +3797,7 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 3.5,
+   "seconds": 2.1,
    "status": "empty",
    "found": 307,
    "fansign": 0,
@@ -3725,7 +3807,7 @@
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 2.7,
+   "seconds": 1.6,
    "status": "ok",
    "found": 17,
    "fansign": 13,
@@ -3735,10 +3817,10 @@
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 11.6,
+   "seconds": 11.0,
    "status": "ok",
-   "found": 12,
-   "fansign": 12,
+   "found": 7,
+   "fansign": 7,
    "empty_ok": true,
    "count": 3
   }

@@ -25,20 +25,6 @@
    "대면"
   ]
  },
- "https://everlineshop.com/events/c2aaf813-f03f-4051-b4e8-a5215343930b": {
-  "_t": 1795604725.19204,
-  "gone": false,
-  "start": "2026-11-23T00:00+09:00",
-  "end": "2026-11-25T23:59+09:00",
-  "winner": null,
-  "public": false,
-  "venue": null,
-  "last": false,
-  "formats": [
-   "대면",
-   "영상통화"
-  ]
- },
  "https://everlineshop.com/events/b252d0dd-73a7-4f1f-b082-427ce25fe3c6": {
   "_t": 1795836388.8286564,
   "gone": false,
@@ -58,20 +44,6 @@
   "gone": false,
   "start": null,
   "end": null,
-  "winner": null,
-  "public": false,
-  "venue": null,
-  "last": false,
-  "formats": [
-   "대면",
-   "영상통화"
-  ]
- },
- "https://everlineshop.com/events/b5342c6f-1e35-41ef-91ac-ce98fb1ab56f": {
-  "_t": 1795604725.1915472,
-  "gone": false,
-  "start": "2026-11-23T00:00+09:00",
-  "end": "2026-11-25T23:59+09:00",
   "winner": null,
   "public": false,
   "venue": null,
@@ -957,7 +929,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11599/": {
-  "_t": 1795820172.0190766,
+  "_t": 1795866448.0149646,
   "gone": false,
   "start": null,
   "end": null,
@@ -967,7 +939,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11509/": {
-  "_t": 1795820173.2289395,
+  "_t": 1795866448.0169754,
   "gone": false,
   "start": null,
   "end": null,
@@ -977,7 +949,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11441/": {
-  "_t": 1795820173.3103373,
+  "_t": 1795866448.9486048,
   "gone": false,
   "start": null,
   "end": null,
@@ -987,7 +959,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11532/": {
-  "_t": 1795820172.0210938,
+  "_t": 1795866448.0169754,
   "gone": false,
   "start": null,
   "end": null,
@@ -1007,7 +979,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11560/": {
-  "_t": 1795820172.0205173,
+  "_t": 1795866448.0149646,
   "gone": false,
   "start": null,
   "end": null,
@@ -1017,7 +989,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11510/": {
-  "_t": 1795820172.0231068,
+  "_t": 1795866448.0169754,
   "gone": false,
   "start": null,
   "end": null,
@@ -1037,7 +1009,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11385/": {
-  "_t": 1795820174.188275,
+  "_t": 1795866449.1626394,
   "gone": false,
   "start": null,
   "end": null,
@@ -1047,7 +1019,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/": {
-  "_t": 1795820173.396437,
+  "_t": 1795866449.1464138,
   "gone": false,
   "start": null,
   "end": null,
@@ -1057,7 +1029,7 @@
   "last": false
  },
  "https://store.frommyarti.com/bundle/31088": {
-  "_t": 1795820174.4429927,
+  "_t": 1795866449.8878987,
   "gone": false,
   "start": null,
   "end": null,
@@ -1067,7 +1039,7 @@
   "last": false
  },
  "https://store.frommyarti.com/bundle/31186": {
-  "_t": 1795820174.353176,
+  "_t": 1795866449.836952,
   "gone": false,
   "start": null,
   "end": null,
@@ -1077,7 +1049,7 @@
   "last": false
  },
  "https://store.frommyarti.com/bundle/31024": {
-  "_t": 1795820174.477097,
+  "_t": 1795866450.0642564,
   "gone": false,
   "start": null,
   "end": null,
@@ -1282,7 +1254,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996448&num2=00000": {
-  "_t": 1795820172.0170617,
+  "_t": 1795866448.0149646,
   "gone": false,
   "start": null,
   "end": null,
