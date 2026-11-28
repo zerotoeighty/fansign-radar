@@ -2559,5 +2559,65 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1746&mari_mode=view@view": {
+  "_t": 1795850261.020163,
+  "images": 1,
+  "formats": [],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aWV9": {
+  "_t": 1795850261.0221708,
+  "images": 2,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://starlikemusic.com/product/11-video-call-event-1218-artms아르테미스-hyper-ego/1269/category/69/display/1/": {
+  "_t": 1795850261.0281942,
+  "images": 3,
+  "apply_start": "2026-11-28T15:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-01T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://starlikemusic.com/product/relay-video-call-event-1218-artms아르테미스-hyper-ego/1268/category/69/display/1/": {
+  "_t": 1795850261.0352478,
+  "images": 3,
+  "apply_start": "2026-11-28T15:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-01T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://starlikemusic.com/product/fan-signevent-1218-artms아르테미스-hyper-ego/1267/category/69/display/1/": {
+  "_t": 1795850261.0460212,
+  "images": 3,
+  "apply_start": "2026-11-28T15:00+09:00",
+  "apply_end": "2026-11-30T23:59+09:00",
+  "winner": "2026-12-01T15:00+09:00",
+  "formats": [
+   "대면",
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
