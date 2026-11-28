@@ -1126,16 +1126,6 @@
   "venue": null,
   "last": false
  },
- "https://1stmusic.co.kr/article/팬사인회-공지/1002/11492/": {
-  "_t": 1795596383.0970523,
-  "gone": false,
-  "start": null,
-  "end": null,
-  "winner": null,
-  "public": false,
-  "venue": null,
-  "last": false
- },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11310/": {
   "_t": 1795683689.4775584,
   "gone": false,
@@ -1362,7 +1352,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1220-13-스페셜-대면-이벤트-루시lucy-2027-seasons-greetings-our/6717/category/65/display/1/": {
-  "_t": 1795812897.4334626,
+  "_t": 1795857983.2897408,
   "gone": false,
   "start": null,
   "end": null,
@@ -1372,7 +1362,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1227-11-영상통화-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6719/category/65/display/1/": {
-  "_t": 1795812897.432038,
+  "_t": 1795857983.2877262,
   "gone": false,
   "start": null,
   "end": null,
@@ -1382,7 +1372,7 @@
   "last": false
  },
  "https://dearmymuse.com/product/1227-대면-팬사인회-원어스oneus-2027-seasons-greetings-sunlit-pharmacy/6718/category/65/display/1/": {
-  "_t": 1795812897.4334626,
+  "_t": 1795857983.2877262,
   "gone": false,
   "start": null,
   "end": null,
@@ -1922,6 +1912,16 @@
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1755&mari_mode=view@view": {
   "_t": 1795853920.9329967,
   "event_date": "2026-12-03",
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aGx3UQ%3D%3D": {
+  "_t": 1795857983.2897408,
   "gone": false,
   "start": null,
   "end": null,

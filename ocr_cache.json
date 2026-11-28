@@ -2627,5 +2627,15 @@
   "last": false,
   "public": false,
   "venue": null
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=aGx3UQ%3D%3D": {
+  "_t": 1795858741.4132016,
+  "images": 2,
+  "formats": [
+   "영상통화"
+  ],
+  "last": false,
+  "public": false,
+  "venue": null
  }
 }
