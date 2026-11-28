@@ -1682,7 +1682,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1760&mari_mode=view@view": {
-  "_t": 1795785074.7569659,
+  "_t": 1795832460.7724133,
   "event_date": "2026-12-08",
   "gone": false,
   "start": null,
@@ -1693,7 +1693,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1761&mari_mode=view@view": {
-  "_t": 1795785074.7569659,
+  "_t": 1795832460.7724133,
   "event_date": "2026-12-08",
   "gone": false,
   "start": null,
@@ -1815,6 +1815,26 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmt%2FW1w%3D": {
   "_t": 1795828039.4097092,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996440&num2=00000": {
+  "_t": 1795832460.774434,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmx6W1w%3D": {
+  "_t": 1795832460.774434,
   "gone": false,
   "start": null,
   "end": null,
