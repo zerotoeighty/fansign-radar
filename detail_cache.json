@@ -884,26 +884,6 @@
   "venue": null,
   "last": false
  },
- "https://whosfanstore.com/products/1201-%EB%8C%80%EB%A9%B4-%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C-%EC%97%94%ED%94%8C%EB%9D%BC%EC%9E%89-n-flying-9th-mini-album-still-photobook-ver": {
-  "_t": 1795590762.4305193,
-  "gone": false,
-  "start": null,
-  "end": null,
-  "winner": null,
-  "public": false,
-  "venue": null,
-  "last": false
- },
- "https://whosfanstore.com/products/1201-1-1-%EC%98%81%EC%83%81%ED%86%B5%ED%99%94-%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C-%EC%97%94%ED%94%8C%EB%9D%BC%EC%9E%89-n-flying-9th-mini-album-still-photobook-ver": {
-  "_t": 1795590762.4284985,
-  "gone": false,
-  "start": null,
-  "end": null,
-  "winner": null,
-  "public": false,
-  "venue": null,
-  "last": false
- },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1740&mari_mode=view@view": {
   "_t": 1795828028.7698293,
   "event_date": "2026-11-28",
@@ -996,7 +976,7 @@
   "last": false
  },
  "https://hellolive.tv/ko/detail/1630": {
-  "_t": 1795809454.8370707,
+  "_t": 1795853920.9289703,
   "event_date": "2026-12-04",
   "seg_formats": [
    "대면",
@@ -1308,7 +1288,7 @@
   "last": false
  },
  "https://applemusic.co.kr/board/board.html?code=applemusic_board2&page=1&type=v&num1=996444&num2=00000": {
-  "_t": 1795809454.8645074,
+  "_t": 1795853922.1408784,
   "gone": false,
   "start": null,
   "end": null,
@@ -1318,7 +1298,7 @@
   "last": false
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998930&num2=00000&number=686&lock=N": {
-  "_t": 1795809454.862754,
+  "_t": 1795853920.9309826,
   "gone": false,
   "start": null,
   "end": null,
@@ -1328,7 +1308,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11602/": {
-  "_t": 1795809456.4578795,
+  "_t": 1795853923.2949724,
   "gone": false,
   "start": null,
   "end": null,
@@ -1338,7 +1318,7 @@
   "last": false
  },
  "https://1stmusic.co.kr/article/팬사인회-공지/1002/11630/": {
-  "_t": 1795809456.025758,
+  "_t": 1795853922.9664726,
   "gone": false,
   "start": null,
   "end": null,
@@ -1348,7 +1328,7 @@
   "last": false
  },
  "https://starlikemusic.com/product/fan-sign-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-way/1264/category/69/display/1/": {
-  "_t": 1795809455.838309,
+  "_t": 1795853922.72197,
   "gone": false,
   "start": null,
   "end": null,
@@ -1358,7 +1338,7 @@
   "last": false
  },
  "https://starlikemusic.com/product/video-call-event-1206-dailydirection-데일리디렉션-the-1st-mini-album-which-w/1265/category/69/display/1/": {
-  "_t": 1795809455.8062646,
+  "_t": 1795853922.335257,
   "gone": false,
   "start": null,
   "end": null,
@@ -1368,14 +1348,14 @@
   "last": false
  },
  "https://hellolive.tv/ko/detail/1633": {
-  "_t": 1795809454.8370707,
+  "_t": 1795853920.9289703,
   "event_date": "2026-12-02",
   "seg_formats": [
    "영상통화"
   ],
   "gone": false,
-  "start": "2026-11-26T15:00+09:00",
-  "end": "2026-11-28T23:59+09:00",
+  "start": null,
+  "end": null,
   "winner": "2026-11-30T15:00+09:00",
   "public": false,
   "venue": null,
@@ -1578,7 +1558,7 @@
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=261755&board_no=1": {
-  "_t": 1795809454.8645074,
+  "_t": 1795853920.9309826,
   "gone": false,
   "start": null,
   "end": null,
@@ -1588,7 +1568,7 @@
   "last": false
  },
  "https://everlineshop.com/events/2bccb28a-63c5-4dd5-b311-6cbb6f2b5b70": {
-  "_t": 1795809454.8335154,
+  "_t": 1795853920.9269485,
   "gone": false,
   "start": "2026-11-27T00:00+09:00",
   "end": "2026-11-29T23:59+09:00",
@@ -1764,7 +1744,7 @@
   "last": false
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmh8W1w%3D": {
-  "_t": 1795809455.6115315,
+  "_t": 1795853922.287107,
   "gone": false,
   "start": null,
   "end": null,
@@ -1931,6 +1911,17 @@
  },
  "https://starlikemusic.com/product/relay-video-call-event-1218-artms아르테미스-hyper-ego/1268/category/69/display/1/": {
   "_t": 1795849634.1095726,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1755&mari_mode=view@view": {
+  "_t": 1795853920.9329967,
+  "event_date": "2026-12-03",
   "gone": false,
   "start": null,
   "end": null,

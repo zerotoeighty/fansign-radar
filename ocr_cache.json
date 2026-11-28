@@ -1945,7 +1945,7 @@
   "venue": null
  },
  "https://musicart.kr/m/board.html?code=musicart_board4&page=1&type=v&board_cate=&num1=998930&num2=00000&number=686&lock=N": {
-  "_t": 1795764612.274361,
+  "_t": 1795854664.768367,
   "images": 4,
   "formats": [
    "대면",
@@ -2616,6 +2616,14 @@
    "대면",
    "영상통화"
   ],
+  "last": false,
+  "public": false,
+  "venue": null
+ },
+ "https://m.musicplant.co.kr/board/?db=gallery_1&no=1755&mari_mode=view@view": {
+  "_t": 1795854664.768367,
+  "images": 4,
+  "formats": [],
   "last": false,
   "public": false,
   "venue": null
