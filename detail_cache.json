@@ -1802,5 +1802,15 @@
   "public": false,
   "venue": null,
   "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bm1%2FW1w%3D": {
+  "_t": 1795823528.5611835,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
  }
 }
