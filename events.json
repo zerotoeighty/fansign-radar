@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-11-28T12:54+09:00",
- "took_seconds": 788.8,
+ "checked_at": "2026-11-28T13:57+09:00",
+ "took_seconds": 791.9,
  "events": [
   {
    "id": "663c300433ce",
@@ -51,32 +51,6 @@
    "status": "closed",
    "artist_raw": "웬디 (WENDY)",
    "first_seen": "base@2026-11-25T06:07+09:00"
-  },
-  {
-   "id": "4517a180e88e",
-   "store": "퍼스트뮤직",
-   "artist": "NouerA (누에라)",
-   "title": "[1128] NouerA(누에라) 4th Mini Album [.exe] 대면 & 맥세이프 카드 지갑 꾸미기 & 단체 & 1:1 영상통화",
-   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/",
-   "formats": [
-    "대면",
-    "영상통화"
-   ],
-   "overseas": false,
-   "public": false,
-   "last_fansign": false,
-   "venue": null,
-   "event_date": "2026-11-28",
-   "apply_start": "2026-11-13T15:00+09:00",
-   "apply_end": "2026-11-15T11:59+09:00",
-   "winner": null,
-   "posted": "2026-11-12",
-   "winner_posted": false,
-   "schedule_src": "x",
-   "schedule_url": "https://x.com/1stmusicx/status/2121120882743468264",
-   "status": "closed",
-   "artist_raw": "NouerA(누에라)",
-   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "036f6e7b103b",
@@ -250,6 +224,30 @@
    "status": "closed",
    "artist_raw": "KiiiKiii",
    "first_seen": "base@2026-11-25T06:07+09:00"
+  },
+  {
+   "id": "4517a180e88e",
+   "store": "퍼스트뮤직",
+   "artist": "NouerA (누에라)",
+   "title": "[1128] NouerA(누에라) 4th Mini Album [.exe] 대면 & 맥세이프 카드 지갑 꾸미기 & 단체 & 1:1 영상통화",
+   "url": "https://1stmusic.co.kr/article/팬사인회-공지/1002/11414/",
+   "formats": [
+    "대면",
+    "영상통화"
+   ],
+   "overseas": false,
+   "public": false,
+   "last_fansign": false,
+   "venue": null,
+   "event_date": "2026-11-28",
+   "apply_start": null,
+   "apply_end": null,
+   "winner": null,
+   "posted": "2026-11-12",
+   "winner_posted": false,
+   "status": "unknown",
+   "artist_raw": "NouerA(누에라)",
+   "first_seen": "base@2026-11-25T17:45+09:00"
   },
   {
    "id": "add95c8cd368",
@@ -2120,11 +2118,11 @@
    "first_seen": "2026-11-27T18:00+09:00"
   },
   {
-   "id": "ac59fc872109",
+   "id": "a82d9539a3ad",
    "store": "블루드림미디어",
    "artist": "KickFlip (킥플립)",
    "title": "(1207 개인영통) 킥플립(KickFlip) - The 5th Mini Album 'KICK OFF THE WALL Pt. 1' (DIGIPACK Ver.)",
-   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bmp3UQ%3D%3D",
+   "url": "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=a2x3UQ%3D%3D",
    "formats": [
     "영상통화"
    ],
@@ -2140,7 +2138,7 @@
    "winner_posted": false,
    "status": "unknown",
    "artist_raw": "킥플립(KickFlip)",
-   "first_seen": "2026-11-28T12:54+09:00"
+   "first_seen": "2026-11-28T00:57+09:00"
   },
   {
    "id": "6d500c577d49",
@@ -3495,7 +3493,7 @@
   {
    "store": "에버라인",
    "url": "https://everlineshop.com/events",
-   "seconds": 1.5,
+   "seconds": 1.4,
    "status": "ok",
    "found": 12,
    "fansign": 8,
@@ -3515,7 +3513,7 @@
   {
    "store": "비트로드",
    "url": "https://beatroad.co.kr/product/list.html?cate_no=150",
-   "seconds": 1.8,
+   "seconds": 1.6,
    "status": "empty",
    "found": 2,
    "fansign": 0,
@@ -3525,7 +3523,7 @@
   {
    "store": "헬로라이브",
    "url": "https://hellolive.tv/ko/category/event",
-   "seconds": 39.6,
+   "seconds": 30.5,
    "status": "ok",
    "found": 35,
    "fansign": 13,
@@ -3535,7 +3533,7 @@
   {
    "store": "뮤직아트",
    "url": "https://musicart.kr/m/board.html?code=musicart_board4",
-   "seconds": 1.9,
+   "seconds": 1.8,
    "status": "ok",
    "found": 10,
    "fansign": 8,
@@ -3545,7 +3543,7 @@
   {
    "store": "위드뮤",
    "url": "https://withmuu.com/goods/event_sale_list.php?type=ing",
-   "seconds": 29.1,
+   "seconds": 22.7,
    "status": "ok",
    "found": 66,
    "fansign": 50,
@@ -3555,7 +3553,7 @@
   {
    "store": "메이크스타",
    "url": "https://www.makestar.com/event?status=ON_SALE",
-   "seconds": 0.5,
+   "seconds": 0.6,
    "status": "ok",
    "found": 15,
    "fansign": 5,
@@ -3565,7 +3563,7 @@
   {
    "store": "점프업이엔티",
    "url": "https://jumpupent.com/product/list.html?cate_no=48",
-   "seconds": 1.6,
+   "seconds": 1.5,
    "status": "ok",
    "found": 8,
    "fansign": 3,
@@ -3585,7 +3583,7 @@
   {
    "store": "뮤직플랜트",
    "url": "https://m.musicplant.co.kr/board/?db=gallery_1&cate=18",
-   "seconds": 1.4,
+   "seconds": 1.3,
    "status": "ok",
    "found": 12,
    "fansign": 12,
@@ -3595,7 +3593,7 @@
   {
    "store": "케이팝투게더",
    "url": "https://www.kpop2gether.com/board/board.html?code=912enter_board4",
-   "seconds": 1.2,
+   "seconds": 1.1,
    "status": "ok",
    "found": 11,
    "fansign": 7,
@@ -3605,7 +3603,7 @@
   {
    "store": "애플뮤직",
    "url": "https://applemusic.co.kr/board/board.html?code=applemusic_board2",
-   "seconds": 1.7,
+   "seconds": 1.5,
    "status": "ok",
    "found": 75,
    "fansign": 36,
@@ -3615,7 +3613,7 @@
   {
    "store": "디어마이뮤즈",
    "url": "https://dearmymuse.com/category/event/65/",
-   "seconds": 1.8,
+   "seconds": 1.6,
    "status": "ok",
    "found": 20,
    "fansign": 12,
@@ -3625,7 +3623,7 @@
   {
    "store": "케타포",
    "url": "https://kr.ktown4u.com/event",
-   "seconds": 1.2,
+   "seconds": 1.3,
    "status": "ok",
    "found": 19,
    "fansign": 2,
@@ -3635,7 +3633,7 @@
   {
    "store": "블루드림미디어",
    "url": "https://thebdm.co.kr/shop/shopbrand.html?xcode=003&type=N",
-   "seconds": 2.2,
+   "seconds": 1.4,
    "status": "ok",
    "found": 1,
    "fansign": 1,
@@ -3655,7 +3653,7 @@
   {
    "store": "후즈팬",
    "url": "https://whosfanstore.com/collections/offevent",
-   "seconds": 27.6,
+   "seconds": 23.7,
    "status": "ok",
    "found": 41,
    "fansign": 25,
@@ -3665,7 +3663,7 @@
   {
    "store": "알라딘",
    "url": "https://www.aladin.co.kr/events/wevent_main_music.aspx",
-   "seconds": 2.8,
+   "seconds": 3.1,
    "status": "empty",
    "found": 307,
    "fansign": 0,
@@ -3675,7 +3673,7 @@
   {
    "store": "퍼스트뮤직",
    "url": "https://1stmusic.co.kr/board/팬사인회-공지/1002/",
-   "seconds": 2.8,
+   "seconds": 2.7,
    "status": "ok",
    "found": 17,
    "fansign": 13,
@@ -3685,10 +3683,10 @@
   {
    "store": "프롬스토어",
    "url": "https://x.com/fromm_store",
-   "seconds": 6.8,
+   "seconds": 8.0,
    "status": "ok",
-   "found": 7,
-   "fansign": 7,
+   "found": 4,
+   "fansign": 4,
    "empty_ok": true,
    "count": 3
   }
