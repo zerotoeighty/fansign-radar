@@ -13,7 +13,7 @@
   ]
  },
  "https://everlineshop.com/events/2929c869-87c8-4410-bf71-d8fac6e0af5e": {
-  "_t": 1795836388.8306737,
+  "_t": 1795880717.30554,
   "gone": false,
   "start": null,
   "end": null,
@@ -26,7 +26,7 @@
   ]
  },
  "https://everlineshop.com/events/b252d0dd-73a7-4f1f-b082-427ce25fe3c6": {
-  "_t": 1795836388.8286564,
+  "_t": 1795880717.3035293,
   "gone": false,
   "start": null,
   "end": null,
@@ -40,7 +40,7 @@
   ]
  },
  "https://everlineshop.com/events/8ce80762-f834-42d4-8d3c-ebb3ab58672b": {
-  "_t": 1795836388.8286564,
+  "_t": 1795880717.3035293,
   "gone": false,
   "start": null,
   "end": null,
@@ -804,7 +804,7 @@
   "last": false
  },
  "https://m.musicplant.co.kr/board/?db=gallery_1&no=1735&mari_mode=view@view": {
-  "_t": 1795828029.2953048,
+  "_t": 1795880717.3428621,
   "event_date": "2026-12-03",
   "gone": false,
   "start": null,
@@ -1275,7 +1275,7 @@
   "last": false
  },
  "https://sound-wave.co.kr/board/free/read.html?no=262182&board_no=1": {
-  "_t": 1795836388.8362753,
+  "_t": 1795880717.3428621,
   "gone": false,
   "start": null,
   "end": null,
@@ -1834,6 +1834,16 @@
  },
  "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=a293UQ%3D%3D": {
   "_t": 1795877304.539119,
+  "gone": false,
+  "start": null,
+  "end": null,
+  "winner": null,
+  "public": false,
+  "venue": null,
+  "last": false
+ },
+ "https://thebdm.co.kr/shop/shopdetail.html?branduid=10320100&xcode=003&mcode=001&scode=&type=Y&sort=regdate&current_category=003001&search=&GfDT=bm99W1w%3D": {
+  "_t": 1795880717.3448706,
   "gone": false,
   "start": null,
   "end": null,
